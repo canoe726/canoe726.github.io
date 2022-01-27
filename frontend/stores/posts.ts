@@ -12,7 +12,8 @@ export interface PostFrontMatterItem {
     category: string,
     date: string,
     coverImage: string
-  }
+  },
+  content: string
 }
 
 export const postsFrontMatterState = atom<PostsFrontMatter[]>({

@@ -3,6 +3,8 @@ import { useRecoilValue } from 'recoil'
 import { Box, Container, Image, Grid, GridItem, Text, Spacer } from '@chakra-ui/react'
 
 import { PostFrontMatterItem, postsFrontMatterSelector } from '../../stores/posts'
+import { useEffect, useState } from 'react'
+import markdownToHtml from '../../utils/markdownToHtml'
 
 const PostCardGrid = () => {
   const { files } = useRecoilValue(postsFrontMatterSelector)
@@ -26,6 +28,12 @@ interface PostCardProps {
 }
 
 const PostCard: NextPage<PostCardProps> = ({ data }) => {
+  const [content, setContent] = useState<string>('')
+
+  useEffect(() => {
+    markdownToHtml(data.content).then(content => setContent(content))
+  }, [data.content])
+
   return (
     <GridItem w='100%' h='300px' overflow='hidden' cursor='pointer'>
       <Container width='100%' height='100%' padding='0'>
@@ -45,7 +53,7 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
             {data.frontmatter.title}
           </Text>
           <Spacer height='0.5em'></Spacer>
-          <Text fontSize='sm' color='gray.600'>{data.frontmatter.category}</Text>
+          {content ? <div dangerouslySetInnerHTML={{ __html: (content) }}></div> : ''}
         </Box>
       </Container>
     </GridItem>

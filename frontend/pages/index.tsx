@@ -1,12 +1,13 @@
 import fs from 'fs'
 import path from 'path'
-import type { NextPage } from 'next'
 import matter from 'gray-matter'
+import type { NextPage } from 'next'
+import { useEffect } from 'react'
+import { useSetRecoilState } from 'recoil'
+
 import { Box, Text } from '@chakra-ui/react'
 
 import { PostsFrontMatter, postsFrontMatterState } from '../stores/posts'
-import { useEffect } from 'react'
-import { useSetRecoilState } from 'recoil'
 import PostCardGrid from '../components/index/postCardGrid'
 
 interface HomeProps {
@@ -48,11 +49,12 @@ export async function getStaticProps () {
         const slug = filename.replace('.md', '')
         const markdownWithMeta =
           fs.readFileSync(path.join(`${baseUrl}/${dir.category}/${postDirName}`, filename), 'utf-8')
-        const { data: frontmatter } = matter(markdownWithMeta)
+        const { data: frontmatter, content } = matter(markdownWithMeta)
 
         return {
           slug: slug,
-          frontmatter: frontmatter
+          frontmatter: frontmatter,
+          content: content
         }
       })
     }
