@@ -1,5 +1,8 @@
+import { NextPage } from 'next'
+import Image from 'next/image'
 import { useRecoilValue } from 'recoil'
-import { postsFrontMatterSelector } from '../../stores/posts'
+
+import { PostFrontMatterItem, postsFrontMatterSelector } from '../../stores/posts'
 
 const PostCardGrid = () => {
   const { files } = useRecoilValue(postsFrontMatterSelector)
@@ -8,11 +11,29 @@ const PostCardGrid = () => {
     <div>
       {files.map((file, idx) => {
         return (
-          <div key={idx}>
-            <div>{file.frontmatter.title}</div>
-          </div>
+          <PostCard
+            key={idx}
+            data={file}>
+          </PostCard>
         )
       })}
+    </div>
+  )
+}
+
+interface PostCardProps {
+  data: PostFrontMatterItem
+}
+
+const PostCard: NextPage<PostCardProps> = ({ data }) => {
+  return (
+    <div>
+      <Image
+        src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
+        width='100px'
+        height='100px'>
+      </Image>
+      {data.frontmatter.date}
     </div>
   )
 }

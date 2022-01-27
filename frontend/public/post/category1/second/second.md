@@ -1,7 +1,8 @@
 ---
 title: '1-새로운 글 2'
-category: 'new-post'
-date: '2021-01-24'
+category: 'category1'
+date: '2021-01-21'
+coverImage: 'thumbnail.png'
 ---
 
 # 1-새로운 글 2
