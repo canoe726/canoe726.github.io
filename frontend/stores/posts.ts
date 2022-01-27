@@ -1,27 +1,28 @@
 import { atom, selector } from 'recoil'
 
-export interface PostsFrontMatter {
+export interface PostsData {
   category: string,
-  files: PostFrontMatterItem[]
+  files: PostData[]
 }
 
-export interface PostFrontMatterItem {
+export interface PostData {
   slug: string,
   frontmatter: {
     title: string,
     category: string,
     date: string,
-    coverImage: string
+    coverImage: string,
+    summary?: string
   },
   content: string
 }
 
-export const postsFrontMatterState = atom<PostsFrontMatter[]>({
-  key: 'postsFrontMatterState',
+export const postsDataState = atom<PostsData[]>({
+  key: 'postsDataState',
   default: []
 })
 
-const sortByDate = (a: PostFrontMatterItem, b: PostFrontMatterItem) => {
+const sortByDate = (a: PostData, b: PostData) => {
   if (a.frontmatter.date < b.frontmatter.date) {
     return 1
   }
@@ -31,10 +32,10 @@ const sortByDate = (a: PostFrontMatterItem, b: PostFrontMatterItem) => {
   return 0
 }
 
-export const postsFrontMatterSelector = selector({
-  key: 'postsFrontMatterSelector',
+export const postsDataSelector = selector({
+  key: 'postsDataSelector',
   get: ({ get }) => {
-    const posts = get(postsFrontMatterState)
+    const posts = get(postsDataState)
     const categories = posts.map(post => post.category)
     const files = posts.map(post => post.files).flat().sort(sortByDate)
 

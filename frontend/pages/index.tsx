@@ -7,19 +7,19 @@ import { useSetRecoilState } from 'recoil'
 
 import { Box, Text } from '@chakra-ui/react'
 
-import { PostsFrontMatter, postsFrontMatterState } from '../stores/posts'
+import { PostsData, postsDataState } from '../stores/posts'
 import PostCardGrid from '../components/index/postCardGrid'
 
 interface HomeProps {
-  posts: PostsFrontMatter[]
+  posts: PostsData[]
 }
 
 const Home: NextPage<HomeProps> = ({ posts }) => {
-  const setPostsFrontMatter = useSetRecoilState(postsFrontMatterState)
+  const setPostsData = useSetRecoilState(postsDataState)
 
   useEffect(() => {
-    setPostsFrontMatter(posts)
-  }, [posts, setPostsFrontMatter])
+    setPostsData(posts)
+  }, [posts, setPostsData])
 
   return (
     <Box padding='2em 4em 4em 4em' background='linear-gradient(0deg, #bebebe, transparent)'>
