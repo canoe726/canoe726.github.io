@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import type { NextPage } from 'next'
 import matter from 'gray-matter'
+import { Box, Text } from '@chakra-ui/react'
 
 import { PostsFrontMatter, postsFrontMatterState } from '../stores/posts'
 import { useEffect } from 'react'
@@ -20,10 +21,12 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   }, [posts, setPostsFrontMatter])
 
   return (
-    <div>
-      <h1>This is Blog</h1>
+    <Box padding='2em 4em 4em 4em' background='linear-gradient(0deg, #bebebe, transparent)'>
+      <Text fontSize='5xl' fontWeight='bold' margin='0 0 0.2em 0'>
+        This is Blog
+      </Text>
       <PostCardGrid></PostCardGrid>
-    </div>
+    </Box>
   )
 }
 

@@ -36,7 +36,6 @@ export const postsFrontMatterSelector = selector({
     const posts = get(postsFrontMatterState)
     const categories = posts.map(post => post.category)
     const files = posts.map(post => post.files).flat().sort(sortByDate)
-    console.log('posts : ', posts)
 
     return {
       categories,

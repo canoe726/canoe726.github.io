@@ -431,7 +431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/media-query@npm:1.2.4":
+"@chakra-ui/media-query@npm:1.2.4, @chakra-ui/media-query@npm:^1.2.3":
   version: 1.2.4
   resolution: "@chakra-ui/media-query@npm:1.2.4"
   dependencies:
@@ -783,7 +783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:1.10.1":
+"@chakra-ui/system@npm:1.10.1, @chakra-ui/system@npm:^1.10.1":
   version: 1.10.1
   resolution: "@chakra-ui/system@npm:1.10.1"
   dependencies:
@@ -918,7 +918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/transition@npm:1.4.3":
+"@chakra-ui/transition@npm:1.4.3, @chakra-ui/transition@npm:^1.4.2":
   version: 1.4.3
   resolution: "@chakra-ui/transition@npm:1.4.3"
   dependencies:
@@ -2785,8 +2785,11 @@ __metadata:
   resolution: "frontend@workspace:."
   dependencies:
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/media-query": ^1.2.3
     "@chakra-ui/react": ^1.8.1
+    "@chakra-ui/system": ^1.10.1
     "@chakra-ui/theme-tools": ^1.3.1
+    "@chakra-ui/transition": ^1.4.2
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11
     "@emotion/styled": ^11
