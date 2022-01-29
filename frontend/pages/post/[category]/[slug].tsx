@@ -6,6 +6,8 @@ import { Box, Text } from '@chakra-ui/react'
 // import { useRouter } from 'next/router'
 
 import { FrontMatter } from '../../../stores/posts'
+import { useEffect, useState } from 'react'
+import markdownToHtml from '../../../utils/markdownToHtml'
 
 interface PostProps {
   slug: string,
@@ -20,17 +22,19 @@ const Post: NextPage<PostProps> = ({
   frontmatter,
   content
 }) => {
-  // const router = useRouter()
-  // const { category, slug } = router.query
-  // const [content, setContent] = useState<string>('')
-  // useEffect(() => {
-  //   markdownToHtml(data.content).then(content => setContent(content))
-  // }, [data.content])
+  const [htmlContent, setHtmlContent] = useState<string>('')
+
+  useEffect(() => {
+    markdownToHtml(content).then((html) => {
+      setHtmlContent(html)
+    })
+  }, [content, setHtmlContent])
 
   return (
     <Box padding='2em 4em 4em 4em'>
+      <Text fontSize='md'>{category}</Text>
       <Text fontSize='2xl'>{frontmatter.title}</Text>
-      {/* {content ? <div dangerouslySetInnerHTML={{ __html: (content) }}></div> : ''} */}
+      <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
     </Box>
   )
 }

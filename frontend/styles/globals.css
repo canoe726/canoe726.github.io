@@ -10,14 +10,14 @@ html,
 body,
 #__next {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   font-family: 'Poppins', sans-serif;
 }
 
 #__next {
-  height: 100vh;
-  background: linear-gradient(0deg, #bebebe, transparent);
+  background: linear-gradient(0deg, #A0AEC0, #EDF2F7);
 }
+
 
 a {
   text-decoration: none;
@@ -27,4 +27,58 @@ a {
 img {
   width: 100%;
   border-radius: 16px;
+}
+
+.container {
+  max-width: 768px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 10px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-page {
+  padding: 15px 30px;
+}
+
+.post-title {
+  margin: 10px 0;
+}
+
+.post-date {
+  background: #f4f4f4;
+  margin-bottom: 20px;
+  padding: 3px 10px;
+}
+
+.post-body {
+  margin: 2em 0 2em 0;
+}
+
+.post-body ul, ol, li {
+  font-size: 110%;
+  line-height: 2.3;
+  font-weight: bold;
+  margin: 10px 0;
+  list-style-position: inside;
+}
+
+.post-body pre {
+  background: #f4f4f4;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  line-height: 2;
+  overflow-x: scroll;
+}
+
+@media (max-width: 500px) {
+  .posts {
+    grid-template-columns: 1fr;
+  }
 }
