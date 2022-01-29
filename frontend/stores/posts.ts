@@ -7,14 +7,16 @@ export interface PostsData {
 
 export interface PostData {
   slug: string,
-  frontmatter: {
-    title: string,
-    category: string,
-    date: string,
-    coverImage: string,
-    summary?: string
-  },
+  frontmatter: FrontMatter,
   content: string
+}
+
+export interface FrontMatter {
+  title: string,
+  category: string,
+  date: string,
+  coverImage: string,
+  summary?: string
 }
 
 export const postsDataState = atom<PostsData[]>({
