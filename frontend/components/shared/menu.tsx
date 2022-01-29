@@ -9,7 +9,7 @@ const Menu = () => {
         className='header'
         alignItems='center'
         justifyContent='space-between'
-        padding='1em 2em 1em 2em'>
+        padding='2em 2.5em 2em 2.5em'>
         <Link href='/'>
           <Avatar
             name='This is for developer'
