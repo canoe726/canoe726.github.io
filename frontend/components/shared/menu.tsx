@@ -1,4 +1,3 @@
-import { Search2Icon } from '@chakra-ui/icons'
 import {
   Avatar,
   Box,
@@ -15,7 +14,7 @@ import {
   Text,
   useDisclosure
 } from '@chakra-ui/react'
-import { IoMdMenu } from 'react-icons/io'
+import { IoMdMenu, IoMdSearch } from 'react-icons/io'
 import Link from 'next/link'
 import { useRef } from 'react'
 import Footer from './footer'
@@ -30,8 +29,9 @@ const Menu = () => {
         <Flex alignItems='center' justifyContent='center'>
           <IconButton
             aria-label='menu'
-            icon={<IoMdMenu/>}
+            icon={<IoMdMenu size='32px'/>}
             ref={btnRef}
+            variant='ghost'
             onClick={onOpen}
             marginRight='0.5em'
             size='lg'>
@@ -46,12 +46,13 @@ const Menu = () => {
         <Flex
           alignItems='center'
           justifyContent='center'>
-          <Link href='/'>
-            <Text fontSize='md' marginLeft='1em' cursor='pointer'>Category</Text>
-          </Link>
-          <Link href='/'>
-            <Search2Icon marginLeft='1em' cursor='pointer'></Search2Icon>
-          </Link>
+          <IconButton
+            aria-label='menu'
+            icon={<IoMdSearch size='32px'/>}
+            variant='ghost'
+            marginRight='0.5em'
+            size='lg'>
+          </IconButton>
         </Flex>
       </Flex>
       <Drawer

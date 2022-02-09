@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -11,13 +11,12 @@ body,
 #__next {
   width: 100%;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-#__next {
+/* #__next {
   background: linear-gradient(0deg, #A0AEC0, #EDF2F7);
-}
-
+} */
 
 a {
   text-decoration: none;
@@ -60,7 +59,9 @@ img {
   margin: 2em 0 2em 0;
 }
 
-.post-body ul, ol, li {
+.post-body ul,
+ol,
+li {
   font-size: 110%;
   line-height: 2.3;
   font-weight: bold;

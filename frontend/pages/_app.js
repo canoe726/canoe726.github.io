@@ -11,7 +11,11 @@ function MyApp ({ Component, pageProps }) {
       <ChakraProvider>
         <Menu></Menu>
         <Component {...pageProps}/>
-        <Footer></Footer>
+        <Footer
+          background='black'
+          color='white'
+          padding='2em 3em 2em 3em'
+        ></Footer>
       </ChakraProvider>
     </RecoilRoot>
   )

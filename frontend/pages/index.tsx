@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { useSetRecoilState } from 'recoil'
 
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Container, Text } from '@chakra-ui/react'
 
 import { PostsData, postsDataState } from '../stores/posts'
 import PostCardGrid from '../components/index/postCardGrid'
@@ -20,10 +20,18 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   }, [posts, setPostsData])
 
   return (
-    <Box padding='2em 4em 4em 4em'>
-      <Text fontSize='5xl' fontWeight='bold' margin='0 0 0.2em 0'>
-        This is Blog
-      </Text>
+    <Box padding='0em 4em 4em 4em'>
+      <Container flexDirection='column' margin='1em 0 2em 0'>
+        <Text fontSize='5xl' color='black' fontWeight='bold' padding='0'>
+          This is tech blog, canoe
+        </Text>
+        <Text fontSize='4xl' color='blackAlpha.600' fontWeight='bold'>
+          Hello World!
+        </Text>
+        <Text fontSize='4xl' color='blackAlpha.300' fontWeight='bold'>
+          This is git blog
+        </Text>
+      </Container>
       <PostCardGrid></PostCardGrid>
     </Box>
   )

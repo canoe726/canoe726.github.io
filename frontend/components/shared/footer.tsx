@@ -1,5 +1,6 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, IconButton, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 
 const copyRightText = '© 2021. canoe all rights reserved.'
 
@@ -25,7 +26,23 @@ const Footer: NextPage<FooterProps> = ({
       flexDirection='column'
       background={background}
       color={color}>
-      <Flex>
+      <Flex margin='0 0 1em 0'>
+        <IconButton
+          aria-label='github'
+          icon={<IoLogoGithub size='lg'/>}
+          variant='ghost'
+          size='lg'
+          margin='0 0.2em 0 0.2em'
+          onClick={() => window.open('https://github.com/canoe726', '_blank')}
+        ></IconButton>
+        <IconButton
+          aria-label='linkedin'
+          icon={<IoLogoLinkedin size='lg'/>}
+          variant='ghost'
+          size='lg'
+          margin='0 0.2em 0 0.2em'
+          onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
+        ></IconButton>
       </Flex>
       <Text fontWeight='light' fontSize='md'>{copyRightText}</Text>
     </Flex>
