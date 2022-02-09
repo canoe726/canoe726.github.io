@@ -2,6 +2,7 @@ import { Search2Icon } from '@chakra-ui/icons'
 import {
   Avatar,
   Box,
+  Button,
   Divider,
   Drawer,
   DrawerBody,
@@ -17,6 +18,7 @@ import {
 import { IoMdMenu } from 'react-icons/io'
 import Link from 'next/link'
 import { useRef } from 'react'
+import Footer from './footer'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -68,8 +70,24 @@ const Menu = () => {
           </DrawerHeader>
           <Divider orientation='horizontal' height='3px' background='gray.200'/>
           <DrawerBody>
+            <Flex flexDirection='column'>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+                Home
+              </Button>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+                About
+              </Button>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+                Category
+              </Button>
+            </Flex>
           </DrawerBody>
-          <DrawerFooter>
+          <DrawerFooter padding='0'>
+            <Footer
+              background='black'
+              color='white'
+              padding='2em 1em 2em 1em'
+            ></Footer>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
