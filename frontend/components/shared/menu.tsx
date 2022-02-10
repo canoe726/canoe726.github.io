@@ -25,7 +25,7 @@ const Menu = () => {
 
   return (
     <header>
-      <Flex className='header' alignItems='center' justifyContent='space-between' padding='1em 2.5em 1em 2.5em'>
+      <Flex className='header' alignItems='center' justifyContent='space-between' padding='1em 4em 1em 4em'>
         <Flex alignItems='center' justifyContent='center'>
           <IconButton
             aria-label='menu'

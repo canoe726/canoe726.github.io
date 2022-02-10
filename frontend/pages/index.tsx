@@ -2,10 +2,11 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { useSetRecoilState } from 'recoil'
 
-import { Box, Container, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 
 import { PostsData, postsDataState } from '../stores/posts'
 import PostCardGrid from '../components/index/postCardGrid'
+import ImageSlider from '../components/index/imageSlider'
 import { getPosts } from '../utils/loadMarkdownFiles'
 
 interface HomeProps {
@@ -20,18 +21,19 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   }, [posts, setPostsData])
 
   return (
-    <Box padding='0em 4em 4em 4em'>
-      <Container flexDirection='column' margin='1em 0 2em 0'>
-        <Text fontSize='5xl' color='black' fontWeight='bold' padding='0'>
+    <Box padding='0em 0em 4em 0em'>
+      <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding='1em 4em 4em 4em'>
+        <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
           This is tech blog, canoe
         </Text>
-        <Text fontSize='4xl' color='blackAlpha.600' fontWeight='bold'>
+        <Text fontSize='5xl' color='blackAlpha.600' fontWeight='light'>
           Hello World!
         </Text>
-        <Text fontSize='4xl' color='blackAlpha.300' fontWeight='bold'>
+        <Text fontSize='5xl' color='blackAlpha.300' fontWeight='light'>
           This is git blog
         </Text>
-      </Container>
+      </Flex>
+      <ImageSlider></ImageSlider>
       <PostCardGrid></PostCardGrid>
     </Box>
   )

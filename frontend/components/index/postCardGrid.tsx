@@ -9,7 +9,7 @@ const PostCardGrid = () => {
   const { files } = useRecoilValue(postsDataSelector)
 
   return (
-    <Grid templateColumns='repeat(2, 1fr)' gap={6}>
+    <Grid templateColumns='repeat(2, 1fr)' gap={6} padding='0 4em 0 4em'>
       {files.map((file, idx) => {
         return (
           <PostCard
