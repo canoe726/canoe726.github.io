@@ -29,8 +29,9 @@ const Menu = () => {
         <Flex alignItems='center' justifyContent='center'>
           <IconButton
             aria-label='menu'
-            icon={<IoMdMenu size='32px'/>}
+            icon={<IoMdMenu/>}
             ref={btnRef}
+            fontSize='48px'
             variant='ghost'
             onClick={onOpen}
             marginRight='0.5em'
@@ -48,7 +49,8 @@ const Menu = () => {
           justifyContent='center'>
           <IconButton
             aria-label='menu'
-            icon={<IoMdSearch size='32px'/>}
+            icon={<IoMdSearch/>}
+            fontSize='48px'
             variant='ghost'
             marginRight='0.5em'
             size='lg'>

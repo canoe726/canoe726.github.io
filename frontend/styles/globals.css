@@ -25,7 +25,6 @@ a {
 
 img {
   width: 100%;
-  border-radius: 16px;
 }
 
 .container {
@@ -78,8 +77,46 @@ li {
   overflow-x: scroll;
 }
 
-@media (max-width: 500px) {
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.summary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 30em) {
   .posts {
     grid-template-columns: 1fr;
   }
+
+  .summary {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (min-width: 48em) {
+  .summary {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (min-width: 62em) {
+  .summary {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (min-width: 80em) {
+}
+
+@media (min-width: 96em) {
 }

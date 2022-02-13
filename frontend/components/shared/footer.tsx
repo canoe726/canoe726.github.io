@@ -29,17 +29,19 @@ const Footer: NextPage<FooterProps> = ({
       <Flex margin='0 0 1em 0'>
         <IconButton
           aria-label='github'
-          icon={<IoLogoGithub size='lg'/>}
+          icon={<IoLogoGithub/>}
           variant='ghost'
           size='lg'
+          fontSize='52px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://github.com/canoe726', '_blank')}
         ></IconButton>
         <IconButton
           aria-label='linkedin'
-          icon={<IoLogoLinkedin size='lg'/>}
+          icon={<IoLogoLinkedin/>}
           variant='ghost'
           size='lg'
+          fontSize='52px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
         ></IconButton>

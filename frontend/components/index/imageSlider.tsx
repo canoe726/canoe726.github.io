@@ -57,17 +57,28 @@ const ImageSlider = () => {
                   objectFit='cover'
                   transition='1s ease'
                   opacity='1.0'
-                  background='blackAlpha.300'
                   _hover={{
                     opacity: '0.8',
                     transform: 'scale(1.3)',
                     background: 'blackAlpha.600'
                   }}
                 ></Image>
-                <Text
-                  fontSize='2xl'
-                  fontWeight='light'
+                <Box
                   position='absolute'
+                  top='0'
+                  left='0'
+                  width='100%'
+                  height='100%'
+                  background='blackAlpha.500'
+                  pointerEvents='none'
+                ></Box>
+                <Text
+                  fontSize='4xl'
+                  fontWeight='medium'
+                  textAlign='center'
+                  position='absolute'
+                  width='100%'
+                  padding='0 1em 0 1em'
                   top='50%'
                   left='50%'
                   transform='translate(-50%, -50%)'
@@ -86,35 +97,35 @@ const ImageSlider = () => {
           aria-label='prev'
           display={isPrevBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(-1)}
-          width='3em'
-          height='3em'
+          width={['1em', '2em', '2em', '3em', '3em']}
+          height={['1em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
           icon={<GrPrevious opacity='0.7'></GrPrevious>}
           position='absolute'
           borderRadius='50%'
-          padding='1em'
+          padding='20px'
           top='50%'
           left='4%'
           transform='translate(-4%, -50%)'
           background='white'
-          opacity='0.7'
+          opacity='0.8'
         ></IconButton>
         <IconButton
           aria-label='next'
           display={isNextBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(1)}
-          width='3em'
-          height='3em'
+          width={['1em', '2em', '2em', '3em', '3em']}
+          height={['1em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
           icon={<GrNext opacity='0.7'></GrNext>}
           position='absolute'
           borderRadius='50%'
-          padding='1em'
+          padding='20px'
           top='50%'
           right='4%'
           transform='translate(-4%, -50%)'
           background='white'
-          opacity='0.7'
+          opacity='0.8'
         ></IconButton>
       </div>
     </Flex>
