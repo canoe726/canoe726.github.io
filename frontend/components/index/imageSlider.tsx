@@ -39,9 +39,10 @@ const ImageSlider = () => {
       <Flex id='image-slider' ref={imageSliderRef} width='100%' padding='0 4em 0 4em' overflow='hidden' position='relative' scrollBehavior='smooth'>
         {topTen.map((file, idx) => {
           return (
-            <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`}>
+            <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>
               <Box id='image-box' ref={imageBoxRef} width='480px' height='520px' position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
                 <Image
+                  alt={`${file.frontmatter.category}-${file.slug}`}
                   src={`/_post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
                   width='100%'
                   height='100%'

@@ -35,7 +35,7 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
   const titleTextRef = useRef<HTMLDivElement>(null)
 
   return (
-    <Link href={`/post/${data.frontmatter.category}/${data.slug}`}>
+    <Link href={`/post/${data.frontmatter.category}/${data.slug}`} passHref={true}>
       <GridItem w='100%' h='480px' overflow='hidden' cursor='pointer' margin='0 0 2em 0'
         onMouseOver={() => {
           if (titleTextRef.current) {
@@ -51,6 +51,7 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
         <Container width='100%' height='100%' padding='0'>
           <Box width='100%' height='300px' borderRadius='16px'>
             <Image
+              alt={`${data.frontmatter.category}-${data.slug}`}
               src={`/_post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
               width='100%'
               height='100%'

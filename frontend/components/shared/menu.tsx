@@ -39,7 +39,7 @@ const Menu = () => {
             marginRight='0.5em'
             size='lg'>
           </IconButton>
-          <Link href='/'>
+          <Link href='/' passHref={true}>
             <Avatar
               name='This is for developer'
               size='md'

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { AboutData } from '../stores/about'
