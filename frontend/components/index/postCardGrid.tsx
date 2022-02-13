@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { useRecoilValue } from 'recoil'
-import { Box, Container, Image, Grid, GridItem, Text, Spacer } from '@chakra-ui/react'
+import { Box, Container, Image, Grid, GridItem, Text, Spacer, Flex } from '@chakra-ui/react'
 
 import { PostData, postsDataSelector } from '../../stores/posts'
 import Link from 'next/link'
@@ -9,16 +9,20 @@ const PostCardGrid = () => {
   const { files } = useRecoilValue(postsDataSelector)
 
   return (
-    <Grid templateColumns='repeat(2, 1fr)' gap={6} padding='0 4em 0 4em'>
-      {files.map((file, idx) => {
-        return (
-          <PostCard
-            key={idx}
-            data={file}>
-          </PostCard>
-        )
-      })}
-    </Grid>
+    <Flex flexDirection='column' padding='0 4em 0 4em'>
+      <Text fontSize='4xl' textAlign='center' margin='2em 0 0em 0'>Recent Articles</Text>
+      <Text fontSize='xl' color='gray.400' textAlign='center' margin='0em 0 3em 0'>Various Articles</Text>
+      <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+        {files.map((file, idx) => {
+          return (
+            <PostCard
+              key={idx}
+              data={file}>
+            </PostCard>
+          )
+        })}
+      </Grid>
+    </Flex>
   )
 }
 

@@ -7,14 +7,14 @@ const ImageSlider = () => {
   const topTen = files.slice(0, 10)
 
   return (
-    <Flex margin='0 0 4em 0'>
+    <Flex width='100%' overflow='hidden' margin='0 0 4em 0' padding='0 4em 0 4em'>
       {topTen.map((file, idx) => {
         return (
-          <Box key={idx} position='relative' overflow='hidden'>
+          <Box key={idx} width='480px' height='520px' position='relative' overflow='hidden' flexShrink='0'>
             <Image
               src={`/_post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
-              width='400px'
-              height='600px'
+              width='100%'
+              height='100%'
               borderRadius='none'
               objectFit='cover'
               transition='1s ease'
