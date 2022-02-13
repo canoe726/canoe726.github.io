@@ -2,25 +2,26 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const baseUrl = './public/_post'
+const postBaseUrl: string = './public/_post'
+const aboutBaseUrl: string = './public/_about'
 
 export const getPosts = () => {
-  const dirs = fs.readdirSync(path.join(baseUrl))
+  const dirs = fs.readdirSync(path.join(postBaseUrl))
   const dirList = dirs.map((dir) => {
     return {
       category: dir,
-      files: fs.readdirSync(path.join(`${baseUrl}/${dir}`))
+      files: fs.readdirSync(path.join(`${postBaseUrl}/${dir}`))
     }
   })
   const posts = dirList.map((dir) => {
     const post = {
       category: dir.category,
       files: dir.files.map((postDirName) => {
-        const postDir = fs.readdirSync(path.join(`${baseUrl}/${dir.category}/${postDirName}`))
+        const postDir = fs.readdirSync(path.join(`${postBaseUrl}/${dir.category}/${postDirName}`))
         const filename = postDir.filter(postItem => postItem.includes('.md'))[0]
         const slug = filename.replace('.md', '')
         const markdownWithMeta =
-          fs.readFileSync(path.join(`${baseUrl}/${dir.category}/${postDirName}`, filename), 'utf-8')
+          fs.readFileSync(path.join(`${postBaseUrl}/${dir.category}/${postDirName}`, filename), 'utf-8')
         const { data: frontmatter } = matter(markdownWithMeta)
 
         return {
@@ -35,22 +36,22 @@ export const getPosts = () => {
 }
 
 export const getPostsWithContent = () => {
-  const dirs = fs.readdirSync(path.join(baseUrl))
+  const dirs = fs.readdirSync(path.join(postBaseUrl))
   const dirList = dirs.map((dir) => {
     return {
       category: dir,
-      files: fs.readdirSync(path.join(`${baseUrl}/${dir}`))
+      files: fs.readdirSync(path.join(`${postBaseUrl}/${dir}`))
     }
   })
   const posts = dirList.map((dir) => {
     const post = {
       category: dir.category,
       files: dir.files.map((postDirName) => {
-        const postDir = fs.readdirSync(path.join(`${baseUrl}/${dir.category}/${postDirName}`))
+        const postDir = fs.readdirSync(path.join(`${postBaseUrl}/${dir.category}/${postDirName}`))
         const filename = postDir.filter(postItem => postItem.includes('.md'))[0]
         const slug = filename.replace('.md', '')
         const markdownWithMeta =
-          fs.readFileSync(path.join(`${baseUrl}/${dir.category}/${postDirName}`, filename), 'utf-8')
+          fs.readFileSync(path.join(`${postBaseUrl}/${dir.category}/${postDirName}`, filename), 'utf-8')
         const { data: frontmatter, content } = matter(markdownWithMeta)
 
         return {
@@ -65,6 +66,16 @@ export const getPostsWithContent = () => {
   return posts
 }
 
-export const getPostWithContent = (categoryId: string, postId: string) => {
-
+export const getAbout = () => {
+  const dir = fs.readdirSync(path.join(aboutBaseUrl))
+  const filename = dir.filter(aboutItem => aboutItem.includes('.md'))[0]
+  const slug = filename.replace('.md', '')
+  const markdownWithMeta =
+    fs.readFileSync(path.join(`${aboutBaseUrl}`, filename), 'utf-8')
+  const { data: frontmatter, content } = matter(markdownWithMeta)
+  return {
+    slug: slug,
+    frontmatter: frontmatter,
+    content: content
+  }
 }

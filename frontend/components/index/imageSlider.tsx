@@ -3,19 +3,11 @@ import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { GrPrevious, GrNext } from 'react-icons/gr'
 import { useRecoilValue } from 'recoil'
-import { PostData, postsDataSelector } from '../../stores/posts'
+import { postsDataSelector } from '../../stores/posts'
 
 const ImageSlider = () => {
   const { files } = useRecoilValue(postsDataSelector)
-  const topTen = files.slice().sort((a: PostData, b: PostData) => {
-    if (a.frontmatter.date > b.frontmatter.date) {
-      return -1
-    } else if (a.frontmatter.date < b.frontmatter.date) {
-      return 1
-    } else {
-      return 0
-    }
-  }).slice(0, 10)
+  const topTen = files.slice(0, 10)
   const imageSliderRef = useRef<HTMLDivElement>(null)
   const imageBoxRef = useRef<HTMLDivElement>(null)
   const [isPrevBtnShow, setIsPrevBtnShow] = useState<boolean>(false)
@@ -24,7 +16,7 @@ const ImageSlider = () => {
   const sliderMove = (dir: number): void => {
     if (imageSliderRef.current && imageBoxRef.current) {
       const boxWidth: number = imageBoxRef.current.offsetWidth
-      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * dir)
+      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * 2 * dir)
       if (nextLeft > 0) {
         setIsPrevBtnShow(true)
       }

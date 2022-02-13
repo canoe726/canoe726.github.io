@@ -1,7 +1,7 @@
 import { atom, selector } from 'recoil'
 
 export interface PostsData {
-  category: string,
+  category: string
   files: PostData[]
 }
 
@@ -12,10 +12,10 @@ export interface PostData {
 }
 
 export interface FrontMatter {
-  title: string,
-  category: string,
-  date: string,
-  coverImage: string,
+  title: string
+  category: string
+  date: string
+  coverImage: string
   summary?: string
 }
 
@@ -28,7 +28,7 @@ const sortByDate = (a: PostData, b: PostData) => {
   if (a.frontmatter.date < b.frontmatter.date) {
     return 1
   }
-  if (a.frontmatter.date < b.frontmatter.date) {
+  if (a.frontmatter.date > b.frontmatter.date) {
     return -1
   }
   return 0

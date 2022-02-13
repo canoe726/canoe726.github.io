@@ -14,15 +14,7 @@ const PostCardGrid = () => {
       <Text fontSize='4xl' textAlign='center' margin='2em 0 0em 0'>Recent Articles</Text>
       <Text fontSize='xl' color='gray.400' textAlign='center' margin='0em 0 3em 0'>Various Articles</Text>
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)']} gap={6}>
-        {files.slice().sort((a: PostData, b: PostData) => {
-          if (a.frontmatter.date > b.frontmatter.date) {
-            return -1
-          } else if (a.frontmatter.date < b.frontmatter.date) {
-            return 1
-          } else {
-            return 0
-          }
-        }).map((file, idx) => {
+        {files.map((file, idx) => {
           return (
             <PostCard
               key={idx}
