@@ -18,10 +18,12 @@ import { IoMdMenu, IoMdSearch } from 'react-icons/io'
 import Link from 'next/link'
 import { useRef } from 'react'
 import Footer from './footer'
+import { useRouter } from 'next/router'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLButtonElement>(null)
+  const router = useRouter()
 
   return (
     <header>
@@ -74,13 +76,28 @@ const Menu = () => {
           <Divider orientation='horizontal' height='3px' background='gray.200'/>
           <DrawerBody>
             <Flex flexDirection='column'>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+                onClick={() => {
+                  router.push('/')
+                  onClose()
+                }}
+              >
                 Home
               </Button>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+                onClick={() => {
+                  router.push('/about')
+                  onClose()
+                }}
+              >
                 About
               </Button>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'>
+              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+                onClick={() => {
+                  router.push('/category')
+                  onClose()
+                }}
+              >
                 Category
               </Button>
             </Flex>
