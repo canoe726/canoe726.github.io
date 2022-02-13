@@ -39,11 +39,12 @@ interface PostCardProps {
 }
 
 const PostCard: NextPage<PostCardProps> = ({ data }) => {
+  console.log(`/_post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`)
   return (
     <Link href={`/post/${data.frontmatter.category}/${data.slug}`}>
-      <GridItem w='100%' h='300px' overflow='hidden' cursor='pointer' margin='0 0 2em 0'>
+      <GridItem w='100%' h='450px' overflow='hidden' cursor='pointer' margin='0 0 2em 0'>
         <Container width='100%' height='100%' padding='0'>
-          <Box width='100%' height='180px' borderRadius='16px'>
+          <Box width='100%' height='300px' borderRadius='16px'>
             <Image
               src={`/_post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
               width='100%'

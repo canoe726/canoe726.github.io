@@ -24,7 +24,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
     <Box padding='0em 0em 4em 0em'>
       <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding='1em 4em 4em 4em'>
         <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
-          This is tech blog, canoe
+          This is tech blog
         </Text>
         <Text fontSize='5xl' color='blackAlpha.600' fontWeight='light'>
           Hello World!
