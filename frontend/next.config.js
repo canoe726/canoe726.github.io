@@ -5,6 +5,7 @@ const nextConfig = {
   extends: [
     'plugin:@next/next/recommended'
   ],
+  trailingSlash: true,
   reactStrictMode: true,
   compress: true,
   webpack (config, { webpack }) {
