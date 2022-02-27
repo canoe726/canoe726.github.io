@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 * {
   box-sizing: border-box;
@@ -11,7 +11,9 @@ body,
 #__next {
   width: 100%;
   min-height: 100vh;
-  font-family: "Poppins", sans-serif;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
 }
 
 /* #__next {
@@ -31,10 +33,6 @@ img {
 }
 
 .active-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   transition: 1s ease;
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

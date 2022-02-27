@@ -20,7 +20,7 @@ const About: NextPage<AboutProps> = ({ about }) => {
   }, [about.content, setHtmlContent])
 
   return (
-    <Flex flexDirection='column' padding='2em 4em 4em 4em'>
+    <Flex flexDirection='column' padding='100px 3em 4em 3em'>
       <Box width='100%' height='11em' background='blackAlpha.200' pointerEvents='none' position='absolute' top='0' left='0'></Box>
       <Box position='absolute' top='6em' right='12em'>
         <CircularAvatar size='2xl' src='/about/avatar.jpg'></CircularAvatar>
@@ -33,14 +33,20 @@ const About: NextPage<AboutProps> = ({ about }) => {
           <Text color='gray.400'>{about.frontmatter.summary}</Text>
         )}
         {about.frontmatter.email && (
-          <a href={`mailto:${about.frontmatter.email}`}>
-            <Text margin='1em 0 0 0' color='gray.600'>✉️ {about.frontmatter.email}</Text>
-          </a>
+          <Text width='fit-content' margin='1em 0 0 0' color='gray.600'>
+            ✉️&nbsp;&nbsp;
+            <a href={`mailto:${about.frontmatter.email}`}>
+              {about.frontmatter.email}
+            </a>
+          </Text>
         )}
         {about.frontmatter.url && (
-          <a href={about.frontmatter.url} target='_blank' rel='noreferrer'>
-            <Text color='gray.600'>🔗 {about.frontmatter.url}</Text>
-          </a>
+          <Text color='gray.600'>
+            🔗&nbsp;&nbsp;
+            <a href={about.frontmatter.url} target='_blank' rel='noreferrer'>
+              {about.frontmatter.url}
+            </a>
+          </Text>
         )}
         {about.frontmatter.tags && (
           <Stack direction='row' margin='1.5em 0 0 0'>

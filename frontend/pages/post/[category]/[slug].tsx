@@ -31,7 +31,7 @@ const Post: NextPage<PostProps> = ({
   }, [content, setHtmlContent])
 
   return (
-    <Box padding='2em 4em 4em 4em'>
+    <Box padding='120px 3em 4em 3em'>
       <Text fontSize='md'>{category}</Text>
       <Text fontSize='2xl'>{frontmatter.title}</Text>
       <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
