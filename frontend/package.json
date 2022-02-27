@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://canoe726.github.io/canoe726.github.io",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -7,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "deploy": "git add out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
