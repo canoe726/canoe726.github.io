@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { IoMdMenu, IoMdSearch } from 'react-icons/io'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Footer from './footer'
 import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
@@ -23,11 +23,29 @@ import CircularAvatar from './circularAvatar'
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+
+  const windowScrollEvent = () => {
+    if (headerRef.current) {
+      if (window.scrollY >= 200 && !headerRef.current.classList.contains('active-top')) {
+        headerRef.current.classList.add('active-top')
+      } else if (window.scrollY < 200) {
+        headerRef.current.classList.remove('active-top')
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', windowScrollEvent)
+    return () => {
+      window.removeEventListener('scroll', windowScrollEvent)
+    }
+  }, [])
 
   return (
     <header>
-      <Flex className='header' alignItems='center' justifyContent='space-between' padding='1em 4em 1em 4em'>
+      <Flex ref={headerRef} className='header' zIndex={999} alignItems='center' justifyContent='space-between' padding='1em 4em 1em 4em'>
         <Flex alignItems='center' justifyContent='center'>
           <IconButton
             aria-label='menu'

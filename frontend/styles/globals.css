@@ -30,6 +30,16 @@ img {
   width: 100%;
 }
 
+.active-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 1s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .container {
   max-width: 768px;
   margin: auto;
