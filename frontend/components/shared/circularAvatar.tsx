@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
+import { NextPage } from 'next'
 import Image from 'next/image'
-import { FC } from 'react'
 
 interface AvatarSizeProps {
   [key: string]: {
@@ -33,7 +33,7 @@ interface CircularAvatarProps {
   src: string;
 }
 
-const CircularAvatar: FC<CircularAvatarProps> = ({
+const CircularAvatar: NextPage<CircularAvatarProps> = ({
   size,
   src
 }) => {

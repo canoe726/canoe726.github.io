@@ -33,7 +33,7 @@ const Footer: NextPage<FooterProps> = ({
           colorScheme='white'
           variant='ghost'
           size='lg'
-          fontSize='52px'
+          fontSize='48px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://github.com/canoe726', '_blank')}
         ></IconButton>
@@ -43,7 +43,7 @@ const Footer: NextPage<FooterProps> = ({
           colorScheme='white'
           variant='ghost'
           size='lg'
-          fontSize='52px'
+          fontSize='48px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
         ></IconButton>

@@ -56,6 +56,7 @@ const Menu = () => {
             variant='ghost'
             onClick={onOpen}
             marginRight='0.5em'
+            outline='none'
             size='lg'>
           </IconButton>
           <Link href='/' passHref={true}>
@@ -63,7 +64,9 @@ const Menu = () => {
               name='This is for developer'
               size='md'
               cursor='pointer'
-            >Logo</Button>
+              colorScheme='white'
+              color='black'
+            >This is Blog</Button>
           </Link>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
@@ -74,6 +77,7 @@ const Menu = () => {
             fontSize='32px'
             variant='ghost'
             marginRight='0.5em'
+            outline='none'
             size='lg'>
           </IconButton>
         </Flex>
