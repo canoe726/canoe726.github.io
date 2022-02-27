@@ -21,7 +21,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   }, [posts, setPostsData])
 
   return (
-    <Box padding='80px 0em 4em 0em'>
+    <Box padding='84px 0em 4em 0em'>
       <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding='1em 3em 4em 3em'>
         <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
           This is tech blog

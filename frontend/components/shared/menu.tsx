@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { IoMdMenu, IoMdSearch } from 'react-icons/io'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import Footer from './footer'
 import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
@@ -24,9 +24,13 @@ const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLButtonElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
+  const progressRef = useRef<HTMLHRElement>(null)
+  const progressBackRef = useRef<HTMLHRElement>(null)
   const router = useRouter()
 
-  const windowScrollEvent = () => {
+  const windowScrollEvent = useCallback(() => {
+    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+    const scrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight
     if (headerRef.current) {
       if (window.scrollY >= 150 && !headerRef.current.classList.contains('active-top')) {
         headerRef.current.classList.add('active-top')
@@ -34,14 +38,31 @@ const Menu = () => {
         headerRef.current.classList.remove('active-top')
       }
     }
-  }
+    if (progressRef.current) {
+      progressRef.current.style.width = `${(scrollTop / scrollLimit) * 100}%`
+    }
+  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', windowScrollEvent)
     return () => {
       window.removeEventListener('scroll', windowScrollEvent)
     }
-  }, [])
+  }, [windowScrollEvent])
+
+  useEffect(() => {
+    if (router.pathname.includes('post')) {
+      if (progressRef.current && progressBackRef.current) {
+        progressBackRef.current.style.display = 'block'
+        progressRef.current.style.display = 'block'
+      }
+    } else {
+      if (progressRef.current && progressBackRef.current) {
+        progressBackRef.current.style.display = 'none'
+        progressRef.current.style.display = 'none'
+      }
+    }
+  }, [router.pathname])
 
   return (
     <header>
@@ -69,6 +90,9 @@ const Menu = () => {
             >This is Blog</Button>
           </Link>
         </Flex>
+        <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
+          <Text id='top-title'></Text>
+        </Flex>
         <Flex alignItems='center' justifyContent='center'>
           <IconButton
             aria-label='search'
@@ -81,6 +105,8 @@ const Menu = () => {
             size='lg'>
           </IconButton>
         </Flex>
+        <Divider ref={progressBackRef} display='none' top='64px' left='0' position='absolute' border='4px' borderColor='rgba(0, 0, 0, 0.05)'></Divider>
+        <Divider ref={progressRef} display='none' top='64px' left='0' width='1px' position='absolute' border='4px' borderColor='black'></Divider>
       </Flex>
       <Drawer
         isOpen={isOpen}

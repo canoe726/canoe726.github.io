@@ -31,6 +31,18 @@ const Post: NextPage<PostProps> = ({
   }
 
   useEffect(() => {
+    const topTitle = document.getElementById('top-title')
+    if (topTitle) {
+      topTitle.innerHTML = frontmatter.title
+    }
+    return () => {
+      if (topTitle) {
+        topTitle.innerHTML = ''
+      }
+    }
+  }, [frontmatter])
+
+  useEffect(() => {
     window.addEventListener('scroll', imageZoomScroll)
     return () => {
       window.removeEventListener('scroll', imageZoomScroll)
