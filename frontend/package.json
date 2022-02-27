@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "homepage": "https://canoe726.github.io/canoe726.github.io/",
   "private": true,
   "scripts": {
     "dev": "next dev",
