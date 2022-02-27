@@ -28,9 +28,9 @@ const Menu = () => {
 
   const windowScrollEvent = () => {
     if (headerRef.current) {
-      if (window.scrollY >= 200 && !headerRef.current.classList.contains('active-top')) {
+      if (window.scrollY >= 150 && !headerRef.current.classList.contains('active-top')) {
         headerRef.current.classList.add('active-top')
-      } else if (window.scrollY < 200) {
+      } else if (window.scrollY < 150) {
         headerRef.current.classList.remove('active-top')
       }
     }
