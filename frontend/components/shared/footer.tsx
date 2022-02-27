@@ -30,6 +30,7 @@ const Footer: NextPage<FooterProps> = ({
         <IconButton
           aria-label='github'
           icon={<IoLogoGithub/>}
+          colorScheme='white'
           variant='ghost'
           size='lg'
           fontSize='52px'
@@ -39,6 +40,7 @@ const Footer: NextPage<FooterProps> = ({
         <IconButton
           aria-label='linkedin'
           icon={<IoLogoLinkedin/>}
+          colorScheme='white'
           variant='ghost'
           size='lg'
           fontSize='52px'

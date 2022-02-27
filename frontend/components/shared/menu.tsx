@@ -33,6 +33,7 @@ const Menu = () => {
             aria-label='menu'
             icon={<IoMdMenu/>}
             ref={btnRef}
+            colorScheme='white'
             fontSize='48px'
             variant='ghost'
             onClick={onOpen}
@@ -46,12 +47,11 @@ const Menu = () => {
               cursor='pointer'></Avatar>
           </Link>
         </Flex>
-        <Flex
-          alignItems='center'
-          justifyContent='center'>
+        <Flex alignItems='center' justifyContent='center'>
           <IconButton
-            aria-label='menu'
+            aria-label='search'
             icon={<IoMdSearch/>}
+            colorScheme='white'
             fontSize='48px'
             variant='ghost'
             marginRight='0.5em'
