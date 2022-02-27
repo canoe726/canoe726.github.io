@@ -40,9 +40,9 @@ const Post: NextPage<PostProps> = ({
 }
 
 export async function getStaticPaths () {
-  const files = fs.readdirSync(path.join('./public/_post'))
+  const files = fs.readdirSync(path.join('./public/post'))
   const paths = files.map(dirName => {
-    const dirs = fs.readdirSync(path.join(`./public/_post/${dirName}`))
+    const dirs = fs.readdirSync(path.join(`./public/post/${dirName}`))
     const slugs = dirs.map(dir => {
       return dir.replace('.md', '')
     })
@@ -70,7 +70,7 @@ interface getStaticPropsProperty {
 }
 
 export async function getStaticProps ({ params: { category, slug } }: getStaticPropsProperty) {
-  const markdownWithMeta = fs.readFileSync(path.join(`./public/_post/${category}/${slug}`, `${slug}.md`), 'utf-8')
+  const markdownWithMeta = fs.readFileSync(path.join(`./public/post/${category}/${slug}`, `${slug}.md`), 'utf-8')
   const { data: frontmatter, content } = matter(markdownWithMeta)
 
   return {

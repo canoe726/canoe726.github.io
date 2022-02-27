@@ -5,7 +5,6 @@ const nextConfig = {
   extends: [
     'plugin:@next/next/recommended'
   ],
-  assetPrefix: '/',
   trailingSlash: true,
   reactStrictMode: true,
   compress: true,

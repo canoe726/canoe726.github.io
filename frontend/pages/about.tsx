@@ -23,7 +23,7 @@ const About: NextPage<AboutProps> = ({ about }) => {
       <Avatar
         size='2xl'
         name='avatar'
-        src='./_about/avatar.jpg'
+        src='./about/avatar.jpg'
       ></Avatar>
       <Box>
         <Text

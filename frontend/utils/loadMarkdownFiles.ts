@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const postBaseUrl: string = './public/_post'
-const aboutBaseUrl: string = './public/_about'
+const postBaseUrl: string = './public/post'
+const aboutBaseUrl: string = './public/about'
 
 export const getPosts = () => {
   const dirs = fs.readdirSync(path.join(postBaseUrl))

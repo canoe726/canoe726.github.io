@@ -43,7 +43,7 @@ const ImageSlider = () => {
               <Box id='image-box' ref={imageBoxRef} width='480px' height='520px' position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
                 <Image
                   alt={`${file.frontmatter.category}-${file.slug}`}
-                  src={`/_post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+                  src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
                   width='100%'
                   height='100%'
                   borderRadius='none'

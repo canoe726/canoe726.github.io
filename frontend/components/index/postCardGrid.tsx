@@ -52,7 +52,7 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
           <Box width='100%' height='300px' borderRadius='16px'>
             <Image
               alt={`${data.frontmatter.category}-${data.slug}`}
-              src={`/_post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
+              src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
               width='100%'
               height='100%'
               objectFit='cover'>

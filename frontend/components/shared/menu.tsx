@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Divider,
@@ -19,6 +18,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import Footer from './footer'
 import { useRouter } from 'next/router'
+import CircularAvatar from './circularAvatar'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -69,12 +69,10 @@ const Menu = () => {
         <DrawerContent>
           <DrawerHeader background='gray.100' padding='2em 0 2em 0'>
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
-              <Avatar
-                name='Avatar'
-                size='md'
-                margin='0 0 0.5em 0'
-                src='./_about/avatar.jpg'
-              ></Avatar>
+              <CircularAvatar
+                size={'lg'}
+                src={'/about/avatar.jpg'}
+              ></CircularAvatar>
               <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='black' margin='0 0 0.2em 0'>Anything you can make</Text>
               <Text fontSize='xx-small' fontStyle='italic' fontWeight='light' color='blackAlpha.700'>- canoe918 -</Text>
             </Box>
