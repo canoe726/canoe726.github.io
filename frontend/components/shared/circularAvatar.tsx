@@ -52,7 +52,7 @@ const CircularAvatar: FC<CircularAvatarProps> = ({
         layout='fill'
         objectFit='cover'
         src={src}
-        alt='avatar'
+        alt='avatar-img'
       ></Image>
     </Flex>
   )

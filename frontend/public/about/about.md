@@ -3,7 +3,7 @@ author: 'canoe'
 summary: 'Anything write you can make it'
 updated: '2021-02-14'
 email: 'canoe918@gmail.com'
-url: 'www.google.com'
+url: 'https://www.google.com'
 ---
 
 # Introduction

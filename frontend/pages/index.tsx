@@ -26,10 +26,10 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
         <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
           This is tech blog
         </Text>
-        <Text fontSize='5xl' color='blackAlpha.600' fontWeight='light'>
+        <Text fontSize='5xl' color='gray.600' fontWeight='light'>
           Hello World!
         </Text>
-        <Text fontSize='5xl' color='blackAlpha.300' fontWeight='light'>
+        <Text fontSize='5xl' color='gray.300' fontWeight='light'>
           This is git blog
         </Text>
       </Flex>
