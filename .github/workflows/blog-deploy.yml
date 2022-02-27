@@ -6,22 +6,16 @@ name: blog deploy
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
-
-defaults:
-  run:
-    shell: bash
-    working-directory: frontend
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./frontend
 
     strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
@@ -30,12 +24,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run build
-      - run: npm run export
+      - name: CI
+        run: npm ci
+        working-directory: ${{ env.working-directory }}
+
+      - name: Build
+        run: npm run build
+        working-directory: ${{ env.working-directory }}
+
+      - name: Next Export
+        run: npm run export
+        working-directory: ${{ env.working-directory }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
+          folder: frontend/out # The folder the action should deploy.
 
