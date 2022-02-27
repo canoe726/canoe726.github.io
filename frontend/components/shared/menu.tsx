@@ -32,9 +32,9 @@ const Menu = () => {
     const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
     const scrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight
     if (headerRef.current) {
-      if (window.scrollY >= 150 && !headerRef.current.classList.contains('active-top')) {
+      if (window.scrollY >= 120 && !headerRef.current.classList.contains('active-top')) {
         headerRef.current.classList.add('active-top')
-      } else if (window.scrollY < 150) {
+      } else if (window.scrollY < 120) {
         headerRef.current.classList.remove('active-top')
       }
     }

@@ -26,7 +26,7 @@ const Post: NextPage<PostProps> = ({
   const imageZoomScroll = () => {
     if (imageZoomBoxRef.current) {
       imageZoomBoxRef.current.style.backgroundSize = 120 - window.pageYOffset / 20 + '%'
-      imageZoomBoxRef.current.style.opacity = `${1 - window.pageYOffset / 900}`
+      imageZoomBoxRef.current.style.opacity = `${1 - window.pageYOffset / 500}`
     }
   }
 
@@ -70,9 +70,9 @@ const Post: NextPage<PostProps> = ({
         backgroundPosition='center'
       >
       </Box>
-      <Box position='absolute' top='64px' left='0' width='100%' height='50vh' backgroundColor='rgba(0, 0, 0, 0.6)'>
+      <Box position='absolute' top='64px' left='0' width='100%' height='50vh' backgroundColor='rgba(0, 0, 0, 0.25)'>
         <Text fontWeight='medium' position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)' textAlign='center' fontSize='3xl' color='white'>{frontmatter.title}</Text>
-        <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize='md' textAlign='center' color='white'>{category}</Text>
+        <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize='md' textAlign='center' color='gray.100'>{category}</Text>
       </Box>
       <Box margin='104px 0 0 0'>
         <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>

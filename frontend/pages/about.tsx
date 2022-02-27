@@ -21,7 +21,7 @@ const About: NextPage<AboutProps> = ({ about }) => {
 
   return (
     <Flex flexDirection='column' padding='100px 3em 4em 3em'>
-      <Box width='100%' height='11em' background='blue.50' pointerEvents='none' position='absolute' top='0' left='0'></Box>
+      <Box width='100%' height='11em' background='blackAlpha.100' pointerEvents='none' position='absolute' top='0' left='0'></Box>
       <Box position='absolute' top='6em' right='12em'>
         <CircularAvatar size='2xl' src='/about/avatar.jpg'></CircularAvatar>
       </Box>
