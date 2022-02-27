@@ -10,10 +10,10 @@ import { useEffect, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
 
 interface PostProps {
-  slug: string,
-  category: string,
-  frontmatter: FrontMatter,
-  content: string
+  slug: string;
+  category: string;
+  frontmatter: FrontMatter;
+  content: string;
 }
 
 const Post: NextPage<PostProps> = ({
@@ -64,8 +64,8 @@ export async function getStaticPaths () {
 
 interface getStaticPropsProperty {
   params: {
-    category: string,
-    slug: string
+    category: string;
+    slug: string;
   }
 }
 

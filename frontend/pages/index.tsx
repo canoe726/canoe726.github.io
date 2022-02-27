@@ -10,7 +10,7 @@ import ImageSlider from '../components/index/imageSlider'
 import { getPosts } from '../utils/loadMarkdownFiles'
 
 interface HomeProps {
-  posts: PostsData[]
+  posts: PostsData[];
 }
 
 const Home: NextPage<HomeProps> = ({ posts }) => {

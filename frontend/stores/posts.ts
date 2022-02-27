@@ -1,22 +1,22 @@
 import { atom, selector } from 'recoil'
 
 export interface PostsData {
-  category: string
-  files: PostData[]
+  category: string;
+  files: PostData[];
 }
 
 export interface PostData {
-  slug: string,
-  frontmatter: FrontMatter,
-  content: string
+  slug: string;
+  frontmatter: FrontMatter;
+  content: string;
 }
 
 export interface FrontMatter {
-  title: string
-  category: string
-  date: string
-  coverImage: string
-  summary?: string
+  title: string;
+  category: string;
+  date: string;
+  coverImage: string;
+  summary?: string;
 }
 
 export const postsDataState = atom<PostsData[]>({

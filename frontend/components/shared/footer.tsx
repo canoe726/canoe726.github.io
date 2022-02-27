@@ -5,9 +5,9 @@ import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 const copyRightText = '© 2021. canoe all rights reserved.'
 
 interface FooterProps {
-  background?: string
-  color?: string
-  padding: string
+  background?: string;
+  color?: string;
+  padding: string;
 }
 
 const Footer: NextPage<FooterProps> = ({

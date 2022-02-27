@@ -7,7 +7,7 @@ import { getAbout } from '../utils/loadMarkdownFiles'
 import markdownToHtml from '../utils/markdownToHtml'
 
 interface AboutProps {
-  about: AboutData
+  about: AboutData;
 }
 
 const About: NextPage<AboutProps> = ({ about }) => {

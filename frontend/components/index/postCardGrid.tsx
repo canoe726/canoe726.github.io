@@ -28,7 +28,7 @@ const PostCardGrid = () => {
 }
 
 interface PostCardProps {
-  data: PostData
+  data: PostData;
 }
 
 const PostCard: NextPage<PostCardProps> = ({ data }) => {
