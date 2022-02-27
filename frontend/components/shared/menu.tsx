@@ -33,6 +33,7 @@ const Menu = () => {
             aria-label='menu'
             icon={<IoMdMenu/>}
             ref={btnRef}
+            colorScheme='white'
             fontSize='48px'
             variant='ghost'
             onClick={onOpen}
@@ -40,18 +41,18 @@ const Menu = () => {
             size='lg'>
           </IconButton>
           <Link href='/' passHref={true}>
-            <Avatar
+            <Button
               name='This is for developer'
               size='md'
-              cursor='pointer'></Avatar>
+              cursor='pointer'
+            >Logo</Button>
           </Link>
         </Flex>
-        <Flex
-          alignItems='center'
-          justifyContent='center'>
+        <Flex alignItems='center' justifyContent='center'>
           <IconButton
-            aria-label='menu'
+            aria-label='search'
             icon={<IoMdSearch/>}
+            colorScheme='white'
             fontSize='48px'
             variant='ghost'
             marginRight='0.5em'
@@ -68,7 +69,12 @@ const Menu = () => {
         <DrawerContent>
           <DrawerHeader background='gray.100' padding='2em 0 2em 0'>
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
-              <Avatar name='Avatar' size='md' margin='0 0 0.5em 0'></Avatar>
+              <Avatar
+                name='Avatar'
+                size='md'
+                margin='0 0 0.5em 0'
+                src='./_about/avatar.jpg'
+              ></Avatar>
               <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='black' margin='0 0 0.2em 0'>Anything you can make</Text>
               <Text fontSize='xx-small' fontStyle='italic' fontWeight='light' color='blackAlpha.700'>- canoe918 -</Text>
             </Box>

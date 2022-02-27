@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { AboutData } from '../stores/about'
@@ -20,8 +20,15 @@ const About: NextPage<AboutProps> = ({ about }) => {
 
   return (
     <Flex flexDirection='column' padding='2em 4em 4em 4em'>
+      <Avatar
+        size='2xl'
+        name='avatar'
+        src='./_about/avatar.jpg'
+      ></Avatar>
       <Box>
-        <Text>{about.frontmatter.author}</Text>
+        <Text
+          fontSize='5xl'
+        >{about.frontmatter.author}</Text>
         <Text>{about.frontmatter.summary}</Text>
       </Box>
       <Box>
