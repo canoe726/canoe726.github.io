@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Badge, Box, Flex, Stack, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import CircularAvatar from '../components/shared/circularAvatar'
@@ -41,6 +41,17 @@ const About: NextPage<AboutProps> = ({ about }) => {
           <a href={about.frontmatter.url} target='_blank' rel='noreferrer'>
             <Text color='gray.600'>🔗 {about.frontmatter.url}</Text>
           </a>
+        )}
+        {about.frontmatter.tags && (
+          <Stack direction='row' margin='1.5em 0 0 0'>
+            {(
+              about.frontmatter.tags.replace(' ', '').split(',').map((tag, idx) => {
+                return (
+                  <Badge key={idx} padding='1' borderRadius='4px' colorScheme='twitter'>{`# ${tag}`}</Badge>
+                )
+              })
+            )}
+          </Stack>
         )}
       </Box>
       <Box>
