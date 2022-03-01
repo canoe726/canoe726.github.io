@@ -24,13 +24,13 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
     <Box padding='84px 0em 4em 0em'>
       <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding='1em 4em 4em 4em'>
         <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
-          This is tech blog
+          This is Blog
         </Text>
         <Text fontSize='5xl' color='gray.600' fontWeight='light'>
-          Hello World!
+          Anything you can write
         </Text>
         <Text fontSize='5xl' color='gray.300' fontWeight='light'>
-          This is git blog
+          Hello World!
         </Text>
       </Flex>
       <ImageSlider></ImageSlider>
