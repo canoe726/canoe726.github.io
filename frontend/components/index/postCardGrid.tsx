@@ -11,8 +11,8 @@ const PostCardGrid = () => {
 
   return (
     <Flex flexDirection='column' padding='0 4em 0 4em'>
-      <Text fontSize='4xl' textAlign='center' margin='2em 0 0em 0'>Recent Articles</Text>
-      <Text fontSize='xl' color='gray.400' textAlign='center' margin='0em 0 3em 0'>Various Articles</Text>
+      <Text fontSize='5xl' textAlign='center' fontWeight='normal' margin='1em 0 0em 0'>Recent Articles</Text>
+      <Text fontSize='2xl' color='gray.400' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {files.map((file, idx) => {
           return (
@@ -28,7 +28,7 @@ const PostCardGrid = () => {
 }
 
 interface PostCardProps {
-  data: PostData
+  data: PostData;
 }
 
 const PostCard: NextPage<PostCardProps> = ({ data }) => {
@@ -52,23 +52,23 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
           <Box width='100%' height='300px' borderRadius='16px'>
             <Image
               alt={`${data.frontmatter.category}-${data.slug}`}
-              src={`/_post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
+              src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
               width='100%'
               height='100%'
               objectFit='cover'>
             </Image>
           </Box>
           <Box width='100%' height='120px'>
-            <Spacer height='1em'></Spacer>
-            <Text className='title' ref={titleTextRef} fontSize='xl' color='black' fontWeight='medium'>
+            <Spacer height='0.5em'></Spacer>
+            <Text className='title' ref={titleTextRef} fontSize='2xl' color='black' fontWeight='normal'>
               {data.frontmatter.title}
             </Text>
-            <Spacer height='0.5em'></Spacer>
-            <Text className='summary' fontSize='sm' color='gray.600' fontWeight='light' textOverflow='ellipsis'>
+            <Spacer height='0.1em'></Spacer>
+            <Text className='summary' fontSize='md' color='gray.600' fontWeight='light' textOverflow='ellipsis'>
               {data.frontmatter.summary ? data.frontmatter.summary : ''}
             </Text>
-            <Spacer height='1em'></Spacer>
-            <Text fontSize='sm' color='black' fontWeight='medium'>
+            <Spacer height='0.3em'></Spacer>
+            <Text fontSize='sm' fontWeight='light' color='gray.400'>
               {data.frontmatter.date}
             </Text>
           </Box>

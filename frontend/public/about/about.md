@@ -1,10 +1,13 @@
 ---
-title: 'BFS & DFS Search'
-summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-category: 'algorithm'
-date: '2021-01-21'
-coverImage: 'thumbnail.jpeg'
+author: 'canoe'
+summary: 'Anything write you can make it'
+updated: '2021-02-14'
+email: 'canoe918@gmail.com'
+url: 'https://www.google.com'
+tags: 'Frontend, GithubIo, Javascript, Typescript, Next.js'
 ---
+
+# Introduction
 
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat
 haec praepes [partes epulae](http://cui.com/), in egisse de. Caecisque ter
@@ -13,27 +16,22 @@ verba caput ferarum _nubila_? Patriam Cyparisse tamen, **saxum** fide postponere
 pavida ne omnes etiam, atque. Sonuit omina sed sine haerebat illic fit a mora
 in.
 
-1. Serrae enim Etruscam aquis
-2. Et premis et flumine frontem minatur oppressos
-3. Inquam rector Icarus possum vim tumulo propiusque
-4. Vulnus se Latreus
-5. Aptumque bis
-
-## Turpius Aegides membris colat volentes fallere
+## Experience
 
 Ille fida formosus, et addunt viscera perdidit ad pondere quia tellus
 consequitur et quoque scinditque in. Ratis laborum instabat quaedam partem
 Phoebus, manus _partibus poenas_. Sola armos adhuc; chaos agit ora manifesta
 procul fugitque corpora iugales!
 
-```javascript
-var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
-        rgb + nybbleBaseband;
-permalinkCertificateMacintosh(ergonomicsIsdnDns);
-boot = bridgeDaemonActive;
-```
+## Tech Stack
 
-## O contra diu
+1. Serrae enim Etruscam aquis
+2. Et premis et flumine frontem minatur oppressos
+3. Inquam rector Icarus possum vim tumulo propiusque
+4. Vulnus se Latreus
+5. Aptumque bis
+
+## Other Experience
 
 Descendit _auras cum misi_ contactu tenax lacus, **quaerensque invitum
 premuntur** patria. Puris ille pictis spiritus placent vestigia et noctis

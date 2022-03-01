@@ -1,7 +1,7 @@
-import { Box, Flex, IconButton, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
-import { GrPrevious, GrNext } from 'react-icons/gr'
+import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc'
 import { useRecoilValue } from 'recoil'
 import { postsDataSelector } from '../../stores/posts'
 
@@ -36,14 +36,14 @@ const ImageSlider = () => {
 
   return (
     <Flex position='relative' margin='0 0 4em 0'>
-      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding='0 4em 0 4em' overflow='hidden' position='relative' scrollBehavior='smooth'>
+      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding={['0 1.5em 0 1.5em', '0 2.5em 0 2.5em', '0 4em 0 4em']} overflow='hidden' position='relative' scrollBehavior='smooth'>
         {topTen.map((file, idx) => {
           return (
             <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>
-              <Box id='image-box' ref={imageBoxRef} width='480px' height='520px' position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
+              <Box id='image-box' ref={imageBoxRef} width={['240px', '360px', '480px']} height={['320px', '400px', '520px']} position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
                 <Image
                   alt={`${file.frontmatter.category}-${file.slug}`}
-                  src={`/_post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+                  src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
                   width='100%'
                   height='100%'
                   borderRadius='none'
@@ -66,8 +66,8 @@ const ImageSlider = () => {
                   pointerEvents='none'
                 ></Box>
                 <Text
-                  fontSize='4xl'
-                  fontWeight='medium'
+                  fontSize={['2xl', '3xl', '4xl']}
+                  fontWeight='normal'
                   textAlign='center'
                   position='absolute'
                   width='100%'
@@ -86,40 +86,50 @@ const ImageSlider = () => {
         })}
       </Flex>
       <div>
-        <IconButton
+        <Box
+          cursor='pointer'
           aria-label='prev'
           display={isPrevBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(-1)}
-          width={['1em', '2em', '2em', '3em', '3em']}
-          height={['1em', '2em', '2em', '3em', '3em']}
+          width={['1.5em', '2em', '2em', '3em', '3em']}
+          height={['1.5em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
-          icon={<GrPrevious opacity='0.7'></GrPrevious>}
           position='absolute'
           borderRadius='50%'
           padding='20px'
           top='50%'
           left='4%'
+          outline='none'
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
-        ></IconButton>
-        <IconButton
+        >
+          <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
+            <VscArrowLeft opacity='0.7'></VscArrowLeft>
+          </Box>
+        </Box>
+        <Box
+          cursor='pointer'
           aria-label='next'
           display={isNextBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(1)}
-          width={['1em', '2em', '2em', '3em', '3em']}
-          height={['1em', '2em', '2em', '3em', '3em']}
+          width={['1.5em', '2em', '2em', '3em', '3em']}
+          height={['1.5em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
-          icon={<GrNext opacity='0.7'></GrNext>}
           position='absolute'
           borderRadius='50%'
           padding='20px'
           top='50%'
           right='4%'
+          outline='none'
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
-        ></IconButton>
+        >
+          <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
+            <VscArrowRight opacity='0.7'></VscArrowRight>
+          </Box>
+        </Box>
       </div>
     </Flex>
   )

@@ -1,8 +1,8 @@
 ---
-title: 'Understand about stack'
-summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quos velit quaerat tempora impedit esse eaque quod accusamus similique iusto. Optio cum architecto quod sapiente esse repellendus laboriosam, distinctio provident.'
-category: 'data-structure'
-date: '2021-01-18'
+title: 'JS Array Functions'
+category: 'data structure'
+summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quos velit quaerat tempora impedit esse eaque quod accusamus similique iusto.'
+date: '2021-02-13'
 coverImage: 'thumbnail.png'
 ---
 
@@ -26,10 +26,12 @@ consequitur et quoque scinditque in. Ratis laborum instabat quaedam partem
 Phoebus, manus _partibus poenas_. Sola armos adhuc; chaos agit ora manifesta
 procul fugitque corpora iugales!
 
-    var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
-            rgb + nybbleBaseband;
-    permalinkCertificateMacintosh(ergonomicsIsdnDns);
-    boot = bridgeDaemonActive;
+```javascript
+var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
+        rgb + nybbleBaseband;
+permalinkCertificateMacintosh(ergonomicsIsdnDns);
+boot = bridgeDaemonActive;
+```
 
 ## O contra diu
 
