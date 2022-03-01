@@ -1,9 +1,9 @@
 ---
-title: 'BFS & DFS Search'
-summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-category: 'algorithm'
-date: '2021-01-21'
-coverImage: 'thumbnail.jpeg'
+title: 'Understand about stack'
+summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quos velit quaerat tempora impedit esse eaque quod accusamus similique iusto. Optio cum architecto quod sapiente esse repellendus laboriosam, distinctio provident.'
+category: 'data structure'
+date: '2021-01-18'
+coverImage: 'thumbnail.png'
 ---
 
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat
@@ -26,12 +26,10 @@ consequitur et quoque scinditque in. Ratis laborum instabat quaedam partem
 Phoebus, manus _partibus poenas_. Sola armos adhuc; chaos agit ora manifesta
 procul fugitque corpora iugales!
 
-```javascript
-var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
-        rgb + nybbleBaseband;
-permalinkCertificateMacintosh(ergonomicsIsdnDns);
-boot = bridgeDaemonActive;
-```
+    var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
+            rgb + nybbleBaseband;
+    permalinkCertificateMacintosh(ergonomicsIsdnDns);
+    boot = bridgeDaemonActive;
 
 ## O contra diu
 

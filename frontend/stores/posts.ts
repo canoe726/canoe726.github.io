@@ -17,6 +17,7 @@ export interface FrontMatter {
   date: string;
   coverImage: string;
   summary?: string;
+  shortcut?: string;
 }
 
 export const postsDataState = atom<PostsData[]>({

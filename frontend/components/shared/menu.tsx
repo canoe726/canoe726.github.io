@@ -65,7 +65,7 @@ const Menu = () => {
   }, [router.pathname])
 
   return (
-    <header>
+    <header id='header'>
       <Flex ref={headerRef} className='header' position='fixed' top='0' left='0' width='100%' height='64px' zIndex={999} alignItems='center' justifyContent='space-between' padding='1em 3em 1em 3em'>
         <Flex alignItems='center' justifyContent='center'>
           <IconButton

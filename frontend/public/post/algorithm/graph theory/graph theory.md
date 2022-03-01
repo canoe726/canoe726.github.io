@@ -1,9 +1,10 @@
 ---
-title: 'JS Array Functions'
-category: 'data-structure'
-summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quos velit quaerat tempora impedit esse eaque quod accusamus similique iusto.'
-date: '2021-02-13'
-coverImage: 'thumbnail.png'
+title: 'BFS & DFS Search'
+summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+category: 'algorithm'
+date: '2021-01-21'
+shortcut: 'introduce'
+coverImage: 'thumbnail.jpeg'
 ---
 
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat

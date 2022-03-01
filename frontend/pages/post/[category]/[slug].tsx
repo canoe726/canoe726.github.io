@@ -4,8 +4,9 @@ import matter from 'gray-matter'
 import type { NextPage } from 'next'
 import { Box, Text } from '@chakra-ui/react'
 import { FrontMatter } from '../../../stores/posts'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
+import Image from 'next/image'
 
 interface PostProps {
   slug: string;
@@ -21,20 +22,23 @@ const Post: NextPage<PostProps> = ({
   content
 }) => {
   const [htmlContent, setHtmlContent] = useState<string>('')
-  const imageZoomBoxRef = useRef<HTMLDivElement>(null)
+  const imageZoomBoxRef = useRef<HTMLImageElement>(null)
 
-  const imageZoomScroll = () => {
+  const imageZoomScroll = useCallback(() => {
     if (imageZoomBoxRef.current) {
-      imageZoomBoxRef.current.style.backgroundSize = 120 - window.pageYOffset / 20 + '%'
+      imageZoomBoxRef.current.style.transform = `scale(calc(1.0 + ${window.pageYOffset / 500}))`
       imageZoomBoxRef.current.style.opacity = `${1 - window.pageYOffset / 500}`
     }
-  }
+    const topTitle = document.getElementById('top-title')
+    if (window.scrollY >= 120 && topTitle) {
+      topTitle.innerHTML = frontmatter.title
+    } else if (window.screenY < 120 && topTitle) {
+      topTitle.innerHTML = ''
+    }
+  }, [frontmatter.title])
 
   useEffect(() => {
     const topTitle = document.getElementById('top-title')
-    if (topTitle) {
-      topTitle.innerHTML = frontmatter.title
-    }
     return () => {
       if (topTitle) {
         topTitle.innerHTML = ''
@@ -47,7 +51,7 @@ const Post: NextPage<PostProps> = ({
     return () => {
       window.removeEventListener('scroll', imageZoomScroll)
     }
-  }, [])
+  }, [imageZoomScroll])
 
   useEffect(() => {
     markdownToHtml(content).then((html) => {
@@ -56,25 +60,31 @@ const Post: NextPage<PostProps> = ({
   }, [content, setHtmlContent])
 
   return (
-    <Box position='relative' padding='50vh 3em 4em 3em'>
+    <Box position='relative' padding='35vh 3em 4em 3em'>
       <Box
-        ref={imageZoomBoxRef}
         position='absolute'
+        overflow='hidden'
         top='64px'
-        left='0'
-        width='100%'
-        height='50vh'
-        background={`url(${`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`})`}
-        backgroundRepeat='no-repeat'
-        backgroundSize='120%'
-        backgroundPosition='center'
+        left='3em'
+        right='3em'
+        height='35vh'
       >
+        <Box ref={imageZoomBoxRef} width='100%' height='100%' position='relative'>
+          <Image
+            layout='fill'
+            objectFit='cover'
+            alt={`${frontmatter.category}-${slug}`}
+            src={`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`}
+          ></Image>
+        </Box>
       </Box>
-      <Box position='absolute' top='64px' left='0' width='100%' height='50vh' backgroundColor='rgba(0, 0, 0, 0.25)'>
-        <Text fontWeight='medium' position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)' textAlign='center' fontSize='3xl' color='white'>{frontmatter.title}</Text>
-        <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize='md' textAlign='center' color='gray.100'>{category}</Text>
+      <Box position='absolute' top='64px' left='3em' right='3em' height='35vh' backgroundColor='rgba(0, 0, 0, 0.4)'>
+        <Text fontWeight='medium' position='absolute' width='100%' padding='0 1em 0 1em' top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' fontSize='5xl' color='white'>{frontmatter.title}</Text>
+        {frontmatter.shortcut && (
+          <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize='2xl' textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
+        )}
       </Box>
-      <Box margin='104px 0 0 0'>
+      <Box margin='100px 0 0 0'>
         <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
       </Box>
     </Box>
