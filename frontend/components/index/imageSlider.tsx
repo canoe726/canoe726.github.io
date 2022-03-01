@@ -1,7 +1,7 @@
-import { Box, Flex, IconButton, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
-import { GrPrevious, GrNext } from 'react-icons/gr'
+import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc'
 import { useRecoilValue } from 'recoil'
 import { postsDataSelector } from '../../stores/posts'
 
@@ -86,14 +86,14 @@ const ImageSlider = () => {
         })}
       </Flex>
       <div>
-        <IconButton
+        <Box
+          cursor='pointer'
           aria-label='prev'
           display={isPrevBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(-1)}
           width={['1em', '2em', '2em', '3em', '3em']}
           height={['1em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
-          icon={<GrPrevious opacity='0.7'></GrPrevious>}
           position='absolute'
           borderRadius='50%'
           padding='20px'
@@ -103,15 +103,19 @@ const ImageSlider = () => {
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
-        ></IconButton>
-        <IconButton
+        >
+          <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
+            <VscArrowLeft opacity='0.7'></VscArrowLeft>
+          </Box>
+        </Box>
+        <Box
+          cursor='pointer'
           aria-label='next'
           display={isNextBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(1)}
           width={['1em', '2em', '2em', '3em', '3em']}
           height={['1em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
-          icon={<GrNext opacity='0.7'></GrNext>}
           position='absolute'
           borderRadius='50%'
           padding='20px'
@@ -121,7 +125,11 @@ const ImageSlider = () => {
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
-        ></IconButton>
+        >
+          <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
+            <VscArrowRight opacity='0.7'></VscArrowRight>
+          </Box>
+        </Box>
       </div>
     </Flex>
   )

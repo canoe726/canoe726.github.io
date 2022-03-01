@@ -11,8 +11,8 @@ const PostCardGrid = () => {
 
   return (
     <Flex flexDirection='column' padding='0 4em 0 4em'>
-      <Text fontSize='4xl' textAlign='center' margin='2em 0 0em 0'>Recent Articles</Text>
-      <Text fontSize='xl' color='gray.400' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
+      <Text fontSize='5xl' textAlign='center' fontWeight='normal' margin='1em 0 0em 0'>Recent Articles</Text>
+      <Text fontSize='2xl' color='gray.400' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {files.map((file, idx) => {
           return (

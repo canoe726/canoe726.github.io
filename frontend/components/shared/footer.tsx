@@ -1,4 +1,4 @@
-import { Flex, IconButton, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 
@@ -27,28 +27,26 @@ const Footer: NextPage<FooterProps> = ({
       background={background}
       color={color}>
       <Flex margin='0 0 1em 0'>
-        <IconButton
+        <Box
+          cursor='pointer'
           aria-label='github'
-          icon={<IoLogoGithub/>}
-          colorScheme='white'
-          variant='ghost'
-          size='lg'
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://github.com/canoe726', '_blank')}
-        ></IconButton>
-        <IconButton
-          aria-label='linkedin'
-          icon={<IoLogoLinkedin/>}
-          colorScheme='white'
-          variant='ghost'
-          size='lg'
+        >
+          <IoLogoGithub/>
+        </Box>
+        <Box
+          cursor='pointer'
+          aria-label='github'
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
-        ></IconButton>
+        >
+          <IoLogoLinkedin/>
+        </Box>
       </Flex>
-      <Text fontWeight='light' fontSize='md'>{copyRightText}</Text>
+      <Text fontWeight='light' fontSize='md' color='white'>{copyRightText}</Text>
     </Flex>
   )
 }

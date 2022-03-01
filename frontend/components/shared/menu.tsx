@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Divider,
   Drawer,
   DrawerBody,
@@ -9,11 +8,10 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  IconButton,
   Text,
   useDisclosure
 } from '@chakra-ui/react'
-import { IoMdMenu, IoMdSearch } from 'react-icons/io'
+import { IoIosMenu, IoIosSearch } from 'react-icons/io'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef } from 'react'
 import Footer from './footer'
@@ -22,7 +20,7 @@ import CircularAvatar from './circularAvatar'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = useRef<HTMLButtonElement>(null)
+  const btnRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
   const progressBackRef = useRef<HTMLHRElement>(null)
@@ -68,45 +66,43 @@ const Menu = () => {
     <header id='header'>
       <Flex ref={headerRef} className='header' position='fixed' top='0' left='0' width='100%' height='64px' zIndex={999} alignItems='center' justifyContent='space-between' padding='1em 4em 1em 4em'>
         <Flex alignItems='center' justifyContent='center'>
-          <IconButton
-            aria-label='menu'
-            icon={<IoMdMenu/>}
+          <Box
             ref={btnRef}
-            colorScheme='white'
+            cursor='pointer'
+            aria-label='menu'
+            textAlign='center'
             fontSize='32px'
-            variant='ghost'
             onClick={onOpen}
             marginRight='0.5em'
             outline='none'
-            size='lg'>
-          </IconButton>
+          >
+            <IoIosMenu/>
+          </Box>
           <Link href='/' passHref={true}>
-            <Button
-              name='This is for developer'
-              size='md'
-              cursor='pointer'
-              colorScheme='white'
-              color='black'
-            >This is Blog</Button>
+            <Box fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
+              This is Blog
+            </Box>
           </Link>
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
           <Text id='top-title'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
-          <IconButton
+          <Box
+            width='100%'
+            cursor='pointer'
             aria-label='search'
-            icon={<IoMdSearch/>}
-            colorScheme='white'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
             fontSize='32px'
-            variant='ghost'
-            marginRight='0.5em'
             outline='none'
-            size='lg'>
-          </IconButton>
+          >
+            <IoIosSearch/>
+          </Box>
         </Flex>
-        <Divider ref={progressBackRef} display='none' top='64px' left='0' position='absolute' border='4px' borderColor='rgba(0, 0, 0, 0.05)'></Divider>
-        <Divider ref={progressRef} display='none' top='64px' left='0' width='1px' position='absolute' border='4px' borderColor='black'></Divider>
+        <Divider ref={progressBackRef} display='none' top='64px' left='0' position='absolute' border='1px' borderColor='rgba(0, 0, 0, 0.05)'></Divider>
+        <Divider ref={progressRef} display='none' top='64px' left='0' width='1px' position='absolute' border='1px' borderColor='black'></Divider>
       </Flex>
       <Drawer
         isOpen={isOpen}
@@ -115,43 +111,42 @@ const Menu = () => {
         finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader background='gray.100' padding='2em 0 2em 0'>
+          <DrawerHeader background='rgba(0,0,0,0.01)' padding='2em 0 2em 0' borderBottom='1px solid rgba(0, 0, 0, 0.05)'>
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
               <CircularAvatar
-                size={'lg'}
+                size={'xl'}
                 src={'/about/avatar.jpg'}
               ></CircularAvatar>
-              <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='black' margin='0 0 0.2em 0'>Anything you can make</Text>
-              <Text fontSize='xx-small' fontStyle='italic' fontWeight='light' color='blackAlpha.700'>- canoe918 -</Text>
+              <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Anything you can write</Text>
+              <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe918 -</Text>
             </Box>
           </DrawerHeader>
-          <Divider orientation='horizontal' height='3px' background='gray.200'/>
           <DrawerBody>
             <Flex flexDirection='column'>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
                 onClick={() => {
                   router.push('/')
                   onClose()
                 }}
               >
                 Home
-              </Button>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+              </Box>
+              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
                 onClick={() => {
                   router.push('/about')
                   onClose()
                 }}
               >
                 About
-              </Button>
-              <Button fontWeight='light' variant='ghost' margin='0.5em 0 0.5em 0'
+              </Box>
+              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
                 onClick={() => {
                   router.push('/category')
                   onClose()
                 }}
               >
                 Category
-              </Button>
+              </Box>
             </Flex>
           </DrawerBody>
           <DrawerFooter padding='0'>
