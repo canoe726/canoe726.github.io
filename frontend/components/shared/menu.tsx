@@ -64,7 +64,7 @@ const Menu = () => {
 
   return (
     <header id='header'>
-      <Flex ref={headerRef} className='header' position='fixed' top='0' left='0' width='100%' height='64px' zIndex={999} alignItems='center' justifyContent='space-between' padding='1em 4em 1em 4em'>
+      <Flex ref={headerRef} className='header' position='fixed' top='0' left='0' width='100%' height='64px' zIndex={999} alignItems='center' justifyContent='space-between' padding={['1em 1.5em 1em 1.5em', '1em 2.5em 1em 2.5em', '1em 4em 1em 4em']}>
         <Flex alignItems='center' justifyContent='center'>
           <Box
             ref={btnRef}

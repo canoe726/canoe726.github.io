@@ -36,11 +36,11 @@ const ImageSlider = () => {
 
   return (
     <Flex position='relative' margin='0 0 4em 0'>
-      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding='0 4em 0 4em' overflow='hidden' position='relative' scrollBehavior='smooth'>
+      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding={['0 1.5em 0 1.5em', '0 2.5em 0 2.5em', '0 4em 0 4em']} overflow='hidden' position='relative' scrollBehavior='smooth'>
         {topTen.map((file, idx) => {
           return (
             <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>
-              <Box id='image-box' ref={imageBoxRef} width='480px' height='520px' position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
+              <Box id='image-box' ref={imageBoxRef} width={['240px', '360px', '480px']} height={['320px', '400px', '520px']} position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
                 <Image
                   alt={`${file.frontmatter.category}-${file.slug}`}
                   src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
@@ -66,8 +66,8 @@ const ImageSlider = () => {
                   pointerEvents='none'
                 ></Box>
                 <Text
-                  fontSize='4xl'
-                  fontWeight='medium'
+                  fontSize={['2xl', '3xl', '4xl']}
+                  fontWeight='normal'
                   textAlign='center'
                   position='absolute'
                   width='100%'
@@ -91,8 +91,8 @@ const ImageSlider = () => {
           aria-label='prev'
           display={isPrevBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(-1)}
-          width={['1em', '2em', '2em', '3em', '3em']}
-          height={['1em', '2em', '2em', '3em', '3em']}
+          width={['1.5em', '2em', '2em', '3em', '3em']}
+          height={['1.5em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
           position='absolute'
           borderRadius='50%'
@@ -113,8 +113,8 @@ const ImageSlider = () => {
           aria-label='next'
           display={isNextBtnShow ? 'flex' : 'none'}
           onClick={() => sliderMove(1)}
-          width={['1em', '2em', '2em', '3em', '3em']}
-          height={['1em', '2em', '2em', '3em', '3em']}
+          width={['1.5em', '2em', '2em', '3em', '3em']}
+          height={['1.5em', '2em', '2em', '3em', '3em']}
           fontSize='42px'
           position='absolute'
           borderRadius='50%'

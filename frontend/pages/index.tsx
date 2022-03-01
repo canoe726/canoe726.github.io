@@ -22,14 +22,14 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 
   return (
     <Box padding='84px 0em 4em 0em'>
-      <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding='1em 4em 4em 4em'>
-        <Text fontSize='6xl' color='black' fontWeight='normal' padding='0'>
+      <Flex flexDirection='column' justifyContent='center' alignItems='flex-start' padding={['1em 1.5em 4em 1.5em', '1em 2.5em 4em 2.5em', '1em 4em 4em 4em']}>
+        <Text fontSize={['5xl', '5xl', '6xl']} color='black' fontWeight='normal' padding='0'>
           This is Blog
         </Text>
-        <Text fontSize='5xl' color='gray.600' fontWeight='light'>
+        <Text fontSize={['4xl', '4xl', '5xl']} color='gray.600' fontWeight='light'>
           Anything you can write
         </Text>
-        <Text fontSize='5xl' color='gray.300' fontWeight='light'>
+        <Text fontSize={['4xl', '4xl', '5xl']} color='gray.300' fontWeight='light'>
           Hello World!
         </Text>
       </Flex>

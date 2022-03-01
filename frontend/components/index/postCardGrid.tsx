@@ -59,16 +59,16 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
             </Image>
           </Box>
           <Box width='100%' height='120px'>
-            <Spacer height='1em'></Spacer>
-            <Text className='title' ref={titleTextRef} fontSize='xl' color='black' fontWeight='medium'>
+            <Spacer height='0.5em'></Spacer>
+            <Text className='title' ref={titleTextRef} fontSize='2xl' color='black' fontWeight='normal'>
               {data.frontmatter.title}
             </Text>
-            <Spacer height='0.5em'></Spacer>
-            <Text className='summary' fontSize='sm' color='gray.600' fontWeight='light' textOverflow='ellipsis'>
+            <Spacer height='0.1em'></Spacer>
+            <Text className='summary' fontSize='md' color='gray.600' fontWeight='light' textOverflow='ellipsis'>
               {data.frontmatter.summary ? data.frontmatter.summary : ''}
             </Text>
-            <Spacer height='1em'></Spacer>
-            <Text fontSize='sm' color='black' fontWeight='medium'>
+            <Spacer height='0.3em'></Spacer>
+            <Text fontSize='sm' fontWeight='light' color='gray.400'>
               {data.frontmatter.date}
             </Text>
           </Box>
