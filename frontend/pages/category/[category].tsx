@@ -6,6 +6,7 @@ import { NextPage } from 'next'
 import { PostData } from '../../stores/posts'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface CategoryItemListProps {
   category: string;
@@ -31,47 +32,48 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
   }, [category])
 
   return (
-    <Flex flexDirection='column' padding='120px 12em 2em 12em' minHeight='85vh' backgroundColor='rgba(0,0,0,0.01)'>
+    <Flex flexDirection='column' padding='112px 12em 2em 12em' minHeight='85vh' backgroundColor='rgba(0,0,0,0.01)'>
       <Box width='100%' height='64px' background='white' position='absolute' top='0' left='0' pointerEvents='none' borderBottom='1px solid rgba(0, 0, 0, 0.2)'></Box>
       {files.map((file, idx) => {
         return (
-          <Box
-            key={idx}
-            cursor='pointer'
-            display='flex'
-            width='100%'
-            height='fit-content'
-            margin='0 0 2em 0'
-            backgroundColor='white'
-            borderBottom='1px solid rgba(0, 0, 0, 0.1)'
-            onMouseOver={() => {
-              if (titleTextRef.current) {
-                titleTextRef.current[idx].style.textDecoration = 'underline'
-              }
-            }}
-            onMouseOut={() => {
-              if (titleTextRef.current) {
-                titleTextRef.current[idx].style.textDecoration = 'none'
-              }
-            }}
-          >
-            <Flex flex='3' flexDirection='column' padding='2em'>
-              <Text ref={el => { titleTextRef.current[idx] = el! }} fontSize='2xl' fontWeight='medium'>{file.frontmatter.title}</Text>
-              <Text marginTop='0.5em' fontSize='sm' fontWeight='light'>{file.frontmatter.summary}</Text>
-              <Text marginTop='1.5em' fontSize='x-small' color='gray.400'>{file.frontmatter.date}</Text>
-            </Flex>
-            <Flex flex='1' position='relative' justifyContent='center' alignItems='center'>
-              <Box>
-                <Image
-                  alt={`${file.frontmatter.category}-${file.slug}`}
-                  src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
-                  width='140px'
-                  height='140px'
-                  objectFit='cover'
-                ></Image>
-              </Box>
-            </Flex>
-          </Box>
+          <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref>
+            <Box
+              cursor='pointer'
+              display='flex'
+              width='100%'
+              height='fit-content'
+              margin='0 0 2em 0'
+              backgroundColor='white'
+              borderBottom='1px solid rgba(0, 0, 0, 0.1)'
+              onMouseOver={() => {
+                if (titleTextRef.current) {
+                  titleTextRef.current[idx].style.textDecoration = 'underline'
+                }
+              }}
+              onMouseOut={() => {
+                if (titleTextRef.current) {
+                  titleTextRef.current[idx].style.textDecoration = 'none'
+                }
+              }}
+            >
+              <Flex flex='3' flexDirection='column' padding='2em'>
+                <Text ref={el => { titleTextRef.current[idx] = el! }} fontSize='2xl' fontWeight='medium'>{file.frontmatter.title}</Text>
+                <Text marginTop='0.5em' fontSize='sm' fontWeight='light'>{file.frontmatter.summary}</Text>
+                <Text marginTop='1.5em' fontSize='x-small' color='gray.400'>{file.frontmatter.date}</Text>
+              </Flex>
+              <Flex flex='1' position='relative' justifyContent='center' alignItems='center'>
+                <Box>
+                  <Image
+                    alt={`${file.frontmatter.category}-${file.slug}`}
+                    src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+                    width='140px'
+                    height='140px'
+                    objectFit='cover'
+                  ></Image>
+                </Box>
+              </Flex>
+            </Box>
+          </Link>
         )
       })}
     </Flex>

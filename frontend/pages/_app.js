@@ -14,7 +14,7 @@ function MyApp ({ Component, pageProps }) {
         <Footer
           background='black'
           color='white'
-          padding='2em 3em 2em 3em'
+          padding='2em 4em 2em 4em'
         ></Footer>
       </ChakraProvider>
     </RecoilRoot>

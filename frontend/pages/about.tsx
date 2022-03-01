@@ -20,10 +20,10 @@ const About: NextPage<AboutProps> = ({ about }) => {
   }, [about.content, setHtmlContent])
 
   return (
-    <Flex flexDirection='column' padding='100px 3em 4em 3em'>
-      <Box width='100%' height='11em' background='blackAlpha.100' pointerEvents='none' position='absolute' top='0' left='0'></Box>
-      <Box position='absolute' top='6em' right='12em'>
-        <CircularAvatar size='2xl' src='/about/avatar.jpg'></CircularAvatar>
+    <Flex flexDirection='column' padding='100px 4em 4em 4em'>
+      <Box width='100%' height='11em' background='rgba(0,0,0,0.01)' pointerEvents='none' position='absolute' top='0' left='0'></Box>
+      <Box position='absolute' top='5em' right='12em'>
+        <CircularAvatar size='3xl' src='/about/avatar.jpg'></CircularAvatar>
       </Box>
       <Box width='fit-content' padding='6em 0 0 0'>
         {about.frontmatter.author && (

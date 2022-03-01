@@ -36,7 +36,7 @@ const ImageSlider = () => {
 
   return (
     <Flex position='relative' margin='0 0 4em 0'>
-      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding='0 3em 0 3em' overflow='hidden' position='relative' scrollBehavior='smooth'>
+      <Flex id='image-slider' ref={imageSliderRef} width='100%' padding='0 4em 0 4em' overflow='hidden' position='relative' scrollBehavior='smooth'>
         {topTen.map((file, idx) => {
           return (
             <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>

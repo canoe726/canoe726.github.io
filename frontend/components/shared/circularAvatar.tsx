@@ -25,6 +25,10 @@ const avatarSize: AvatarSizeProps = {
   '2xl': {
     width: '128px',
     height: '128px'
+  },
+  '3xl': {
+    width: '168px',
+    height: '168px'
   }
 }
 
