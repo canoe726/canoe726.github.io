@@ -19,11 +19,12 @@ import Footer from './footer'
 import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
 import { getBrowserWidth } from '../../utils/utils'
+import SearchPopup from './searchPopup'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile, setIsMobile] = useState<boolean>(false)
-  // const []
+  const [showSearchPopup, setShowSearchPopup] = useState<boolean>(false)
   const btnRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
@@ -121,9 +122,7 @@ const Menu = () => {
             alignItems='center'
             fontSize='32px'
             outline='none'
-            onClick={() => {
-
-            }}
+            onClick={() => setShowSearchPopup(true)}
           >
             <IoIosSearch aria-label='search'/>
           </Box>
@@ -188,6 +187,11 @@ const Menu = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      {showSearchPopup && (
+        <SearchPopup
+          setShowSearchPopup={setShowSearchPopup}
+        ></SearchPopup>
+      )}
     </header>
   )
 }
