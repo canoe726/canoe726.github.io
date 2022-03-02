@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Divider,
   Drawer,
@@ -13,13 +14,15 @@ import {
 } from '@chakra-ui/react'
 import { IoIosMenu, IoIosSearch } from 'react-icons/io'
 import Link from 'next/link'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Footer from './footer'
 import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
+import { getBrowserWidth } from '../../utils/utils'
 
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isMobile, setIsMobile] = useState<boolean>(false)
   const btnRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
@@ -41,10 +44,23 @@ const Menu = () => {
     }
   }, [])
 
+  const resizeEvent = () => {
+    const width = getBrowserWidth()
+    if (width <= 480) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', windowScrollEvent)
+    window.addEventListener('load', resizeEvent)
+    window.addEventListener('resize', resizeEvent)
     return () => {
       window.removeEventListener('scroll', windowScrollEvent)
+      window.addEventListener('load', resizeEvent)
+      window.removeEventListener('resize', resizeEvent)
     }
   }, [windowScrollEvent])
 
@@ -78,11 +94,18 @@ const Menu = () => {
           >
             <IoIosMenu/>
           </Box>
-          <Link href='/' passHref={true}>
-            <Box fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
-              This is Blog
-            </Box>
-          </Link>
+          {!isMobile && (
+            <Link href='/' passHref={true}>
+              <Box fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
+                This is Blog
+              </Box>
+            </Link>
+          )}
+          {isMobile && (
+            <Link href='/' passHref={true}>
+              <Avatar name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
+            </Link>
+          )}
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
           <Text id='top-title'></Text>
