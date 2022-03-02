@@ -51,12 +51,11 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
         }}
       >
         <Container width='100%' height='100%' padding='0'>
-          <Box width='100%' height='300px' borderRadius='16px'>
+          <Box width='100%' height='300px' borderRadius='16px' position='relative'>
             <Image
               alt={`${data.frontmatter.category}-${data.slug}`}
               src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
-              width='100%'
-              height='100%'
+              layout='fill'
               objectFit='cover'
               loader={imageLoader}
             >

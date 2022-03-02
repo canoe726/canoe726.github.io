@@ -51,22 +51,27 @@ const ImageSlider = () => {
                 overflow='hidden'
                 flexShrink='0'
                 cursor='pointer'
-                transition='1s ease'
-                opacity='1.0'
-                _hover={{
-                  opacity: '0.8',
-                  transform: 'scale(1.3)',
-                  background: 'blackAlpha.600'
-                }}
-                >
-                <Image
-                  alt={`${file.frontmatter.category}-${file.slug}`}
-                  src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+              >
+                <Box
+                  position='relative'
                   width='100%'
                   height='100%'
-                  objectFit='cover'
-                  loader={imageLoader}
-                ></Image>
+                  transition='1s ease'
+                  opacity='1.0'
+                  _hover={{
+                    opacity: '0.8',
+                    transform: 'scale(1.3)',
+                    background: 'blackAlpha.600'
+                  }}
+                >
+                  <Image
+                    alt={`${file.frontmatter.category}-${file.slug}`}
+                    src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+                    layout='fill'
+                    objectFit='cover'
+                    loader={imageLoader}
+                  ></Image>
+                </Box>
                 <Box
                   position='absolute'
                   top='0'
