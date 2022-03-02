@@ -89,7 +89,7 @@ const Menu = () => {
             textAlign='center'
             fontSize='32px'
             onClick={onOpen}
-            marginRight='0.5em'
+            marginRight={['0.3em', '0.3em', '0.5em']}
             outline='none'
           >
             <IoIosMenu/>

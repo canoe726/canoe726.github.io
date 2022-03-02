@@ -58,15 +58,15 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
                 }
               }}
             >
-              <Flex flex={['2.5', '2.5', '3']} flexDirection='column' padding='2em'>
-                <Text className='title' ref={el => { titleTextRef.current[idx] = el! }} fontSize={['xl', 'xl', '2xl']} fontWeight='medium'>{file.frontmatter.title}</Text>
+              <Flex flex={['2.5', '2.5', '3']} flexDirection='column' padding={['2em 1.2em 2em 1.2em', '2em 1.2em 2em 1.2em', '2em']}>
+                <Text className='title' ref={el => { titleTextRef.current[idx] = el! }} height='fit-content' fontSize={['lg', 'lg', '2xl']} fontWeight='normal'>{file.frontmatter.title}</Text>
                 <Text className='summary' marginTop='0.5em' fontSize='sm' fontWeight='light' textOverflow='ellipsis' overflow='hidden' color='gray.600'>{file.frontmatter.summary}</Text>
-                <Text marginTop='1.5em' fontSize='x-small' color='gray.400'>{file.frontmatter.date}</Text>
+                <Text marginTop='1.5em' fontSize='x-small' fontWeight='light' color='gray.400'>{file.frontmatter.date}</Text>
               </Flex>
               <Flex flex={['1.5', '1.5', '1']} position='relative' justifyContent='center' alignItems='center' padding={['0 1em 0 0', '0 1em 0 0', '0 1.5em 0 0']}>
                 <Box
-                  width={['140px', '140px', '180px']}
-                  height={['140px', '140px', '180px']}
+                  width={['100px', '120px', '180px']}
+                  height={['100px', '120px', '180px']}
                   position='relative'
                 >
                   <Image

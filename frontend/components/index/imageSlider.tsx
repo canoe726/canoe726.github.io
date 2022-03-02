@@ -115,7 +115,7 @@ const ImageSlider = () => {
           borderRadius='50%'
           padding='20px'
           top='50%'
-          left='4%'
+          left={['1%', '2%', '4%']}
           outline='none'
           transform='translate(-4%, -50%)'
           background='white'
@@ -137,7 +137,7 @@ const ImageSlider = () => {
           borderRadius='50%'
           padding='20px'
           top='50%'
-          right='4%'
+          right={['1%', '2%', '4%']}
           outline='none'
           transform='translate(-4%, -50%)'
           background='white'
