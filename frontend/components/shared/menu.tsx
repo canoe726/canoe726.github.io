@@ -23,6 +23,7 @@ import { getBrowserWidth } from '../../utils/utils'
 const Menu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile, setIsMobile] = useState<boolean>(false)
+  // const []
   const btnRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
@@ -92,18 +93,18 @@ const Menu = () => {
             marginRight={['0.3em', '0.3em', '0.5em']}
             outline='none'
           >
-            <IoIosMenu/>
+            <IoIosMenu aria-label='menu'/>
           </Box>
           {!isMobile && (
             <Link href='/' passHref={true}>
-              <Box fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
+              <Box aria-label='logo' fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
                 This is Blog
               </Box>
             </Link>
           )}
           {isMobile && (
             <Link href='/' passHref={true}>
-              <Avatar name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
+              <Avatar aria-label='logo' name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
             </Link>
           )}
         </Flex>
@@ -120,8 +121,11 @@ const Menu = () => {
             alignItems='center'
             fontSize='32px'
             outline='none'
+            onClick={() => {
+
+            }}
           >
-            <IoIosSearch/>
+            <IoIosSearch aria-label='search'/>
           </Box>
         </Flex>
         <Divider ref={progressBackRef} display='none' top='64px' left='0' position='absolute' border='1px' borderColor='rgba(0, 0, 0, 0.05)'></Divider>
@@ -147,6 +151,7 @@ const Menu = () => {
           <DrawerBody>
             <Flex flexDirection='column'>
               <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                aria-label='home'
                 onClick={() => {
                   router.push('/')
                   onClose()
@@ -155,6 +160,7 @@ const Menu = () => {
                 Home
               </Box>
               <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                aria-label='about'
                 onClick={() => {
                   router.push('/about')
                   onClose()
@@ -163,6 +169,7 @@ const Menu = () => {
                 About
               </Box>
               <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                aria-label='about'
                 onClick={() => {
                   router.push('/category')
                   onClose()

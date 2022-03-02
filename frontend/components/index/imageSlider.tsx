@@ -122,7 +122,7 @@ const ImageSlider = () => {
           opacity='0.8'
         >
           <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
-            <VscArrowLeft opacity='0.7'></VscArrowLeft>
+            <VscArrowLeft opacity='0.7' aria-label='prev'></VscArrowLeft>
           </Box>
         </Box>
         <Box
@@ -144,7 +144,7 @@ const ImageSlider = () => {
           opacity='0.8'
         >
           <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
-            <VscArrowRight opacity='0.7'></VscArrowRight>
+            <VscArrowRight opacity='0.7' aria-label='next'></VscArrowRight>
           </Box>
         </Box>
       </div>
