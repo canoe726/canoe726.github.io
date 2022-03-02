@@ -66,7 +66,7 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
         left='1.2em'
         right='1.2em'
         bottom='1.2em'
-        background='rgba(0, 0, 0, 0.1)'
+        background='rgba(0, 0, 0, 0.02)'
       >
         <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 1.5em 1em 1.5em'>
           <div>hello</div>
