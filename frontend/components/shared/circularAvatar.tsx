@@ -3,38 +3,8 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import { imageLoader } from '../../utils/loader'
 
-interface AvatarSizeProps {
-  [key: string]: {
-    width: string;
-    height: string;
-  }
-}
-
-const avatarSize: AvatarSizeProps = {
-  sm: {
-    width: '32px',
-    height: '32px'
-  },
-  lg: {
-    width: '64px',
-    height: '64px'
-  },
-  xl: {
-    width: '84px',
-    height: '84px'
-  },
-  '2xl': {
-    width: '128px',
-    height: '128px'
-  },
-  '3xl': {
-    width: '168px',
-    height: '168px'
-  }
-}
-
 interface CircularAvatarProps {
-  size: string;
+  size: string[];
   src: string;
 }
 
@@ -45,8 +15,8 @@ const CircularAvatar: NextPage<CircularAvatarProps> = ({
   return (
     <Flex
       position='relative'
-      width={avatarSize[size].width}
-      height={avatarSize[size].height}
+      width={size}
+      height={size}
       alignItems='center'
       justifyContent='center'
       overflow='hidden'

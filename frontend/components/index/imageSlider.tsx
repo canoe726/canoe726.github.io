@@ -82,6 +82,7 @@ const ImageSlider = () => {
                   pointerEvents='none'
                 ></Box>
                 <Text
+                  className='title'
                   fontSize={['2xl', '3xl', '4xl']}
                   fontWeight='normal'
                   textAlign='center'

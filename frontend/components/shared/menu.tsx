@@ -114,7 +114,7 @@ const Menu = () => {
           <DrawerHeader background='rgba(0,0,0,0.01)' padding='2em 0 2em 0' borderBottom='1px solid rgba(0, 0, 0, 0.05)'>
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
               <CircularAvatar
-                size={'xl'}
+                size={['64px', '64px', '96px']}
                 src={'/about/avatar.jpg'}
               ></CircularAvatar>
               <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Anything you can write</Text>
