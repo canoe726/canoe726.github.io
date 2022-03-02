@@ -34,7 +34,7 @@ const Footer: NextPage<FooterProps> = ({
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://github.com/canoe726', '_blank')}
         >
-          <IoLogoGithub/>
+          <IoLogoGithub aria-label='github'/>
         </Box>
         <Box
           cursor='pointer'
@@ -43,7 +43,7 @@ const Footer: NextPage<FooterProps> = ({
           margin='0 0.2em 0 0.2em'
           onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
         >
-          <IoLogoLinkedin/>
+          <IoLogoLinkedin aria-label='linkedin'/>
         </Box>
       </Flex>
       <Text fontWeight='light' fontSize='md' color='white'>{copyRightText}</Text>

@@ -115,14 +115,14 @@ const ImageSlider = () => {
           borderRadius='50%'
           padding='20px'
           top='50%'
-          left='4%'
+          left={['1%', '2%', '4%']}
           outline='none'
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
         >
           <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
-            <VscArrowLeft opacity='0.7'></VscArrowLeft>
+            <VscArrowLeft opacity='0.7' aria-label='prev'></VscArrowLeft>
           </Box>
         </Box>
         <Box
@@ -137,14 +137,14 @@ const ImageSlider = () => {
           borderRadius='50%'
           padding='20px'
           top='50%'
-          right='4%'
+          right={['1%', '2%', '4%']}
           outline='none'
           transform='translate(-4%, -50%)'
           background='white'
           opacity='0.8'
         >
           <Box display='flex' justifyContent='center' alignItems='center' width='100%' height='100%'>
-            <VscArrowRight opacity='0.7'></VscArrowRight>
+            <VscArrowRight opacity='0.7' aria-label='next'></VscArrowRight>
           </Box>
         </Box>
       </div>
