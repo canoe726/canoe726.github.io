@@ -8,6 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
 import Image from 'next/image'
 import { imageLoader } from '../../../utils/loader'
+import Head from 'next/head'
 
 interface PostProps {
   slug: string;
@@ -61,35 +62,41 @@ const Post: NextPage<PostProps> = ({
   }, [content, setHtmlContent])
 
   return (
-    <Box position='relative' padding={['35vh 1.5em 4em 1.5em', '35vh 2.5em 4em 2.5em', '35vh 4em 4em 4em']}>
-      <Box
-        position='absolute'
-        overflow='hidden'
-        top='64px'
-        left={['1.5em', '2.5em', '4em']}
-        right={['1.5em', '2.5em', '4em']}
-        height='35vh'
-      >
-        <Box ref={imageZoomBoxRef} width='100%' height='100%' position='relative'>
-          <Image
-            layout='fill'
-            objectFit='cover'
-            alt={`${frontmatter.category}-${slug}`}
-            src={`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`}
-            loader={imageLoader}
-          ></Image>
+    <>
+      <Head>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={`${frontmatter.title}-${frontmatter.summary}`}></meta>
+      </Head>
+      <Box position='relative' padding={['35vh 1.5em 4em 1.5em', '35vh 2.5em 4em 2.5em', '35vh 4em 4em 4em']}>
+        <Box
+          position='absolute'
+          overflow='hidden'
+          top='64px'
+          left={['1.5em', '2.5em', '4em']}
+          right={['1.5em', '2.5em', '4em']}
+          height='35vh'
+        >
+          <Box ref={imageZoomBoxRef} width='100%' height='100%' position='relative'>
+            <Image
+              layout='fill'
+              objectFit='cover'
+              alt={`${frontmatter.category}-${slug}`}
+              src={`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`}
+              loader={imageLoader}
+            ></Image>
+          </Box>
+        </Box>
+        <Box position='absolute' top='64px' left={['1.5em', '2.5em', '4em']} right={['1.5em', '2.5em', '4em']} height='35vh' backgroundColor='rgba(0, 0, 0, 0.4)'>
+          <Text fontWeight='medium' position='absolute' width='100%' padding='0 1em 0 1em' top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' lineHeight={[1.2, 1.2, 1.5]} fontSize={['4xl', '4xl', '5xl']} color='white'>{frontmatter.title}</Text>
+          {frontmatter.shortcut && (
+            <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize={['xl', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
+          )}
+        </Box>
+        <Box margin='100px 0 0 0'>
+          <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
         </Box>
       </Box>
-      <Box position='absolute' top='64px' left={['1.5em', '2.5em', '4em']} right={['1.5em', '2.5em', '4em']} height='35vh' backgroundColor='rgba(0, 0, 0, 0.4)'>
-        <Text fontWeight='medium' position='absolute' width='100%' padding='0 1em 0 1em' top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' lineHeight={[1.2, 1.2, 1.5]} fontSize={['4xl', '4xl', '5xl']} color='white'>{frontmatter.title}</Text>
-        {frontmatter.shortcut && (
-          <Text fontWeight='light' position='absolute' top='70%' left='50%' transform='translate(-50%, -70%)' fontSize={['xl', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
-        )}
-      </Box>
-      <Box margin='100px 0 0 0'>
-        <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
-      </Box>
-    </Box>
+    </>
   )
 }
 
