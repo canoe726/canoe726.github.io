@@ -18,7 +18,7 @@ const ImageSlider = () => {
   const sliderMove = (dir: number): void => {
     if (imageSliderRef.current && imageBoxRef.current) {
       const boxWidth: number = imageBoxRef.current.offsetWidth
-      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * 2 * dir)
+      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * 1.3 * dir)
       if (nextLeft > 0) {
         setIsPrevBtnShow(true)
       }
