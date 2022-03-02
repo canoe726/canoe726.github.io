@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Image from 'next/image'
+import { imageLoader } from '../../utils/loader'
 
 interface AvatarSizeProps {
   [key: string]: {
@@ -57,6 +58,7 @@ const CircularAvatar: NextPage<CircularAvatarProps> = ({
         objectFit='cover'
         src={src}
         alt='avatar-img'
+        loader={imageLoader}
       ></Image>
     </Flex>
   )

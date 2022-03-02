@@ -1,9 +1,11 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import Image from 'next/image'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc'
 import { useRecoilValue } from 'recoil'
 import { postsDataSelector } from '../../stores/posts'
+import { imageLoader } from '../../utils/loader'
 
 const ImageSlider = () => {
   const { files } = useRecoilValue(postsDataSelector)
@@ -40,21 +42,30 @@ const ImageSlider = () => {
         {topTen.map((file, idx) => {
           return (
             <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>
-              <Box id='image-box' ref={imageBoxRef} width={['240px', '360px', '480px']} height={['320px', '400px', '520px']} position='relative' overflow='hidden' flexShrink='0' cursor='pointer'>
+              <Box
+                id='image-box'
+                ref={imageBoxRef}
+                width={['240px', '360px', '480px']}
+                height={['320px', '400px', '520px']}
+                position='relative'
+                overflow='hidden'
+                flexShrink='0'
+                cursor='pointer'
+                transition='1s ease'
+                opacity='1.0'
+                _hover={{
+                  opacity: '0.8',
+                  transform: 'scale(1.3)',
+                  background: 'blackAlpha.600'
+                }}
+                >
                 <Image
                   alt={`${file.frontmatter.category}-${file.slug}`}
                   src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
                   width='100%'
                   height='100%'
-                  borderRadius='none'
                   objectFit='cover'
-                  transition='1s ease'
-                  opacity='1.0'
-                  _hover={{
-                    opacity: '0.8',
-                    transform: 'scale(1.3)',
-                    background: 'blackAlpha.600'
-                  }}
+                  loader={imageLoader}
                 ></Image>
                 <Box
                   position='absolute'

@@ -7,6 +7,7 @@ import { FrontMatter } from '../../../stores/posts'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
 import Image from 'next/image'
+import { imageLoader } from '../../../utils/loader'
 
 interface PostProps {
   slug: string;
@@ -75,6 +76,7 @@ const Post: NextPage<PostProps> = ({
             objectFit='cover'
             alt={`${frontmatter.category}-${slug}`}
             src={`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`}
+            loader={imageLoader}
           ></Image>
         </Box>
       </Box>

@@ -8,6 +8,19 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   compress: true,
+  images: {
+    loader: 'custom'
+  },
+  // exportPathMap: async function (
+  //   defalutPathMap,
+  //   { dev, dir, outDir, distDir, buildId }
+  // ) {
+  //   return {
+  //     '/': { page: '/' },
+  //     '/about': { page: '/about' },
+  //     '/category': { page: '/category' }
+  //   }
+  // },
   webpack (config, { webpack }) {
     const plugins = [...config.plugins]
     config.module.rules.push({

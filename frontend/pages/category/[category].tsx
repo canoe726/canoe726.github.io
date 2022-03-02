@@ -7,6 +7,7 @@ import { PostData } from '../../stores/posts'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { imageLoader } from '../../utils/loader'
 
 interface CategoryItemListProps {
   category: string;
@@ -69,6 +70,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
                     width='140px'
                     height='140px'
                     objectFit='cover'
+                    loader={imageLoader}
                   ></Image>
                 </Box>
               </Flex>

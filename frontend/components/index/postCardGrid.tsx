@@ -1,10 +1,12 @@
+import Image from 'next/image'
 import { NextPage } from 'next'
 import { useRecoilValue } from 'recoil'
-import { Box, Container, Image, Grid, GridItem, Text, Spacer, Flex } from '@chakra-ui/react'
+import { Box, Container, Grid, GridItem, Text, Spacer, Flex } from '@chakra-ui/react'
 
 import { PostData, postsDataSelector } from '../../stores/posts'
 import Link from 'next/link'
 import { useRef } from 'react'
+import { imageLoader } from '../../utils/loader'
 
 const PostCardGrid = () => {
   const { files } = useRecoilValue(postsDataSelector)
@@ -55,7 +57,9 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
               src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
               width='100%'
               height='100%'
-              objectFit='cover'>
+              objectFit='cover'
+              loader={imageLoader}
+            >
             </Image>
           </Box>
           <Box width='100%' height='120px'>
