@@ -110,7 +110,7 @@ const Menu = () => {
           )}
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
-          <Text id='top-title'></Text>
+          <Text id='top-title' padding='0 0.5em 0 0.5em' textAlign='center'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
           <Box
