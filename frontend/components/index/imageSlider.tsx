@@ -18,7 +18,7 @@ const ImageSlider = () => {
   const sliderMove = (dir: number): void => {
     if (imageSliderRef.current && imageBoxRef.current) {
       const boxWidth: number = imageBoxRef.current.offsetWidth
-      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * 2 * dir)
+      let nextLeft = imageSliderRef.current.scrollLeft + (boxWidth * 1.3 * dir)
       if (nextLeft > 0) {
         setIsPrevBtnShow(true)
       }
@@ -51,22 +51,27 @@ const ImageSlider = () => {
                 overflow='hidden'
                 flexShrink='0'
                 cursor='pointer'
-                transition='1s ease'
-                opacity='1.0'
-                _hover={{
-                  opacity: '0.8',
-                  transform: 'scale(1.3)',
-                  background: 'blackAlpha.600'
-                }}
-                >
-                <Image
-                  alt={`${file.frontmatter.category}-${file.slug}`}
-                  src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+              >
+                <Box
+                  position='relative'
                   width='100%'
                   height='100%'
-                  objectFit='cover'
-                  loader={imageLoader}
-                ></Image>
+                  transition='1s ease'
+                  opacity='1.0'
+                  _hover={{
+                    opacity: '0.8',
+                    transform: 'scale(1.3)',
+                    background: 'blackAlpha.600'
+                  }}
+                >
+                  <Image
+                    alt={`${file.frontmatter.category}-${file.slug}`}
+                    src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
+                    layout='fill'
+                    objectFit='cover'
+                    loader={imageLoader}
+                  ></Image>
+                </Box>
                 <Box
                   position='absolute'
                   top='0'
@@ -77,6 +82,7 @@ const ImageSlider = () => {
                   pointerEvents='none'
                 ></Box>
                 <Text
+                  className='title'
                   fontSize={['2xl', '3xl', '4xl']}
                   fontWeight='normal'
                   textAlign='center'

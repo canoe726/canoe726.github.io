@@ -12,9 +12,9 @@ const PostCardGrid = () => {
   const { files } = useRecoilValue(postsDataSelector)
 
   return (
-    <Flex flexDirection='column' padding='0 4em 0 4em'>
-      <Text fontSize='5xl' textAlign='center' fontWeight='normal' margin='1em 0 0em 0'>Recent Articles</Text>
-      <Text fontSize='2xl' color='gray.400' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
+    <Flex flexDirection='column' padding={['0 1.5em 0 1.5em', '0 2.5em 0 2.5em', '0 4em 0 4em']}>
+      <Text fontSize={['4xl', '4xl', '5xl']} textAlign='center' fontWeight='normal' margin='1em 0 0em 0'>Recent Articles</Text>
+      <Text fontSize={['xl', 'xl', '2xl']} color='gray.400' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {files.map((file, idx) => {
           return (
@@ -51,12 +51,11 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
         }}
       >
         <Container width='100%' height='100%' padding='0'>
-          <Box width='100%' height='300px' borderRadius='16px'>
+          <Box width='100%' height='300px' borderRadius='16px' position='relative'>
             <Image
               alt={`${data.frontmatter.category}-${data.slug}`}
               src={`/post/${data.frontmatter.category}/${data.slug}/${data.frontmatter.coverImage}`}
-              width='100%'
-              height='100%'
+              layout='fill'
               objectFit='cover'
               loader={imageLoader}
             >

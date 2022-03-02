@@ -21,9 +21,9 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
   }, [posts])
 
   return (
-    <Flex display='flex' flexDirection='column' padding='100px 4em 4em 4em' minHeight='85vh'>
-      <Text textAlign='center' fontSize='5xl' color='black' fontWeight='normal' padding='0'>Category</Text>
-      <Text textAlign='center' fontSize='2xl' color='gray.400' fontWeight='light' padding='0'>Keywords</Text>
+    <Flex display='flex' flexDirection='column' padding={['100px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']} minHeight='85vh'>
+      <Text textAlign='center' fontSize={['4xl', '4xl', '5xl']} color='black' fontWeight='normal' padding='0'>Category</Text>
+      <Text textAlign='center' fontSize={['xl', 'xl', '2xl']} color='gray.400' fontWeight='light' padding='0'>Keywords</Text>
       <Flex margin='4em 0 0 0' height='100%' justifyContent='center' alignItems='center'>
         <Flex flexWrap='wrap' justifyContent='center' alignItems='center'>
           {categories && (
@@ -45,8 +45,8 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
                     }}
                     ref={el => { gridItemRef.current[idx] = el! }}
                     cursor='pointer'
-                    w='140px'
-                    h='140px'
+                    w={['120px', '120px', '140px']}
+                    h={['120px', '120px', '140px']}
                     margin='-1px -1px 0 0'
                     border='1px solid rgba(0, 0, 0, 0.2)'
                     padding='2em'

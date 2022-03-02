@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Stack, Text } from '@chakra-ui/react'
+import { Badge, Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import CircularAvatar from '../components/shared/circularAvatar'
@@ -20,10 +20,10 @@ const About: NextPage<AboutProps> = ({ about }) => {
   }, [about.content, setHtmlContent])
 
   return (
-    <Flex flexDirection='column' padding='100px 4em 4em 4em'>
-      <Box width='100%' height='11em' background='rgba(0,0,0,0.01)' pointerEvents='none' position='absolute' top='0' left='0'></Box>
-      <Box position='absolute' top='5em' right='12em'>
-        <CircularAvatar size='3xl' src='/about/avatar.jpg'></CircularAvatar>
+    <Flex flexDirection='column' padding={['80px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']}>
+      <Box width='100%' height={['9.5em', '11em', '11em']} background='rgba(0,0,0,0.05)' pointerEvents='none' position='absolute' top='0' left='0'></Box>
+      <Box position='absolute' top='5em' right={['1.5em', '2em', '8em']}>
+        <CircularAvatar size={['128px', '168px', '168px']} src='/about/avatar.jpg'></CircularAvatar>
       </Box>
       <Box width='fit-content' padding='6em 0 0 0'>
         {about.frontmatter.author && (
@@ -49,15 +49,15 @@ const About: NextPage<AboutProps> = ({ about }) => {
           </Text>
         )}
         {about.frontmatter.tags && (
-          <Stack direction='row' margin='1.5em 0 0 0'>
+          <Flex flexWrap='wrap' margin='1.5em 0 0 0'>
             {(
               about.frontmatter.tags.replace(' ', '').split(',').map((tag, idx) => {
                 return (
-                  <Badge key={idx} padding='1' borderRadius='4px' colorScheme='blue'>{`# ${tag}`}</Badge>
+                  <Badge key={idx} padding='1' margin='0 1em 0.8em 0' borderRadius='4px' colorScheme='blue'>{`# ${tag}`}</Badge>
                 )
               })
             )}
-          </Stack>
+          </Flex>
         )}
       </Box>
       <Box>

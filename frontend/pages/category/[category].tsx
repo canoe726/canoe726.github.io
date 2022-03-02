@@ -33,7 +33,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
   }, [category])
 
   return (
-    <Flex flexDirection='column' padding='112px 12em 2em 12em' minHeight='85vh' backgroundColor='rgba(0,0,0,0.01)'>
+    <Flex flexDirection='column' padding={['96px 1.5em 2em 1.5em', '96px 2.5em 2em 2.5em', '112px 4em 2em 4em', '112px 8em 2em 8em']} minHeight='85vh' backgroundColor='rgba(0,0,0,0.05)'>
       <Box width='100%' height='64px' background='white' position='absolute' top='0' left='0' pointerEvents='none' borderBottom='1px solid rgba(0, 0, 0, 0.2)'></Box>
       {files.map((file, idx) => {
         return (
@@ -42,7 +42,8 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
               cursor='pointer'
               display='flex'
               width='100%'
-              height='fit-content'
+              height={['180px', '180px', '240px']}
+              overflow='hidden'
               margin='0 0 2em 0'
               backgroundColor='white'
               borderBottom='1px solid rgba(0, 0, 0, 0.1)'
@@ -57,18 +58,21 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
                 }
               }}
             >
-              <Flex flex='3' flexDirection='column' padding='2em'>
-                <Text ref={el => { titleTextRef.current[idx] = el! }} fontSize='2xl' fontWeight='medium'>{file.frontmatter.title}</Text>
-                <Text marginTop='0.5em' fontSize='sm' fontWeight='light'>{file.frontmatter.summary}</Text>
+              <Flex flex={['2.5', '2.5', '3']} flexDirection='column' padding='2em'>
+                <Text className='title' ref={el => { titleTextRef.current[idx] = el! }} fontSize={['xl', 'xl', '2xl']} fontWeight='medium'>{file.frontmatter.title}</Text>
+                <Text className='summary' marginTop='0.5em' fontSize='sm' fontWeight='light' textOverflow='ellipsis' overflow='hidden' color='gray.600'>{file.frontmatter.summary}</Text>
                 <Text marginTop='1.5em' fontSize='x-small' color='gray.400'>{file.frontmatter.date}</Text>
               </Flex>
-              <Flex flex='1' position='relative' justifyContent='center' alignItems='center'>
-                <Box>
+              <Flex flex={['1.5', '1.5', '1']} position='relative' justifyContent='center' alignItems='center' padding={['0 1em 0 0', '0 1em 0 0', '0 1.5em 0 0']}>
+                <Box
+                  width={['140px', '140px', '180px']}
+                  height={['140px', '140px', '180px']}
+                  position='relative'
+                >
                   <Image
                     alt={`${file.frontmatter.category}-${file.slug}`}
                     src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
-                    width='140px'
-                    height='140px'
+                    layout='fill'
                     objectFit='cover'
                     loader={imageLoader}
                   ></Image>
