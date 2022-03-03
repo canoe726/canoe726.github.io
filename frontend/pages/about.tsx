@@ -36,17 +36,17 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
       <Flex flexDirection='column' padding={['80px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']}>
         <Box width='100%' height={['9.5em', '11em', '11em']} background='rgba(0,0,0,0.05)' pointerEvents='none' position='absolute' top='0' left='0'></Box>
         <Box position='absolute' top='5em' right={['1.5em', '2em', '8em']}>
-          <CircularAvatar size={['128px', '168px', '168px']} src='/about/avatar.jpg'></CircularAvatar>
+          <CircularAvatar size={['128px', '168px', '168px']} src='/about/avatar.png'></CircularAvatar>
         </Box>
         <Box width='fit-content' padding='6em 0 0 0'>
           {about.frontmatter.author && (
-            <Text fontSize='5xl'>{about.frontmatter.author}</Text>
+            <Text fontSize='5xl' fontWeight='normal'>{about.frontmatter.author}</Text>
           )}
           {about.frontmatter.summary && (
-            <Text color='gray.400'>{about.frontmatter.summary}</Text>
+            <Text color='gray.400' fontWeight='light'>{about.frontmatter.summary}</Text>
           )}
           {about.frontmatter.email && (
-            <Text width='fit-content' margin='1em 0 0 0' color='gray.600'>
+            <Text width='fit-content' fontWeight='light' margin='1em 0 0 0' color='gray.600'>
               ✉️&nbsp;&nbsp;
               <a href={`mailto:${about.frontmatter.email}`}>
                 {about.frontmatter.email}
@@ -54,7 +54,7 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
             </Text>
           )}
           {about.frontmatter.url && (
-            <Text color='gray.600'>
+            <Text fontWeight='light' color='gray.600'>
               🔗&nbsp;&nbsp;
               <a href={about.frontmatter.url} target='_blank' rel='noreferrer'>
                 {about.frontmatter.url}

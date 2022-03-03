@@ -98,7 +98,7 @@ const Post: NextPage<PostProps> = ({
           </Box>
         </Box>
         <Box position='absolute' top='64px' left={['1.5em', '2.5em', '4em']} right={['1.5em', '2.5em', '4em']} height='35vh' backgroundColor='rgba(0, 0, 0, 0.4)'>
-          <Text fontWeight='medium' position='absolute' width='100%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' lineHeight={[1.2, 1.2, 1.5]} fontSize={['3xl', '4xl', '5xl']} color='white'>{frontmatter.title}</Text>
+          <Text fontWeight='normal' position='absolute' width='100%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' lineHeight={[1.2, 1.2, 1.5]} fontSize={['3xl', '4xl', '5xl']} color='white'>{frontmatter.title}</Text>
           {frontmatter.shortcut && (
             <Text fontWeight='light' position='absolute' top='70%' left='50%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} transform='translate(-50%, -70%)' fontSize={['md', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
           )}

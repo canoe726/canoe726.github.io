@@ -110,7 +110,7 @@ const Menu = () => {
           )}
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
-          <Text id='top-title' textAlign='center'></Text>
+          <Text id='top-title' textAlign='center' fontWeight='light'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
           <Box
@@ -141,7 +141,7 @@ const Menu = () => {
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
               <CircularAvatar
                 size={['64px', '64px', '96px']}
-                src={'/about/avatar.jpg'}
+                src={'/about/avatar.png'}
               ></CircularAvatar>
               <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Anything you can write</Text>
               <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe918 -</Text>
