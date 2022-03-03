@@ -48,7 +48,7 @@ const Menu = () => {
 
   const resizeEvent = () => {
     const width = getBrowserWidth()
-    if (width <= 480) {
+    if (width <= 767) {
       setIsMobile(true)
     } else {
       setIsMobile(false)
@@ -110,7 +110,7 @@ const Menu = () => {
           )}
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
-          <Text id='top-title' padding='0 0.5em 0 0.5em' textAlign='center'></Text>
+          <Text id='top-title' textAlign='center'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
           <Box
