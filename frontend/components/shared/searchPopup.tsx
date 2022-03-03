@@ -2,6 +2,8 @@ import { Box, Flex, Input } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { IoIosSearch } from 'react-icons/io'
 import { VscChromeClose } from 'react-icons/vsc'
+import { useRecoilValue } from 'recoil'
+import { postsDataState } from '../../stores/posts'
 
 interface SearchPopupProps {
   setShowSearchPopup: (showSearchPopup: boolean) => void;
@@ -10,6 +12,9 @@ interface SearchPopupProps {
 const SearchPopup: NextPage<SearchPopupProps> = ({
   setShowSearchPopup
 }) => {
+  const postsData = useRecoilValue(postsDataState)
+  console.log('postsData : ', postsData)
+
   return (
     <Flex position='fixed' width='100%' height='100%' background='rgba(255, 255, 255, 0.95)' top='0' left='0' right='0' bottom='0' zIndex='9999'>
       <Box

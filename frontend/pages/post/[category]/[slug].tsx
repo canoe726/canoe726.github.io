@@ -3,14 +3,17 @@ import path from 'path'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
 import { Box, Text } from '@chakra-ui/react'
-import { FrontMatter } from '../../../stores/posts'
+import { FrontMatter, PostsData, postsDataState } from '../../../stores/posts'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
 import Image from 'next/image'
 import { imageLoader } from '../../../utils/loader'
 import Head from 'next/head'
+import { getPosts } from '../../../utils/loadMarkdownFiles'
+import { useSetRecoilState } from 'recoil'
 
 interface PostProps {
+  posts: PostsData[];
   slug: string;
   category: string;
   frontmatter: FrontMatter;
@@ -18,6 +21,7 @@ interface PostProps {
 }
 
 const Post: NextPage<PostProps> = ({
+  posts,
   slug,
   category,
   frontmatter,
@@ -25,6 +29,11 @@ const Post: NextPage<PostProps> = ({
 }) => {
   const [htmlContent, setHtmlContent] = useState<string>('')
   const imageZoomBoxRef = useRef<HTMLImageElement>(null)
+  const setPostsData = useSetRecoilState(postsDataState)
+
+  useEffect(() => {
+    setPostsData(posts)
+  }, [posts, setPostsData])
 
   const imageZoomScroll = useCallback(() => {
     if (imageZoomBoxRef.current) {
@@ -83,6 +92,8 @@ const Post: NextPage<PostProps> = ({
               alt={`${frontmatter.category}-${slug}`}
               src={`/post/${frontmatter.category}/${slug}/${frontmatter.coverImage}`}
               loader={imageLoader}
+              unoptimized={true}
+              priority={true}
             ></Image>
           </Box>
         </Box>
@@ -136,6 +147,7 @@ export async function getStaticProps ({ params: { category, slug } }: getStaticP
 
   return {
     props: {
+      posts: getPosts(),
       slug: slug,
       category: category,
       frontmatter: frontmatter,

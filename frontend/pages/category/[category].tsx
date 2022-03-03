@@ -3,23 +3,32 @@ import path from 'path'
 import matter from 'gray-matter'
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
-import { PostData } from '../../stores/posts'
+import { PostData, PostsData, postsDataState } from '../../stores/posts'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { imageLoader } from '../../utils/loader'
 import Head from 'next/head'
+import { getPosts } from '../../utils/loadMarkdownFiles'
+import { useSetRecoilState } from 'recoil'
 
 interface CategoryItemListProps {
+  posts: PostsData[];
   category: string;
   files: PostData[];
 }
 
 const CategoryItemList: NextPage<CategoryItemListProps> = ({
+  posts,
   category,
   files
 }) => {
   const titleTextRef = useRef<HTMLParagraphElement[]>([])
+  const setPostsData = useSetRecoilState(postsDataState)
+
+  useEffect(() => {
+    setPostsData(posts)
+  }, [posts, setPostsData])
 
   useEffect(() => {
     const topTitle = document.getElementById('top-title')
@@ -80,7 +89,9 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
                       src={`/post/${file.frontmatter.category}/${file.slug}/${file.frontmatter.coverImage}`}
                       layout='fill'
                       objectFit='cover'
+                      unoptimized={true}
                       loader={imageLoader}
+                      priority={true}
                     ></Image>
                   </Box>
                 </Flex>
@@ -136,6 +147,7 @@ export async function getStaticProps ({ params: { category } }: getStaticPropsPr
 
   return {
     props: {
+      posts: getPosts(),
       category: category,
       files: files
     }

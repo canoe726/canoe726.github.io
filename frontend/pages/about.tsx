@@ -2,17 +2,25 @@ import { Badge, Box, Flex, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { useSetRecoilState } from 'recoil'
 import CircularAvatar from '../components/shared/circularAvatar'
 import { AboutData } from '../stores/about'
-import { getAbout } from '../utils/loadMarkdownFiles'
+import { PostsData, postsDataState } from '../stores/posts'
+import { getAbout, getPosts } from '../utils/loadMarkdownFiles'
 import markdownToHtml from '../utils/markdownToHtml'
 
 interface AboutProps {
+  posts: PostsData[];
   about: AboutData;
 }
 
-const About: NextPage<AboutProps> = ({ about }) => {
+const About: NextPage<AboutProps> = ({ posts, about }) => {
   const [htmlContent, setHtmlContent] = useState<string>('')
+  const setPostsData = useSetRecoilState(postsDataState)
+
+  useEffect(() => {
+    setPostsData(posts)
+  }, [posts, setPostsData])
 
   useEffect(() => {
     markdownToHtml(about.content).then((html) => {
@@ -76,6 +84,7 @@ const About: NextPage<AboutProps> = ({ about }) => {
 export async function getStaticProps () {
   return {
     props: {
+      posts: getPosts(),
       about: getAbout()
     }
   }

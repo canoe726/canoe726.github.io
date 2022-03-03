@@ -58,6 +58,8 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
               layout='fill'
               objectFit='cover'
               loader={imageLoader}
+              unoptimized={true}
+              priority={true}
             >
             </Image>
           </Box>
