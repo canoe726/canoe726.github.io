@@ -11,6 +11,7 @@ import { imageLoader } from '../../../utils/loader'
 import Head from 'next/head'
 import { getPosts } from '../../../utils/loadMarkdownFiles'
 import { useSetRecoilState } from 'recoil'
+import Utterance from '../../../components/shared/utterance'
 
 interface PostProps {
   posts: PostsData[];
@@ -109,6 +110,7 @@ const Post: NextPage<PostProps> = ({
             <article className='post-body' style={{ width: '100%', maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
           </Flex>
         </Box>
+        <Utterance></Utterance>
       </Container>
     </>
   )
