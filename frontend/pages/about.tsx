@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import CircularAvatar from '../components/shared/circularAvatar'
+import ScrollBtn from '../components/shared/scrollBtn'
 import { AboutData } from '../stores/about'
 import { PostsData, postsDataState } from '../stores/posts'
 import { getAbout, getPosts } from '../utils/loadMarkdownFiles'
@@ -80,6 +81,7 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
         <Flex width='100%' justifyContent='center' alignItems='center'>
           <article className='post-body' style={{ maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
         </Flex>
+        <ScrollBtn></ScrollBtn>
       </Flex>
     </>
   )
