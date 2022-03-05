@@ -113,22 +113,26 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
         bottom='1.2em'
         background='rgba(0, 0, 0, 0.02)'
       >
-        <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 1.5em 1em 1.5em'>
-          {filteredData.length > 0 && (
-            filteredData.map((file, idx) => {
-              return (
-                <CardPost
-                  key={idx}
-                  file={file}
-                  onClick={() => {
-                    router.push(`/post/${file.frontmatter.category}/${file.slug}`)
-                    setShowSearchPopup(false)
-                  }}
-                ></CardPost>
-              )
-            })
-          )}
-        </Box>
+        <Flex width='100%' justifyContent='center' alignItems='center'>
+          <div style={{ width: '100%', maxWidth: '1320px' }}>
+            <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 1.5em 1em 1.5em'>
+              {filteredData.length > 0 && (
+                filteredData.map((file, idx) => {
+                  return (
+                    <CardPost
+                      key={idx}
+                      file={file}
+                      onClick={() => {
+                        router.push(`/post/${file.frontmatter.category}/${file.slug}`)
+                        setShowSearchPopup(false)
+                      }}
+                    ></CardPost>
+                  )
+                })
+              )}
+            </Box>
+          </div>
+        </Flex>
       </Box>
     </Flex>
   )

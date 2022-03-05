@@ -33,15 +33,15 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ---
 
-## Experience.
+## Experience
 
 ## [노써치](https://nosearch.com/)
 
+_2021.12.06-현재_
+
 가전 제품 구매시 더이상 검색을 할 필요가 없을 정도로 상세한 리뷰를 제공하는 가전 제품 커머스
 
-**Front-developer**
-
-2021.12.06-현재
+##### Front-developer
 
 - 사내 백오피스 V 2.0 기획/개발 참여
 - 제품 스펙 데이터 라벨링 툴 제작 업무 수행
@@ -50,28 +50,30 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ## [HomeBody](https://play.google.com/store/apps/details?id=com.fitbuddy.homebody)
 
+_2021.06.01-2021.11.19_
+
 모바일 디바이스로 집에서도 쉽게 즐기는 [AI 스마트 홈트레이닝 서비스](https://www.notion.so/HomeBody-6f6112f425fa4e32a8e1af0fac487934)
 
-**Front-developer**
-
-2021.06.01-2021.11.19
-
-**Growth Leader**
-
-**Marketer**
+##### Front-developer
 
 - 1주 애자일 스플린트로 업데이트 수행, 업데이트 자동화를 위해 Fastlane CI/CD 구축
 - 생산성 향상과 디자인 일관성을 위해 컴포넌트 모듈화, 디자인 시스템 개선, 기능 모듈화
 - 사용자 지표 및 앱 퀄리티 향상을 위해 전체 UI/UX, 디자인시스템을 3회에 걸쳐 수정
 - 사용자 경험 최적화를 위해 Firebase Crashlytics 도구를 부착하여 앱 크래쉬, 에러 로그 추적 및 핫픽스
 
+##### Growth Leader
+
 - MVP 출시 이후 로얄 유저의 Day 1 앱 리텐션 17% → 53%로 향상
 - 광고 캠페인, 주요 이벤트 지표 별 코호트 분석을 통해 로얄 유저 도출 (앱 세션시간 5분 이상, 운동 수행 10회 이상) 및 로얄 유저 5% 획득
 - 로얄 유저 분석을 통한 인 앱 메시지 푸쉬 설계를 통해 약 30개의 5점 앱 리뷰 획득
 - Firebase RemoteConfig 도구를 사용하여 3가지 AB 테스트를 수행하여 앱 유지율 25% 향상, 플레이스토어 문구 최적화로 앱 설치율 20% 향상
 
+##### Marketer
+
 - Google Ads 설치 캠페인 최적화를 통해 전세계 국가 대상 CPI $0.5 로 최적화
 - Google Ads 인 앱 캠페인 최적화를 통해 북미 유저 대상 전환율 30%, CPI $2.5 로 최적화
+
+##### Team
 
 - 효율적인 플래닝미팅과 가설 수립을 위해 애자일 기법 중 하나인 ICE 프레임워크를 도입하여 커뮤니케이션 수행
 - 룰베이스 기반 맞춤형 운동 수행방법을 제공하는 스마트 홈 트레이닝 시스템 특허출원 (출원번호 : 10-2021-0144162)
@@ -80,11 +82,12 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ## [나우앤 &](http://nowand.life/)
 
+_2021.03.01-2021.11.30_
+
 여기저기 흩어진 친환경 제품을 한곳에 모아 보여주는 [친환경 플랫폼 서비스](https://www.notion.so/Nowand-26e1c923680c42f994cad28e36744ec4)
 
-**Front-developer**
+##### Front-developer
 
-2021.03.01-2021.11.30
 
 - SEO 최적화를 통해 `나우앤` 구글 검색시 상단 노출
 - 프로젝트 아키텍처 개선을 위해 3번의 마이그레이션 작업 수행 (React.js → React + Typescript → Next.js + Typescript)
@@ -96,9 +99,9 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ---
 
-## Other Experience.
+## Other Experience
 
-## SW 마에스트로
+##### SW 마에스트로
 
 - SW 마에스트로 **15인 우수자 선정** - 글로벌 역량 교육
 - 그로스해킹 방법론을 통한 [HomeBody 애플리케이션](https://github.com/canoe726/HomeBody_readme) 개발
@@ -107,14 +110,14 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ---
 
-## 42 Seoul 피시너
+##### 42 Seoul 피시너
 
 - 라 피신 과정 참여 2021.02.15~2021.03.19
 - 리눅스 터미널, C언어를 사용하여 알고리즘 문제해결
 
 ---
 
-## 공공데이터 청년인턴
+##### 공공데이터 청년인턴
 
 - 공공데이터 개방, 품질진단 업무 수행
 - [SeeNear](https://github.com/canoe726/PublicDataHackerton_SeeNear) - 시니어를 위한 종합 애플리케이션 프로토타입 개발 (건강, 교육, 커뮤니티 서비스)
@@ -123,7 +126,7 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ---
 
-## [세종대학교 AI 연구실](https://www.notion.so/a7c3ff255f204ce2ac78477125c19d41)
+##### [세종대학교 AI 연구실](https://www.notion.so/a7c3ff255f204ce2ac78477125c19d41)
 
 - ‘AI를 활용한 롤 모델의 Activiy Profile Timeline 추출 기반 멘토링 서비스 시스템 개발’ 프로젝트 참여
 - 한국표준직업분류 기반 롤 모델 직업 군 및 모델 데이터 분류 및 크롤러 제작 (Selenium, BeautifulSoup)
@@ -141,16 +144,10 @@ TistoryBlog. [https://canoe726.tistory.com/](https://canoe726.tistory.com/)
 
 ---
 
-## Education. & Certificate. & Awards.
-
-### Education.
+## Education. & Certificate. & Awards
 
 세종대학교 디지털콘텐츠학과 2014.03-2021.02
 
 [Certificate.](https://www.notion.so/cb407f44ffa24c2da675159ffca459cc)
 
-자격증 증명 및 내용은 Open as page 를 통해서 확인하실 수 있습니다.
-
 [Awards.](https://www.notion.so/78b2a7f6a2d442ec9690eae8acc5d499)
-
-수상 증명 및 내용은 Open as page 를 통해서 확인하실 수 있습니다.
