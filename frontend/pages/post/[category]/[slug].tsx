@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import { FrontMatter, PostsData, postsDataState } from '../../../stores/posts'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
@@ -103,9 +103,9 @@ const Post: NextPage<PostProps> = ({
             <Text fontWeight='light' position='absolute' top='70%' left='50%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} transform='translate(-50%, -70%)' fontSize={['md', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
           )}
         </Box>
-        <Box margin='100px 0 0 0'>
-          <div className='post-body' dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
-        </Box>
+        <Flex margin='100px 0 0 0' width='100%' justifyContent='center' alignItems='center'>
+          <article className='post-body' style={{ maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
+        </Flex>
       </Box>
     </>
   )
