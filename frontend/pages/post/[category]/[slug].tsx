@@ -103,8 +103,8 @@ const Post: NextPage<PostProps> = ({
             <Text fontWeight='light' position='absolute' top='70%' left='50%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} transform='translate(-50%, -70%)' fontSize={['md', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
           )}
         </Box>
-        <Flex margin='100px 0 0 0' width='100%' justifyContent='center' alignItems='center'>
-          <article className='post-body' style={{ maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
+        <Flex margin='64px 0 0 0' width='100%' justifyContent='center' alignItems='center'>
+          <article className='post-body' style={{ width: '100%', maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
         </Flex>
       </Box>
     </>

@@ -32,6 +32,7 @@ const Footer: NextPage<FooterProps> = ({
           aria-label='github'
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
+          _hover={{ background: 'rgba(255, 255, 255, 0.2)', borderRadius: '8px' }}
           onClick={() => window.open('https://github.com/canoe726', '_blank')}
         >
           <IoLogoGithub aria-label='github'/>
@@ -41,6 +42,7 @@ const Footer: NextPage<FooterProps> = ({
           aria-label='github'
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
+          _hover={{ background: 'rgba(255, 255, 255, 0.2)', borderRadius: '8px' }}
           onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
         >
           <IoLogoLinkedin aria-label='linkedin'/>
