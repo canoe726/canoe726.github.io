@@ -10,9 +10,11 @@ import {
   DrawerOverlay,
   Flex,
   Text,
-  useDisclosure
+  useDisclosure,
+  useClipboard
 } from '@chakra-ui/react'
 import { IoIosMenu, IoIosSearch } from 'react-icons/io'
+import { AiOutlineLink } from 'react-icons/ai'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Footer from './footer'
@@ -22,6 +24,8 @@ import { getBrowserWidth } from '../../utils/utils'
 import SearchPopup from './searchPopup'
 
 const Menu = () => {
+  const [blogLink, setBlogLink] = useState<string>('')
+  const { hasCopied, onCopy } = useClipboard(blogLink)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [showSearchPopup, setShowSearchPopup] = useState<boolean>(false)
@@ -113,6 +117,24 @@ const Menu = () => {
           <Text id='top-title' textAlign='center' fontWeight='light'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
+          <Box
+            id='copy-link'
+            width='100%'
+            cursor='pointer'
+            aria-label='copy-link'
+            display={router.pathname.includes('post') ? 'flex' : 'none'}
+            justifyContent='center'
+            alignItems='center'
+            fontSize='32px'
+            outline='none'
+            margin='0 0.5em 0 0'
+            onClick={() => {
+              onCopy()
+              setBlogLink(window.location.href)
+            }}
+          >
+            <AiOutlineLink color={hasCopied ? '#63b3ed' : 'black'}></AiOutlineLink>
+          </Box>
           <Box
             width='100%'
             cursor='pointer'
