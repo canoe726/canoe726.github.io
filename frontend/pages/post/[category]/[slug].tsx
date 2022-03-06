@@ -79,7 +79,7 @@ const Post: NextPage<PostProps> = ({
         <meta name="description" content={`${frontmatter.title}-${frontmatter.summary}`}></meta>
       </Head>
       <Container padding='0' maxWidth='1320px'>
-        <Box position='relative' padding={['35vh 1.5em 3em 1.5em', '35vh 2.5em 3em 2.5em', '35vh 4em 3em 4em']}>
+        <Box position='relative' padding={['35vh 1.5em 2em 1.5em', '35vh 2.5em 2em 2.5em', '35vh 4em 2em 4em']}>
           <Box
             position='absolute'
             overflow='hidden'
