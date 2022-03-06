@@ -27,7 +27,7 @@ const Utterance = () => {
   }, [])
 
   return (
-    <Box margin="0 0 1.5em 0">
+    <Box margin="0 0 1.5em 0" padding={['0 1.5em 4em 1.5em', '0 2.5em 4em 2.5em', '0 4em 4em 4em']}>
       <div id="comment" ref={commentRef}></div>
     </Box>
   )
