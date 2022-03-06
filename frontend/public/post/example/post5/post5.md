@@ -1,7 +1,7 @@
 ---
 title: 'Post example 5'
 summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quos velit quaerat tempora impedit esse eaque quod accusamus similique iusto. Optio cum architecto quod sapiente esse repellendus laboriosam, distinctio provident.'
-category: 'data structure'
+category: 'example'
 date: '2021-03-01'
 coverImage: 'thumbnail.jpg'
 ---

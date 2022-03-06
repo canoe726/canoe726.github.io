@@ -73,7 +73,7 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
               {data.frontmatter.summary ? data.frontmatter.summary : ''}
             </Text>
             <Spacer height='0.3em'></Spacer>
-            <Text fontSize='sm' fontWeight='light' color='gray.400'>
+            <Text fontSize='md' fontWeight='light' color='gray.400'>
               {data.frontmatter.date}
             </Text>
           </Box>
