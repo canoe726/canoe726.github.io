@@ -31,7 +31,8 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
   }, [])
 
   return (
-    <Flex position='fixed' width='100%' height='100%' background='rgba(255, 255, 255, 0.95)' top='0' left='0' right='0' bottom='0' zIndex='9999'>
+    <Flex position='fixed' width='100%' height='100%' background='rgba(255, 255, 255, 0.98)' top='0' left='0' right='0' bottom='0' zIndex='9999'>
+      <Box zIndex='99'>
       <Box
         position='fixed'
         cursor='pointer'
@@ -105,33 +106,36 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
         <IoIosSearch
         ></IoIosSearch>
       </Box>
+      </Box>
       <Box
         position='fixed'
+        overflow='scroll'
         top={['6em', '6em', '8em']}
-        left='1.2em'
-        right='1.2em'
-        bottom='1.2em'
-        background='rgba(0, 0, 0, 0.02)'
+        left='0'
+        right='0'
+        bottom='0'
       >
         <Flex width='100%' justifyContent='center' alignItems='center'>
-          <div style={{ width: '100%', maxWidth: '1320px' }}>
-            <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 1.5em 1em 1.5em'>
-              {filteredData.length > 0 && (
-                filteredData.map((file, idx) => {
-                  return (
-                    <CardPost
-                      key={idx}
-                      file={file}
-                      onClick={() => {
-                        router.push(`/post/${file.frontmatter.category}/${file.slug}`)
-                        setShowSearchPopup(false)
-                      }}
-                    ></CardPost>
-                  )
-                })
-              )}
-            </Box>
-          </div>
+          <Box position='relative'>
+            <div style={{ width: '100%', maxWidth: '1320px' }}>
+              <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 2em 1.5em 2em'>
+                {filteredData.length > 0 && (
+                  filteredData.map((file, idx) => {
+                    return (
+                      <CardPost
+                        key={idx}
+                        file={file}
+                        onClick={() => {
+                          router.push(`/post/${file.frontmatter.category}/${file.slug}`)
+                          setShowSearchPopup(false)
+                        }}
+                      ></CardPost>
+                    )
+                  })
+                )}
+              </Box>
+            </div>
+          </Box>
         </Flex>
       </Box>
     </Flex>
