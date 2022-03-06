@@ -44,7 +44,7 @@ const Post: NextPage<PostProps> = ({
     }
     const topTitle = document.getElementById('top-title')
     if (window.scrollY >= 120 && topTitle) {
-      topTitle.innerHTML = frontmatter.title
+      topTitle.innerHTML = `${frontmatter.title.slice(0, 1).toUpperCase()}${frontmatter.title.slice(1)}`
     } else if (window.screenY < 120 && topTitle) {
       topTitle.innerHTML = ''
     }

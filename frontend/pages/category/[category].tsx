@@ -32,7 +32,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
   useEffect(() => {
     const topTitle = document.getElementById('top-title')
     if (topTitle) {
-      topTitle.innerHTML = category
+      topTitle.innerHTML = `${category.slice(0, 1).toUpperCase()}${category.slice(1)}`
     }
     return () => {
       if (topTitle) {

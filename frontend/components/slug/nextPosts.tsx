@@ -9,6 +9,7 @@ import { PostData, postsDataState } from '../../stores/posts'
 import { imageLoader } from '../../utils/loader'
 
 const NextPosts = () => {
+  const sliceLen = 10
   const postsData = useRecoilValue(postsDataState)
   const [randomPosts, setRandomPosts] = useState<PostData[]>([])
   const [relatedPosts, setRelatedPosts] = useState<PostData[]>([])
@@ -20,7 +21,7 @@ const NextPosts = () => {
       return postData.files.flat()
     }).flat()
     if (allPosts.length > 0) {
-      const allPostsLen = allPosts.length >= 10 ? 10 : allPosts.length
+      const allPostsLen = allPosts.length >= sliceLen ? sliceLen : allPosts.length
       const randTen: number[] = []
       while (randTen.length < allPostsLen) {
         const randInt = Math.floor(Math.random() * allPostsLen)
@@ -44,7 +45,7 @@ const NextPosts = () => {
       .map((postData) => {
         return postData.files
       })
-      .slice(0, 10)
+      .slice(0, sliceLen)
       .flat()
     setRelatedPosts(categoryPosts)
   }, [postsData, category])
@@ -77,7 +78,7 @@ const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin }) => {
 
   return (
     <Box width='100%' margin={margin}>
-      <Text fontWeight='normal'>{title}</Text>
+      <Text fontSize='1.2em' fontWeight='normal'>{title}</Text>
       <Box width='100%' overflow='auto' margin='1em 0 0 0'>
         <Flex>
           {data.map((postData, idx) => {
