@@ -148,7 +148,7 @@ const Menu = () => {
             </Box>
           </DrawerHeader>
           <DrawerBody>
-            <Flex flexDirection='column'>
+            <Flex overflow='auto' flexDirection='column'>
               <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
                 aria-label='home'
                 onClick={() => {

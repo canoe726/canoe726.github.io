@@ -13,7 +13,6 @@ import { getPosts } from '../../../utils/loadMarkdownFiles'
 import { useSetRecoilState } from 'recoil'
 import Utterance from '../../../components/shared/utterance'
 import NextPosts from '../../../components/slug/nextPosts'
-import ScrollBtn from '../../../components/shared/scrollBtn'
 
 interface PostProps {
   posts: PostsData[];
@@ -80,7 +79,7 @@ const Post: NextPage<PostProps> = ({
         <meta name="description" content={`${frontmatter.title}-${frontmatter.summary}`}></meta>
       </Head>
       <Container padding='0' maxWidth='1320px'>
-        <Box position='relative' padding={['35vh 1.5em 4em 1.5em', '35vh 2.5em 4em 2.5em', '35vh 4em 4em 4em']}>
+        <Box position='relative' padding={['35vh 1.5em 3em 1.5em', '35vh 2.5em 3em 2.5em', '35vh 4em 3em 4em']}>
           <Box
             position='absolute'
             overflow='hidden'
@@ -114,7 +113,7 @@ const Post: NextPage<PostProps> = ({
         </Box>
         <NextPosts></NextPosts>
         <Utterance></Utterance>
-        <ScrollBtn></ScrollBtn>
+        {/* <ScrollBtn></ScrollBtn> */}
       </Container>
     </>
   )
