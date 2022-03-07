@@ -18,5 +18,6 @@ const markDownIt = require('markdown-it')({
 })
 
 export default async function markdownToHtml (markdown: any) {
-  return markDownIt.render(markdown)
+  const renderMarkdown: string = markDownIt.render(markdown)
+  return renderMarkdown.replaceAll('<a href', '<a target="_blank" href')
 }
