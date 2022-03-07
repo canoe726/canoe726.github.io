@@ -10,7 +10,7 @@ import { getPosts } from '../../utils/loadMarkdownFiles'
 import { useSetRecoilState } from 'recoil'
 import CardPost from '../../components/shared/cardPost'
 import { useRouter } from 'next/router'
-import useInfinityScroll from '../../components/shared/infinityScroll'
+import useInfinityScroll from '../../components/shared/useInfinityScroll'
 
 interface CategoryItemListProps {
   posts: PostsData[];

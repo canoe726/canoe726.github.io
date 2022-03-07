@@ -24,6 +24,25 @@ import CircularAvatar from './circularAvatar'
 import { getBrowserWidth } from '../../utils/utils'
 import SearchPopup from './searchPopup'
 
+const drawerButtons: { title: string, link: string }[] = [
+  {
+    title: 'Home',
+    link: '/'
+  },
+  {
+    title: 'About',
+    link: '/about'
+  },
+  {
+    title: 'Category',
+    link: '/category'
+  },
+  {
+    title: 'License',
+    link: '/license'
+  }
+]
+
 const Menu = () => {
   const [blogLink, setBlogLink] = useState<string>('')
   const { hasCopied, onCopy } = useClipboard(blogLink)
@@ -193,33 +212,19 @@ const Menu = () => {
           </DrawerHeader>
           <DrawerBody>
             <Flex overflow='auto' flexDirection='column'>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='home'
-                onClick={() => {
-                  router.push('/')
-                  onClose()
-                }}
-              >
-                Home
-              </Box>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='about'
-                onClick={() => {
-                  router.push('/about')
-                  onClose()
-                }}
-              >
-                About
-              </Box>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='about'
-                onClick={() => {
-                  router.push('/category')
-                  onClose()
-                }}
-              >
-                Category
-              </Box>
+              {drawerButtons.map((button, idx) => {
+                return (
+                  <Box key={idx} textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                    aria-label='home'
+                    onClick={() => {
+                      router.push(button.link)
+                      onClose()
+                    }}
+                  >
+                    {button.title}
+                  </Box>
+                )
+              })}
             </Flex>
           </DrawerBody>
           <DrawerFooter padding='0'>

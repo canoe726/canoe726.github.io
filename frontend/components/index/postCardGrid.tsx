@@ -7,7 +7,7 @@ import { PostData, postsDataSelector } from '../../stores/posts'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { imageLoader } from '../../utils/loader'
-import useInfinityScroll from '../shared/infinityScroll'
+import useInfinityScroll from '../shared/useInfinityScroll'
 
 const PostCardGrid = () => {
   const { files } = useRecoilValue(postsDataSelector)
