@@ -11,9 +11,10 @@ import {
   Flex,
   Text,
   useDisclosure,
-  useClipboard
+  useClipboard,
+  useToast
 } from '@chakra-ui/react'
-import { IoIosMenu, IoIosSearch } from 'react-icons/io'
+import { IoIosMenu, IoIosSearch, IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { AiOutlineLink } from 'react-icons/ai'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -33,6 +34,7 @@ const Menu = () => {
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
   const progressBackRef = useRef<HTMLHRElement>(null)
+  const toast = useToast()
   const router = useRouter()
 
   const windowScrollEvent = useCallback(() => {
@@ -58,6 +60,29 @@ const Menu = () => {
       setIsMobile(false)
     }
   }
+
+  const onCopyClipboardClick = () => {
+    setBlogLink(window.location.href)
+  }
+
+  useEffect(() => {
+    if (blogLink.length > 0) {
+      onCopy()
+      toast({
+        duration: 1200,
+        isClosable: true,
+        render: () => (
+          <Box display='flex' justifyContent='center' alignItems='center' fontWeight='medium' border='none' borderRadius='8px' padding='0.8em 0em 0.8em 0em' background='#63b3ed' textAlign='center' color='white'>
+            <Box fontSize='24px'>
+              <IoIosCheckmarkCircleOutline></IoIosCheckmarkCircleOutline>
+            </Box>
+            <Box marginLeft='1em'>Share link to your friends!</Box>
+          </Box>
+        )
+      })
+      setBlogLink('')
+    }
+  }, [onCopy, blogLink, toast])
 
   useEffect(() => {
     window.addEventListener('scroll', windowScrollEvent)
@@ -128,10 +153,7 @@ const Menu = () => {
             fontSize='32px'
             outline='none'
             margin='0 0.5em 0 0'
-            onClick={() => {
-              onCopy()
-              setBlogLink(window.location.href)
-            }}
+            onClick={onCopyClipboardClick}
           >
             <AiOutlineLink color={hasCopied ? '#63b3ed' : 'black'}></AiOutlineLink>
           </Box>
