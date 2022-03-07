@@ -14,7 +14,6 @@ const ImageSlider = () => {
   const imageBoxRef = useRef<HTMLDivElement>(null)
   const [isPrevBtnShow, setIsPrevBtnShow] = useState<boolean>(false)
   const [isNextBtnShow, setIsNextBtnShow] = useState<boolean>(true)
-  console.log('files : ', files)
 
   const sliderMove = (dir: number): void => {
     if (imageSliderRef.current && imageBoxRef.current) {
