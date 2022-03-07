@@ -1,9 +1,11 @@
 {
   "name": "frontend",
+  "version": "1.0.0",
   "homepage": "https://canoe726.github.io/canoe726.github.io",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "cp -r ../posts/* ./public",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -19,16 +21,15 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
-    "framer-motion": "^6.2.8",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.4.0",
+    "markdown-it": "^12.3.2",
     "next": "12.0.8",
     "raw-loader": "^4.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "recoil": "^0.5.2",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.2"
+    "recoil": "^0.5.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.10",

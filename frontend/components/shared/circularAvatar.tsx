@@ -28,7 +28,9 @@ const CircularAvatar: NextPage<CircularAvatarProps> = ({
         objectFit='cover'
         src={src}
         alt='avatar-img'
+        unoptimized={true}
         loader={imageLoader}
+        priority={true}
       ></Image>
     </Flex>
   )

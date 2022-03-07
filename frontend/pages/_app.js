@@ -33,6 +33,7 @@ function MyApp ({ Component, pageProps }) {
           <meta name="author" content={metaConstants.author}></meta>
           <meta name="subject" content={metaConstants.subject}></meta>
           <meta name="copyright" content={metaConstants.copyright}></meta>
+          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"></link>
           {/* <link rel="icon" href="/logo.jpeg" />
           <link rel="shortcut icon" href="/logo.ico"/>
           <link rel="apple-touch-icon" href="/logo.jpeg" /> */}

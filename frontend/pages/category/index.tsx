@@ -3,7 +3,8 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { PostsData } from '../../stores/posts'
+import { useSetRecoilState } from 'recoil'
+import { PostsData, postsDataState } from '../../stores/posts'
 import { getPosts } from '../../utils/loadMarkdownFiles'
 
 interface CategoryProps {
@@ -14,6 +15,11 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
   const [categories, setCategories] = useState<string[]>([])
   const gridItemRef = useRef<HTMLDivElement[]>([])
   const gridItemTextRef = useRef<HTMLParagraphElement[]>([])
+  const setPostsData = useSetRecoilState(postsDataState)
+
+  useEffect(() => {
+    setPostsData(posts)
+  }, [posts, setPostsData])
 
   useEffect(() => {
     setCategories(posts.map((post) => {
@@ -60,7 +66,9 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
                       justifyContent='center'
                       alignItems='center'
                     >
-                      <Text ref={el => { gridItemTextRef.current[idx] = el! }} fontWeight='light' fontSize='md' textAlign='center'>{category}</Text>
+                      <Text ref={el => { gridItemTextRef.current[idx] = el! }} fontWeight='light' fontSize='md' textAlign='center'>
+                        {`${category.slice(0, 1).toUpperCase()}${category.slice(1)}`}
+                      </Text>
                     </Box>
                   </Link>
                 )
