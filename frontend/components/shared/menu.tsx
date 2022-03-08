@@ -89,7 +89,7 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
     if (blogLink.length > 0) {
       onCopy()
       toast({
-        duration: 1200,
+        duration: 2000,
         isClosable: true,
         render: () => (
           <Box display='flex' justifyContent='center' alignItems='center' fontWeight='medium' border='none' borderRadius='8px' padding='0.8em 0em 0.8em 0em' background='#63b3ed' textAlign='center' color='white'>
