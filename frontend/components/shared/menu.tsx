@@ -10,9 +10,12 @@ import {
   DrawerOverlay,
   Flex,
   Text,
-  useDisclosure
+  useClipboard,
+  useToast,
+  UseDisclosureProps
 } from '@chakra-ui/react'
-import { IoIosMenu, IoIosSearch } from 'react-icons/io'
+import { IoIosMenu, IoIosSearch, IoIosCheckmarkCircleOutline } from 'react-icons/io'
+import { AiOutlineLink } from 'react-icons/ai'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Footer from './footer'
@@ -20,15 +23,38 @@ import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
 import { getBrowserWidth } from '../../utils/utils'
 import SearchPopup from './searchPopup'
+import { NextPage } from 'next'
 
-const Menu = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+const drawerButtons: { title: string, link: string }[] = [
+  {
+    title: 'Home',
+    link: '/'
+  },
+  {
+    title: 'About',
+    link: '/about'
+  },
+  {
+    title: 'Category',
+    link: '/category'
+  }
+]
+
+interface MenuProps {
+  drawerDisclosure: UseDisclosureProps;
+}
+
+const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
+  const { isOpen, onOpen, onClose } = drawerDisclosure
+  const [blogLink, setBlogLink] = useState<string>('')
+  const { hasCopied, onCopy } = useClipboard(blogLink)
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [showSearchPopup, setShowSearchPopup] = useState<boolean>(false)
   const btnRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLHRElement>(null)
   const progressBackRef = useRef<HTMLHRElement>(null)
+  const toast = useToast()
   const router = useRouter()
 
   const windowScrollEvent = useCallback(() => {
@@ -54,6 +80,29 @@ const Menu = () => {
       setIsMobile(false)
     }
   }
+
+  const onCopyClipboardClick = () => {
+    setBlogLink(window.location.href)
+  }
+
+  useEffect(() => {
+    if (blogLink.length > 0) {
+      onCopy()
+      toast({
+        duration: 2000,
+        isClosable: true,
+        render: () => (
+          <Box display='flex' justifyContent='center' alignItems='center' fontWeight='medium' border='none' borderRadius='8px' padding='0.8em 0em 0.8em 0em' background='#63b3ed' textAlign='center' color='white'>
+            <Box fontSize='24px'>
+              <IoIosCheckmarkCircleOutline></IoIosCheckmarkCircleOutline>
+            </Box>
+            <Box marginLeft='1em'>Share link to your friends!</Box>
+          </Box>
+        )
+      })
+      setBlogLink('')
+    }
+  }, [onCopy, blogLink, toast])
 
   useEffect(() => {
     window.addEventListener('scroll', windowScrollEvent)
@@ -110,9 +159,24 @@ const Menu = () => {
           )}
         </Flex>
         <Flex position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
-          <Text id='top-title' textAlign='center'></Text>
+          <Text id='top-title' textAlign='center' fontWeight='light'></Text>
         </Flex>
         <Flex alignItems='center' justifyContent='center'>
+          <Box
+            id='copy-link'
+            width='100%'
+            cursor='pointer'
+            aria-label='copy-link'
+            display={router.pathname.includes('post') ? 'flex' : 'none'}
+            justifyContent='center'
+            alignItems='center'
+            fontSize='32px'
+            outline='none'
+            margin='0 0.5em 0 0'
+            onClick={onCopyClipboardClick}
+          >
+            <AiOutlineLink color={hasCopied ? '#63b3ed' : 'black'}></AiOutlineLink>
+          </Box>
           <Box
             width='100%'
             cursor='pointer'
@@ -131,9 +195,9 @@ const Menu = () => {
         <Divider ref={progressRef} display='none' top='64px' left='0' width='1px' position='absolute' border='1px' borderColor='black'></Divider>
       </Flex>
       <Drawer
-        isOpen={isOpen}
+        isOpen={isOpen!}
         placement='left'
-        onClose={onClose}
+        onClose={onClose!}
         finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
@@ -141,41 +205,27 @@ const Menu = () => {
             <Box display='flex' flexDirection='column' alignItems='center' justifyItems='center'>
               <CircularAvatar
                 size={['64px', '64px', '96px']}
-                src={'/about/avatar.jpg'}
+                src={'/about/avatar.png'}
               ></CircularAvatar>
               <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Anything you can write</Text>
               <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe918 -</Text>
             </Box>
           </DrawerHeader>
           <DrawerBody>
-            <Flex flexDirection='column'>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='home'
-                onClick={() => {
-                  router.push('/')
-                  onClose()
-                }}
-              >
-                Home
-              </Box>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='about'
-                onClick={() => {
-                  router.push('/about')
-                  onClose()
-                }}
-              >
-                About
-              </Box>
-              <Box textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                aria-label='about'
-                onClick={() => {
-                  router.push('/category')
-                  onClose()
-                }}
-              >
-                Category
-              </Box>
+            <Flex overflow='auto' flexDirection='column'>
+              {drawerButtons.map((button, idx) => {
+                return (
+                  <Box key={idx} textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                    aria-label='home'
+                    onClick={() => {
+                      router.push(button.link)
+                      onClose!()
+                    }}
+                  >
+                    {button.title}
+                  </Box>
+                )
+              })}
             </Flex>
           </DrawerBody>
           <DrawerFooter padding='0'>
@@ -183,6 +233,7 @@ const Menu = () => {
               background='black'
               color='white'
               padding='2em 1em 2em 1em'
+              drawerDisclosure={drawerDisclosure}
             ></Footer>
           </DrawerFooter>
         </DrawerContent>

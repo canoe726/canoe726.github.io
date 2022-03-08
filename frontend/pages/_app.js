@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { RecoilRoot } from 'recoil'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
 
 import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
@@ -15,6 +15,8 @@ export const metaConstants = {
 }
 
 function MyApp ({ Component, pageProps }) {
+  const drawerDisclosure = useDisclosure()
+
   return (
     <RecoilRoot>
       <ChakraProvider>
@@ -23,7 +25,7 @@ function MyApp ({ Component, pageProps }) {
           <meta charSet="utf-8"></meta>
           <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=2.0, minimum-scale=0.5" />
           <meta name="theme-color" content="#000000" />
-          <meta name="image" property="og:image" content="/meta-image.jpg"/>
+          <meta name="image" property="og:image" content="/logo.png"/>
           <meta name ="keywords" content="This is Blog - Github Pages Blog"/>
           <meta name ="reply-to" content="canoe918@gmail.com"/>
           <meta name ="content-language" content="kr"/>
@@ -33,16 +35,18 @@ function MyApp ({ Component, pageProps }) {
           <meta name="author" content={metaConstants.author}></meta>
           <meta name="subject" content={metaConstants.subject}></meta>
           <meta name="copyright" content={metaConstants.copyright}></meta>
-          {/* <link rel="icon" href="/logo.jpeg" />
-          <link rel="shortcut icon" href="/logo.ico"/>
-          <link rel="apple-touch-icon" href="/logo.jpeg" /> */}
+          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"></link>
+          <link rel="icon" href="/logo.png" />
+          <link rel="shortcut icon" href="/logo.png"/>
+          <link rel="apple-touch-icon" href="/logo.png" />
         </Head>
-        <Menu></Menu>
+        <Menu drawerDisclosure={drawerDisclosure}></Menu>
         <Component {...pageProps}/>
         <Footer
           background='black'
           color='white'
           padding='2em 4em 2em 4em'
+          drawerDisclosure={drawerDisclosure}
         ></Footer>
       </ChakraProvider>
     </RecoilRoot>

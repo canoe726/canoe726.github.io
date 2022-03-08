@@ -20,6 +20,20 @@ body,
   background: linear-gradient(0deg, #A0AEC0, #EDF2F7);
 } */
 
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4A5568;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #E2E8F0;
+}
+
+
 a {
   text-decoration: none;
 }
@@ -66,26 +80,135 @@ img {
 }
 
 .post-body {
+  font-size: 1.1em;
   margin: 2em 0 2em 0;
 }
 
-.post-body ul,
-ol,
-li {
-  font-size: 110%;
-  line-height: 2.3;
-  font-weight: bold;
-  margin: 10px 0;
-  list-style-position: inside;
+.post-body strong {
+  font-weight: 600;
 }
 
-.post-body pre {
-  background: #f4f4f4;
-  border-radius: 16px;
-  padding: 20px;
-  margin: 20px 0;
+.post-body em {
+  font-weight: normal;
+}
+
+.post-body del {
+  font-weight: normal;
+}
+
+.post-body strike {
+  font-weight: normal;
+}
+
+.post-body sup {
+  font-weight: normal;
+}
+
+.post-body small {
+  font-weight: normal;
+}
+
+.post-body blockquote {
+  font-weight: normal;
+}
+
+.post-body img {
+  margin: auto;
+  padding: 0.5em 0 0.5em 0;
+  max-width: 640px;
+  max-height: 480px;
+  object-fit: scale-down;
+  border-radius: 8px;
+}
+
+.post-body h1 {
+  font-size: 2.2em;
+  font-weight: 600;
+  margin: 0.6em 0 0.3em 0;
+}
+
+.post-body h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0.6em 0 0.3em 0;
+}
+
+.post-body h3 {
+  font-size: 1.8em;
+  font-weight: 500;
+  margin: 0.6em 0 0.3em 0;
+}
+
+.post-body h4 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 1em 0 0.3em 0;
+}
+
+.post-body h5 {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 1em 0 0.3em 0;
+}
+
+.post-body h6 {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 1em 0 0.3em 0;
+}
+
+.post-body a {
+  color: #4a5568;
+  text-decoration: underline;
+}
+
+.post-body a:hover {
+  color: #63b3ed;
+}
+
+.post-body p {
+  font-weight: light;
+  margin: 0.8em 0 0.3em 0;
+  line-height: 2em;
+}
+
+.post-body ul {
+  margin: 1em 0 1em 2em;
+}
+
+.post-body ol {
+  margin: 1em 0 1em 2em;
+}
+
+.post-body li {
+  line-height: 2em;
+}
+
+.post-body hr {
+  background-color: #4a5568;
+  margin: 1em 0 1em 0;
+}
+
+.post-body p code {
+  color: #6b46c1;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  border-radius: 8px;
+  margin: 0 0.1em 0 0.1em;
+  padding: 0.2em 0.4em 0.2em 0.4em;
+  overflow: auto;
+}
+
+.post-body pre code {
+  display: block;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 1.2em 0 0.8em 0;
+  padding: 2em 1.8em 2em 1.8em;
   line-height: 2;
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 .title {

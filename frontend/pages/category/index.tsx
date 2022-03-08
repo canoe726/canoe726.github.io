@@ -66,7 +66,9 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
                       justifyContent='center'
                       alignItems='center'
                     >
-                      <Text ref={el => { gridItemTextRef.current[idx] = el! }} fontWeight='light' fontSize='md' textAlign='center'>{category}</Text>
+                      <Text ref={el => { gridItemTextRef.current[idx] = el! }} fontWeight='light' fontSize='md' textAlign='center'>
+                        {`${category.slice(0, 1).toUpperCase()}${category.slice(1)}`}
+                      </Text>
                     </Box>
                   </Link>
                 )

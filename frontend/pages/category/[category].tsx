@@ -10,6 +10,7 @@ import { getPosts } from '../../utils/loadMarkdownFiles'
 import { useSetRecoilState } from 'recoil'
 import CardPost from '../../components/shared/cardPost'
 import { useRouter } from 'next/router'
+import useInfinityScroll from '../../components/shared/useInfinityScroll'
 
 interface CategoryItemListProps {
   posts: PostsData[];
@@ -23,6 +24,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
   files
 }) => {
   const setPostsData = useSetRecoilState(postsDataState)
+  const { data } = useInfinityScroll<PostData>(files, 8)
   const router = useRouter()
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
   useEffect(() => {
     const topTitle = document.getElementById('top-title')
     if (topTitle) {
-      topTitle.innerHTML = category
+      topTitle.innerHTML = `${category.slice(0, 1).toUpperCase()}${category.slice(1)}`
     }
     return () => {
       if (topTitle) {
@@ -47,17 +49,19 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
         <title>{`${category.slice(0, 1).toUpperCase()}${category.slice(1)}`}</title>
         <meta name="description" content={`This is Blog - ${category}`}></meta>
       </Head>
-      <Flex flexDirection='column' padding={['96px 1.5em 2em 1.5em', '96px 2.5em 2em 2.5em', '112px 4em 2em 4em', '112px 8em 2em 8em']} minHeight='85vh' backgroundColor='rgba(0,0,0,0.05)'>
-        <Box width='100%' height='64px' background='white' position='absolute' top='0' left='0' pointerEvents='none' borderBottom='1px solid rgba(0, 0, 0, 0.2)'></Box>
-        {files.map((file, idx) => {
-          return (
-            <CardPost
-              key={idx}
-              file={file}
-              onClick={() => router.push(`/post/${file.frontmatter.category}/${file.slug}`)}
-            ></CardPost>
-          )
-        })}
+      <Flex height='100%' justifyContent='start' alignItems='center' flexDirection='column' padding={['96px 1.5em 2em 1.5em', '96px 2.5em 2em 2.5em', '112px 4em 2em 4em', '112px 8em 2em 8em']} minHeight='85vh' backgroundColor='rgba(0,0,0,0.05)'>
+        <div style={{ width: '100%', maxWidth: '1320px' }}>
+          <Box width='100%' height='64px' background='white' position='absolute' top='0' left='0' pointerEvents='none' borderBottom='1px solid rgba(0, 0, 0, 0.2)'></Box>
+          {data.map((file, idx) => {
+            return (
+              <CardPost
+                key={idx}
+                file={file}
+                onClick={() => router.push(`/post/${file.frontmatter.category}/${file.slug}`)}
+              ></CardPost>
+            )
+          })}
+        </div>
       </Flex>
     </>
   )
