@@ -10,14 +10,14 @@ function useInfinityScroll<T> (data: T[], loadSize: number): { data: T[] } {
     const scrollHeight = document.documentElement.scrollHeight
     const scrollTop = document.documentElement.scrollTop
     const clientHeight = document.documentElement.clientHeight
-    if ((scrollHeight - scrollTop) <= (clientHeight * 2)) {
+    if ((scrollHeight - scrollTop) <= (clientHeight * 2.5)) {
       if (!throttle) {
         throttle = setTimeout(() => {
           throttle = null
-          if (sliceLen < data.length || sliceLen <= 99) {
+          if (sliceLen < data.length) {
             setSliceLen(sliceLen + loadSize)
           }
-        }, 500)
+        }, 300)
       }
     }
   }, [sliceLen, data.length, loadSize])

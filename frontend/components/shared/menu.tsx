@@ -10,9 +10,9 @@ import {
   DrawerOverlay,
   Flex,
   Text,
-  useDisclosure,
   useClipboard,
-  useToast
+  useToast,
+  UseDisclosureProps
 } from '@chakra-ui/react'
 import { IoIosMenu, IoIosSearch, IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { AiOutlineLink } from 'react-icons/ai'
@@ -23,6 +23,7 @@ import { useRouter } from 'next/router'
 import CircularAvatar from './circularAvatar'
 import { getBrowserWidth } from '../../utils/utils'
 import SearchPopup from './searchPopup'
+import { NextPage } from 'next'
 
 const drawerButtons: { title: string, link: string }[] = [
   {
@@ -36,17 +37,17 @@ const drawerButtons: { title: string, link: string }[] = [
   {
     title: 'Category',
     link: '/category'
-  },
-  {
-    title: 'License',
-    link: '/license'
   }
 ]
 
-const Menu = () => {
+interface MenuProps {
+  drawerDisclosure: UseDisclosureProps;
+}
+
+const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
+  const { isOpen, onOpen, onClose } = drawerDisclosure
   const [blogLink, setBlogLink] = useState<string>('')
   const { hasCopied, onCopy } = useClipboard(blogLink)
-  const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [showSearchPopup, setShowSearchPopup] = useState<boolean>(false)
   const btnRef = useRef<HTMLDivElement>(null)
@@ -88,7 +89,7 @@ const Menu = () => {
     if (blogLink.length > 0) {
       onCopy()
       toast({
-        duration: 1200,
+        duration: 2000,
         isClosable: true,
         render: () => (
           <Box display='flex' justifyContent='center' alignItems='center' fontWeight='medium' border='none' borderRadius='8px' padding='0.8em 0em 0.8em 0em' background='#63b3ed' textAlign='center' color='white'>
@@ -194,9 +195,9 @@ const Menu = () => {
         <Divider ref={progressRef} display='none' top='64px' left='0' width='1px' position='absolute' border='1px' borderColor='black'></Divider>
       </Flex>
       <Drawer
-        isOpen={isOpen}
+        isOpen={isOpen!}
         placement='left'
-        onClose={onClose}
+        onClose={onClose!}
         finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
@@ -218,7 +219,7 @@ const Menu = () => {
                     aria-label='home'
                     onClick={() => {
                       router.push(button.link)
-                      onClose()
+                      onClose!()
                     }}
                   >
                     {button.title}
@@ -232,6 +233,7 @@ const Menu = () => {
               background='black'
               color='white'
               padding='2em 1em 2em 1em'
+              drawerDisclosure={drawerDisclosure}
             ></Footer>
           </DrawerFooter>
         </DrawerContent>

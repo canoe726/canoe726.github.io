@@ -30,6 +30,14 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
     }
   }, [])
 
+  useEffect(() => {
+    const body = document.body
+    body.style.overflow = 'hidden'
+    return () => {
+      body.style.overflow = 'auto'
+    }
+  }, [])
+
   return (
     <Flex position='fixed' width='100%' height='100%' background='rgba(255, 255, 255, 0.98)' top='0' left='0' right='0' bottom='0' zIndex='9999'>
       <Box zIndex='99'>
