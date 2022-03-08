@@ -1,5 +1,6 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text, UseDisclosureProps } from '@chakra-ui/react'
 import { NextPage } from 'next'
+import Link from 'next/link'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 
 const copyRightText = '© 2021. canoe all rights reserved.'
@@ -8,13 +9,17 @@ interface FooterProps {
   background?: string;
   color?: string;
   padding: string;
+  drawerDisclosure: UseDisclosureProps;
 }
 
 const Footer: NextPage<FooterProps> = ({
   background,
   color,
-  padding
+  padding,
+  drawerDisclosure
 }) => {
+  const { onClose } = drawerDisclosure
+
   return (
     <Flex
       id='footer'
@@ -47,6 +52,11 @@ const Footer: NextPage<FooterProps> = ({
         >
           <IoLogoLinkedin aria-label='linkedin'/>
         </Box>
+      </Flex>
+      <Flex margin='0.5em 0 1em 0'>
+        <Link href='/license' passHref>
+          <Text _hover={{ color: 'white' }} cursor='pointer' color='gray.400' onClick={onClose}>License</Text>
+        </Link>
       </Flex>
       <Text fontWeight='light' fontSize='md' color='white'>{copyRightText}</Text>
     </Flex>

@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { RecoilRoot } from 'recoil'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
 
 import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
@@ -15,6 +15,8 @@ export const metaConstants = {
 }
 
 function MyApp ({ Component, pageProps }) {
+  const drawerDisclosure = useDisclosure()
+
   return (
     <RecoilRoot>
       <ChakraProvider>
@@ -38,12 +40,13 @@ function MyApp ({ Component, pageProps }) {
           <link rel="shortcut icon" href="/logo.ico"/>
           <link rel="apple-touch-icon" href="/logo.jpeg" /> */}
         </Head>
-        <Menu></Menu>
+        <Menu drawerDisclosure={drawerDisclosure}></Menu>
         <Component {...pageProps}/>
         <Footer
           background='black'
           color='white'
           padding='2em 4em 2em 4em'
+          drawerDisclosure={drawerDisclosure}
         ></Footer>
       </ChakraProvider>
     </RecoilRoot>

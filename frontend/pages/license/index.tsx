@@ -1,6 +1,10 @@
+import { Flex } from '@chakra-ui/react'
+
 const OpenSourceLicense = () => {
   return (
-    <div>OpenSourceLicense</div>
+    <Flex padding='84px 0em 4em 0em'>
+      OpenSourceLicense
+    </Flex>
   )
 }
 
