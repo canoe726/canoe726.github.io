@@ -14,7 +14,7 @@ function useInfinityScroll<T> (data: T[], loadSize: number): { data: T[] } {
       if (!throttle) {
         throttle = setTimeout(() => {
           throttle = null
-          if (sliceLen < data.length || sliceLen <= 99) {
+          if (sliceLen < data.length) {
             setSliceLen(sliceLen + loadSize)
           }
         }, 500)
