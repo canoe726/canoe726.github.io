@@ -29,7 +29,7 @@ const OpenSourceLicense: NextPage<OpenSourceLicenseProps> = ({ licenses }) => {
   const { data } = useInfinityScroll<{
     key: string;
     value: LicenseProps;
-  }>(baseData, 8)
+  }>(baseData, 200)
 
   useEffect(() => {
     if (Object.entries(licenses).length > 0) {
