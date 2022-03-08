@@ -34,9 +34,6 @@ jobs:
       - name: License
         run: npm run license
 
-      - name: PreBuild
-        run: npm run prebuild
-
       - name: Build
         run: npm run build
 
