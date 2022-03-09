@@ -23,7 +23,7 @@ function MyApp ({ Component, pageProps }) {
         <Head>
           <title>This is Blog</title>
           <meta charSet="utf-8"></meta>
-          <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=2.0, minimum-scale=0.5" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0, minimum-scale=0.5" />
           <meta name="theme-color" content="#000000" />
           <meta name="image" property="og:image" content="/logo.png"/>
           <meta name ="keywords" content="This is Blog - Github Pages Blog"/>
