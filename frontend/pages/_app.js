@@ -22,7 +22,7 @@ function MyApp ({ Component, pageProps }) {
       <ChakraProvider>
         <Head>
           <title>This is Blog</title>
-          <meta charSet="utf-8"></meta>
+          <meta charSet="utf-8" lang='en'></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0, minimum-scale=0.5" />
           <meta name="theme-color" content="#000000" />
           <meta name="image" property="og:image" content="/logo.png"/>
@@ -35,7 +35,7 @@ function MyApp ({ Component, pageProps }) {
           <meta name="author" content={metaConstants.author}></meta>
           <meta name="subject" content={metaConstants.subject}></meta>
           <meta name="copyright" content={metaConstants.copyright}></meta>
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"></link>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
           <link rel="icon" href="/logo.png" />
           <link rel="shortcut icon" href="/logo.png"/>
           <link rel="apple-touch-icon" href="/logo.png" />
