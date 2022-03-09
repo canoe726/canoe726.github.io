@@ -34,7 +34,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
           <Text fontSize={['4xl', '4xl', '5xl']} color='gray.600' fontWeight='light'>
             Anything you can write
           </Text>
-          <Text fontSize={['4xl', '4xl', '5xl']} color='gray.300' fontWeight='light'>
+          <Text fontSize={['4xl', '4xl', '5xl']} color='gray.400' fontWeight='light'>
             Hello World!
           </Text>
         </Flex>

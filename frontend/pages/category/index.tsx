@@ -34,7 +34,7 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
       </Head>
       <Flex display='flex' flexDirection='column' padding={['100px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']} minHeight='85vh'>
         <Text textAlign='center' fontSize={['4xl', '4xl', '5xl']} color='black' fontWeight='normal' padding='0'>Category</Text>
-        <Text textAlign='center' fontSize={['xl', 'xl', '2xl']} color='gray.400' fontWeight='light' padding='0'>Keywords</Text>
+        <Text textAlign='center' fontSize={['xl', 'xl', '2xl']} color='gray.500' fontWeight='normal' padding='0'>Keywords</Text>
         <Flex margin='4em 0 0 0' height='100%' justifyContent='center' alignItems='center'>
           <Flex flexWrap='wrap' justifyContent='center' alignItems='center'>
             {categories && (
