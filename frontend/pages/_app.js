@@ -45,7 +45,7 @@ function MyApp ({ Component, pageProps }) {
         <Footer
           background='black'
           color='white'
-          padding='2em 4em 2em 4em'
+          padding='2em 1em 2em 1em'
           drawerDisclosure={drawerDisclosure}
         ></Footer>
       </ChakraProvider>

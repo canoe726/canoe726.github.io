@@ -55,10 +55,10 @@ const Footer: NextPage<FooterProps> = ({
       </Flex>
       <Flex margin='0.5em 0 1em 0'>
         <Link href='/license' passHref>
-          <Text _hover={{ color: 'white' }} cursor='pointer' color='gray.500' onClick={onClose}>License</Text>
+          <Text _hover={{ color: 'white' }} textAlign='center' cursor='pointer' color='gray.500' onClick={onClose}>License</Text>
         </Link>
       </Flex>
-      <Text fontWeight='light' fontSize='md' color='white'>{copyRightText}</Text>
+      <Text fontWeight='light' textAlign='center' fontSize='md' color='white'>{copyRightText}</Text>
     </Flex>
   )
 }

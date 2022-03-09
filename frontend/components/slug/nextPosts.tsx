@@ -84,7 +84,7 @@ const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin }) => {
           {data.map((postData, idx) => {
             return (
               <Link key={idx} href={`/post/${postData.frontmatter.category}/${postData.slug}`} passHref={true}>
-                <Box position='relative' cursor='pointer'
+                <Box paddingBottom='4px' position='relative' cursor='pointer'
                   onMouseOver={() => {
                     if (titleRef.current[idx]) {
                       titleRef.current[idx].style.textDecoration = 'underline'
@@ -107,8 +107,8 @@ const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin }) => {
                       priority={true}
                     ></Image>
                   </Box>
-                  <Box top='0' left='0' width={['180px', '220px', '240px']} height={['180px', '220px', '240px']} position='absolute' background='rgba(0, 0, 0, 0.4)'>
-                    <Text ref={el => { titleRef.current[idx] = el! }} pointerEvents='none' width='100%' fontSize='1.1em' textAlign='center' padding='0 1em 0 1em' color='white' position='absolute' fontWeight='normal' top='50%' left='50%' transform='translate(-50%, -50%)'>
+                  <Box top='0' left='0' borderRight='1px solid white' width={['180px', '220px', '240px']} height={['180px', '220px', '240px']} position='absolute' background='rgba(0, 0, 0, 0.4)'>
+                    <Text ref={el => { titleRef.current[idx] = el! }} pointerEvents='none' width='100%' fontSize={['1.1em', '1.1em', '1.3em']} textAlign='center' padding='0 1em 0 1em' color='white' position='absolute' fontWeight='normal' top='50%' left='50%' transform='translate(-50%, -50%)'>
                       {postData.frontmatter.title}
                     </Text>
                   </Box>
