@@ -42,13 +42,13 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
             </Box>
             <Box padding='6em 0 0 0'>
               {about.frontmatter.author && (
-                <Text fontSize='5xl' fontWeight='normal'>{about.frontmatter.author}</Text>
+                <Text fontSize={['4xl', '4xl', '5xl']} fontWeight='normal'>{about.frontmatter.author}</Text>
               )}
               {about.frontmatter.summary && (
-                <Text color='gray.400' fontWeight='light'>{about.frontmatter.summary}</Text>
+                <Text fontSize={['xl', 'xl', '2xl']} color='gray.500' fontWeight='light'>{about.frontmatter.summary}</Text>
               )}
               {about.frontmatter.email && (
-                <Text width='fit-content' fontWeight='light' margin='1em 0 0 0' color='gray.600'>
+                <Text width='fit-content' fontSize={['md', 'md', 'lg']} fontWeight='normal' margin='1em 0 0 0' color='gray.600'>
                   ✉️&nbsp;&nbsp;
                   <a href={`mailto:${about.frontmatter.email}`}>
                     {about.frontmatter.email}
@@ -56,7 +56,7 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
                 </Text>
               )}
               {about.frontmatter.url && (
-                <Text fontWeight='light' color='gray.600'>
+                <Text fontWeight='normal' fontSize={['md', 'md', 'lg']} color='gray.600'>
                   🔗&nbsp;&nbsp;
                   <a href={about.frontmatter.url} target='_blank' rel='noreferrer'>
                     {about.frontmatter.url}
@@ -80,7 +80,6 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
         <Flex width='100%' justifyContent='center' alignItems='center'>
           <article className='post-body' style={{ maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
         </Flex>
-        {/* <ScrollBtn></ScrollBtn> */}
       </Flex>
     </>
   )

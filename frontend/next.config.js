@@ -7,6 +7,7 @@ const nextConfig = {
   ],
   trailingSlash: true,
   reactStrictMode: true,
+  productionBrowserSourceMaps: true,
   compress: true,
   images: {
     loader: 'custom'
