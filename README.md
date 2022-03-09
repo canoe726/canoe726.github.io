@@ -1,12 +1,15 @@
-<p align="cetner">
+<div align="cetner">
   <a href="https://blog.this-is-for-developer.com/" target="_blank">
     <img src="https://user-images.githubusercontent.com/36183001/157453117-de1d02f6-332d-4d70-97ae-95b366eda5ed.png" width="64px" height="64px" alt="This is Blog"></img>
   </a>
-</p>
+</div>
 
 <h1 align="center">Just Write Markdown for Your Github Blog</h1>
 
 Markdown GitBlog provides a fully made blog page, a set of reusable React components that create website.
+
+*Looking for demo?* 👉 <a href="https://blog.this-is-for-developer.com/" target="_blank">Demo</a>
+
 
 ## 🌟 Features
 
@@ -16,13 +19,46 @@ Markdown GitBlog provides a fully made blog page, a set of reusable React compon
 
 ## 📔 Documentation
 
+1. Write about page
 
+- Base directory `/posts/about`
+
+Required `about.md` Metadata
+
+```bash
+author: # Your Nickname
+summary: # Your Slogan
+updated: # YYYY-MM-DD
+email: # Your Email
+url: # Your Own URL
+tags: # Separate each word with a comma
+```
+
+Replace the `avatar.png` file to change your avatar picture
+
+2. Write post page
+
+- Base directory `/posts/post`
+- Directure Structure: `/post/[category]/[post]/[post].md`
+
+Required `[post].md` Metadata
+
+Create the custom category directory, create the post directory, and write the markdown file
+
+```bash
+title: # Post Card Title
+summary: # Post Card Summary
+category: # Be sure to enter the parent category directory name
+date: # YYYY-MM-DD
+shortcut: # Post Content Summary
+coverImage: # Image URL of Same Directory
+```
 
 ## ⌨️ Installation
 
-First, open the CLI and clone git repository and then:
+First, open the CLI:
 
-1. Fork the repository (click the `fork` button at the top right of this [repo](https://github.com/canoe726/MarkdownGitBlog))
+1. Fork the repository (click the `fork` button at the top right of this <a href="https://github.com/canoe726/MarkdownGitBlog" target="_blank">repo</a>)
 
 2. Clone your fork locally
 
@@ -43,7 +79,7 @@ npm run dev
 yarn dev
 ```
 
-If you want to customize design of this blog, please refer to the [Chakra UI](https://chakra-ui.com/) page after executing the dev command.
+If you want to customize design of this blog, please refer to the <a href="https://chakra-ui.com/" target="_blank">Chakra UI</a> page after executing the dev command.
 
 ## 🤝 Contribution
 
