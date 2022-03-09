@@ -16,7 +16,7 @@ const PostCardGrid = () => {
   return (
     <Flex flexDirection='column' padding={['0 1.5em 0 1.5em', '0 2.5em 0 2.5em', '0 4em 0 4em']}>
       <Text fontSize={['4xl', '4xl', '5xl']} textAlign='center' fontWeight='normal' margin='1em 0 0em 0'>Recent Articles</Text>
-      <Text fontSize={['xl', 'xl', '2xl']} color='gray.400' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
+      <Text fontSize={['2xl', '2xl', '3xl']} color='gray.500' fontWeight='light' textAlign='center' margin='0em 0 4em 0'>Various Articles</Text>
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {data.map((file, idx) => {
           return (
@@ -74,8 +74,8 @@ const PostCard: NextPage<PostCardProps> = ({ data }) => {
             <Text className='summary' fontSize='md' color='gray.600' fontWeight='light' textOverflow='ellipsis'>
               {data.frontmatter.summary ? data.frontmatter.summary : ''}
             </Text>
-            <Spacer height='0.3em'></Spacer>
-            <Text fontSize='md' fontWeight='light' color='gray.400'>
+            <Spacer height='0.5em'></Spacer>
+            <Text fontSize='lg' fontWeight='light' color='gray.500'>
               {data.frontmatter.date}
             </Text>
           </Box>
