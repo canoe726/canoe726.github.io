@@ -1,14 +1,16 @@
-<div align="cetner">
-  <a href="https://blog.this-is-for-developer.com/" target="_blank">
-    <img src="https://user-images.githubusercontent.com/36183001/157453117-de1d02f6-332d-4d70-97ae-95b366eda5ed.png" width="64px" height="64px" alt="This is Blog"></img>
-  </a>
+<div align="center">
+  <div align="cetner">
+    <a href="https://blog.this-is-for-developer.com/" target="_blank" rel="noreferrer">
+      <img src="https://user-images.githubusercontent.com/36183001/157453117-de1d02f6-332d-4d70-97ae-95b366eda5ed.png" width="64" height="64" alt="This is Blog"></img>
+    </a>
+  </div>
 </div>
 
 <h1 align="center">Just Write Markdown for Your Github Blog</h1>
 
 Markdown GitBlog provides a fully made blog page, a set of reusable React components that create website.
 
-*Looking for demo?* 👉 <a href="https://blog.this-is-for-developer.com/" target="_blank">Demo</a>
+*Looking for demo?* 👉 <a href="https://blog.this-is-for-developer.com/" target="_blank" rel="noreferrer">Demo</a>
 
 
 ## 🌟 Features
@@ -58,7 +60,7 @@ coverImage: # Image URL of Same Directory
 
 First, open the CLI:
 
-1. Fork the repository (click the `fork` button at the top right of this <a href="https://github.com/canoe726/MarkdownGitBlog" target="_blank">repo</a>)
+1. Fork the repository (click the `fork` button at the top right of this <a href="https://github.com/canoe726/MarkdownGitBlog" target="_blank" rel="noreferrer">repo</a>)
 
 2. Clone your fork locally
 
@@ -79,7 +81,7 @@ npm run dev
 yarn dev
 ```
 
-If you want to customize design of this blog, please refer to the <a href="https://chakra-ui.com/" target="_blank">Chakra UI</a> page after executing the dev command.
+If you want to customize design of this blog, please refer to the <a href="https://chakra-ui.com/" target="_blank" rel="noreferrer">Chakra UI</a> page after executing the dev command.
 
 ## 🤝 Contribution
 
