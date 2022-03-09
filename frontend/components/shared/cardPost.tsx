@@ -37,7 +37,7 @@ const CardPost: ForwardRefRenderFunction<CardPostProps, any> = ({ onClick, file 
       <Flex flex={['2.5', '2.5', '3']} flexDirection='column' padding={['2em 1.2em 2em 1.2em', '2em 1.2em 2em 1.2em', '2em']}>
         <Text className='title' ref={titleTextRef} height='fit-content' fontSize={['lg', 'lg', '2xl']} fontWeight='normal'>{file.frontmatter.title}</Text>
         <Text className='summary' marginTop='0.5em' fontSize={['md', 'md', 'lg']} fontWeight='light' textOverflow='ellipsis' overflow='hidden' color='gray.600'>{file.frontmatter.summary}</Text>
-        <Text marginTop='1.5em' fontSize={['sm', 'sm', 'md']} fontWeight='light' color='gray.500'>{file.frontmatter.date}</Text>
+        <Text marginTop={['0.5em', '0.5em', '1.0em']} fontSize={['sm', 'sm', 'md']} fontWeight='light' color='gray.500'>{file.frontmatter.date}</Text>
       </Flex>
       <Flex flex={['1.5', '1.5', '1']} position='relative' justifyContent='center' alignItems='center' padding={['0 1em 0 0', '0 1em 0 0', '0 1.5em 0 0']}>
         <Box
