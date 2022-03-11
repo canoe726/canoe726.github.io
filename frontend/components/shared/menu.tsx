@@ -154,7 +154,7 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
           )}
           {isMobile && (
             <Link href='/' passHref={true}>
-              <Avatar aria-label='logo' name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
+              <Avatar cursor='pointer' aria-label='logo' name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
             </Link>
           )}
         </Flex>
