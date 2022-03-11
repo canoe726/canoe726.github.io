@@ -30,7 +30,7 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <meta name="description" content={`This is Blog - Category | ${categories}`}></meta>
+        <meta name="description" content={`This is for Developer - Category | ${categories}`}></meta>
       </Head>
       <Flex display='flex' flexDirection='column' padding={['100px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']} minHeight='85vh'>
         <Text textAlign='center' fontSize={['4xl', '4xl', '5xl']} color='black' fontWeight='normal' padding='0'>Category</Text>

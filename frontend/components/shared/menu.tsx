@@ -148,13 +148,13 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
           {!isMobile && (
             <Link href='/' passHref={true}>
               <Box aria-label='logo' fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
-                This is Blog
+                This is for Developer
               </Box>
             </Link>
           )}
           {isMobile && (
             <Link href='/' passHref={true}>
-              <Avatar cursor='pointer' aria-label='logo' name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
+              <Avatar cursor='pointer' aria-label='logo' name='D' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
             </Link>
           )}
         </Flex>

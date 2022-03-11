@@ -10,7 +10,7 @@ export const metaConstants = {
   generator: 'canoe',
   author: 'canoe',
   subject: 'Tech Blog by Github Pages',
-  sitename: 'This is Blog',
+  sitename: 'This is for Developer',
   copyright: 'Copyrights © 2021 canoe All Rights Reserved'
 }
 
@@ -21,12 +21,12 @@ function MyApp ({ Component, pageProps }) {
     <RecoilRoot>
       <ChakraProvider>
         <Head>
-          <title>This is Blog</title>
+          <title>This is for Developer</title>
           <meta charSet="utf-8" lang='en'></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0, minimum-scale=0.5" />
           <meta name="theme-color" content="#000000" />
           <meta name="image" property="og:image" content="/logo.png"/>
-          <meta name ="keywords" content="This is Blog - Github Pages Blog"/>
+          <meta name ="keywords" content="This is for Developer - Github Pages Blog"/>
           <meta name ="reply-to" content="canoe918@gmail.com"/>
           <meta name ="content-language" content="kr"/>
           <meta httpEquiv="content-type" content="text/html; charset=kr"/>

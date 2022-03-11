@@ -31,7 +31,7 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
   return (
     <>
       <Head>
-        <meta name="description" content={`This is Blog - About | ${about.frontmatter.author}`}></meta>
+        <meta name="description" content={`This is for Developer - About | ${about.frontmatter.author}`}></meta>
       </Head>
       <Flex flexDirection='column' padding={['80px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']}>
         <Flex width='100%' justifyContent='center' alignItems='center'>
