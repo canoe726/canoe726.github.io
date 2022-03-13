@@ -1,6 +1,6 @@
 ---
 author: 'canoe'
-summary: 'Anything write you can make it'
+summary: '📈 그로스해킹에 관심이 많습니다'
 updated: '2021-02-14'
 email: 'canoe918@gmail.com'
 url: 'https://github.com/canoe726/canoe726.github.io'
