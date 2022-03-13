@@ -125,7 +125,7 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
       >
         <Flex width='100%' justifyContent='center' alignItems='center'>
           <Box position='relative'>
-            <div style={{ width: '100%', maxWidth: '1320px' }}>
+            <div style={{ width: '100%', maxWidth: '820px' }}>
               <Box position='relative' width='100%' height='100%' overflow='hidden' overflowY='auto' padding='1em 2em 1.5em 2em'>
                 {filteredData.length > 0 && (
                   filteredData.map((file, idx) => {

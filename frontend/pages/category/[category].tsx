@@ -50,7 +50,7 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
         <meta name="description" content={`This is for Developer - ${category}`}></meta>
       </Head>
       <Flex height='100%' justifyContent='start' alignItems='center' flexDirection='column' padding={['96px 1.5em 2em 1.5em', '96px 2.5em 2em 2.5em', '112px 4em 2em 4em', '112px 8em 2em 8em']} minHeight='85vh' backgroundColor='rgba(0,0,0,0.05)'>
-        <div style={{ width: '100%', maxWidth: '1320px' }}>
+        <div style={{ width: '100%', maxWidth: '820px' }}>
           <Box width='100%' height='64px' background='white' position='absolute' top='0' left='0' pointerEvents='none' borderBottom='1px solid rgba(0, 0, 0, 0.2)'></Box>
           {data.map((file, idx) => {
             return (
