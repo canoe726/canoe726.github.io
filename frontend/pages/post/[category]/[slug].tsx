@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
-import { Box, Container, Flex, Text } from '@chakra-ui/react'
+import { Box, Container, Flex, Spacer, Text } from '@chakra-ui/react'
 import { FrontMatter, PostsData, postsDataState } from '../../../stores/posts'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import markdownToHtml from '../../../utils/markdownToHtml'
@@ -39,8 +39,8 @@ const Post: NextPage<PostProps> = ({
 
   const imageZoomScroll = useCallback(() => {
     if (imageZoomBoxRef.current) {
-      imageZoomBoxRef.current.style.transform = `scale(calc(1.0 + ${window.pageYOffset / 500}))`
-      imageZoomBoxRef.current.style.opacity = `${1 - window.pageYOffset / 500}`
+      imageZoomBoxRef.current.style.transform = `scale(calc(1.0 + ${window.pageYOffset / 2000}))`
+      imageZoomBoxRef.current.style.opacity = `${1 - window.pageYOffset / 2000}`
     }
     const topTitle = document.getElementById('top-title')
     if (window.scrollY >= 120 && topTitle) {
@@ -78,16 +78,15 @@ const Post: NextPage<PostProps> = ({
         <title>{frontmatter.title}</title>
         <meta name="description" content={`${frontmatter.title}-${frontmatter.summary}`}></meta>
       </Head>
-      <Container padding='0' maxWidth='1320px'>
-        <Box position='relative' padding={['35vh 1.5em 2em 1.5em', '35vh 2.5em 2em 2.5em', '35vh 4em 2em 4em']}>
+      <Container padding='0' maxWidth='100%'>
+        <Box position='relative' padding={['70vh 1.5em 2em 1.5em', '70vh 2.5em 2em 2.5em', '70vh 4em 2em 4em']}>
           <Box
             position='absolute'
             overflow='hidden'
             top='64px'
-            left={['1.5em', '2.5em', '4em']}
-            right={['1.5em', '2.5em', '4em']}
-            height='35vh'
-            maxHeight='420px'
+            left='0'
+            right='0'
+            height='70vh'
           >
             <Box ref={imageZoomBoxRef} width='100%' height='100%' position='relative'>
               <Image
@@ -101,18 +100,25 @@ const Post: NextPage<PostProps> = ({
               ></Image>
             </Box>
           </Box>
-          <Box position='absolute' top='64px' left={['1.5em', '2.5em', '4em']} right={['1.5em', '2.5em', '4em']} height='35vh' maxHeight='420px' backgroundColor='rgba(0, 0, 0, 0.4)'>
+          <Box position='absolute' top='64px' left='0' right='0' height='70vh' backgroundColor='rgba(0, 0, 0, 0.4)'>
             <Text fontWeight='normal' position='absolute' width='100%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} top='40%' left='50%' transform='translate(-50%, -40%)' textAlign='center' lineHeight={[1.2, 1.2, 1.5]} fontSize={['3xl', '4xl', '5xl']} color='white'>{frontmatter.title}</Text>
             {frontmatter.shortcut && (
               <Text fontWeight='light' position='absolute' top='70%' left='50%' padding={['0 0.5em 0 0.5em', '0 0.5em 0 0.5em', '0 1em 0 1em']} transform='translate(-50%, -70%)' fontSize={['md', 'xl', '2xl']} textAlign='center' color='gray.100'>{frontmatter.shortcut}</Text>
             )}
           </Box>
           <Flex margin='64px 0 0 0' width='100%' justifyContent='center' alignItems='center'>
-            <article className='post-body' style={{ width: '100%', maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
+            <article className='post-body' style={{ width: '100%', maxWidth: '820px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
           </Flex>
         </Box>
-        <NextPosts></NextPosts>
-        <Utterance></Utterance>
+        <Box position='relative' padding={['0 1.5em 2em 1.5em', '0 2.5em 2em 2.5em', '0 4em 2em 4em']}>
+          <Flex width='100%' justifyContent='center' alignItems='center'>
+            <Box width='100%' maxWidth='820px'>
+              <NextPosts></NextPosts>
+              <Spacer height='3em'></Spacer>
+              <Utterance></Utterance>
+            </Box>
+          </Flex>
+        </Box>
         {/* <ScrollBtn></ScrollBtn> */}
       </Container>
     </>

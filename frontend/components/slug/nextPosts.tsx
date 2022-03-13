@@ -51,7 +51,7 @@ const NextPosts = () => {
   }, [postsData, category])
 
   return (
-    <Flex justifyContent='center' alignItems='center' flexDirection='column' padding={['0 1.5em 4em 1.5em', '0 2.5em 4em 2.5em', '0 4em 4em 4em']}>
+    <Flex justifyContent='center' alignItems='center' flexDirection='column'>
       <Divider margin='0 0 4em 0' width='100%' height='1px' background='rgba(0, 0, 0, 0.05)'></Divider>
       <NextPostList
         title={'Related Posts'}

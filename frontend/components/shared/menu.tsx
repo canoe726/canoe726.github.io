@@ -27,15 +27,15 @@ import { NextPage } from 'next'
 
 const drawerButtons: { title: string, link: string }[] = [
   {
-    title: 'Home',
+    title: '🏠 Home',
     link: '/'
   },
   {
-    title: 'About',
+    title: '👋 About',
     link: '/about'
   },
   {
-    title: 'Category',
+    title: '📌 Category',
     link: '/category'
   }
 ]
@@ -148,13 +148,13 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
           {!isMobile && (
             <Link href='/' passHref={true}>
               <Box aria-label='logo' fontSize='xl' cursor='pointer' color='black' fontWeight='normal' fontStyle='italic' textDecoration='underline'>
-                This is Blog
+                This is for Developer
               </Box>
             </Link>
           )}
           {isMobile && (
             <Link href='/' passHref={true}>
-              <Avatar aria-label='logo' name='B' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
+              <Avatar cursor='pointer' aria-label='logo' name='D' size='sm' background='black' fontStyle='italic' textDecoration='underline'></Avatar>
             </Link>
           )}
         </Flex>
@@ -207,8 +207,8 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
                 size={['64px', '64px', '96px']}
                 src={'/about/avatar.png'}
               ></CircularAvatar>
-              <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Anything you can write</Text>
-              <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe918 -</Text>
+              <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>열정을 가지고 계속할 뿐</Text>
+              <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe -</Text>
             </Box>
           </DrawerHeader>
           <DrawerBody>

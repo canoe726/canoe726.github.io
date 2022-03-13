@@ -31,11 +31,11 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
   return (
     <>
       <Head>
-        <meta name="description" content={`This is Blog - About | ${about.frontmatter.author}`}></meta>
+        <meta name="description" content={`This is for Developer - About | ${about.frontmatter.author}`}></meta>
       </Head>
       <Flex flexDirection='column' padding={['80px 1.5em 4em 1.5em', '100px 2.5em 4em 2.5em', '100px 4em 4em 4em']}>
         <Flex width='100%' justifyContent='center' alignItems='center'>
-          <div style={{ width: '100%', maxWidth: '1320px' }}>
+          <div style={{ width: '100%', maxWidth: '820px' }}>
             <Box width='100%' height={['9.5em', '11em', '11em']} background='rgba(0,0,0,0.05)' pointerEvents='none' position='absolute' top='0' left='0'></Box>
             <Box position='absolute' top='5em' right={['1.5em', '2em', '8em']}>
               <CircularAvatar size={['128px', '168px', '168px', '216px']} src='/about/avatar.png'></CircularAvatar>
@@ -78,7 +78,7 @@ const About: NextPage<AboutProps> = ({ posts, about }) => {
           </div>
         </Flex>
         <Flex width='100%' justifyContent='center' alignItems='center'>
-          <article className='post-body' style={{ maxWidth: '1320px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
+          <article className='post-body' style={{ maxWidth: '820px' }} dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
         </Flex>
       </Flex>
     </>
