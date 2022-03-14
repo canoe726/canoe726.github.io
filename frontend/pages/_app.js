@@ -6,7 +6,9 @@ import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
 import Head from 'next/head'
 import Script from 'next/script'
-import { GA_TRACKING_ID } from '../utils/gtag'
+import { GA_TRACKING_ID, pageView } from '../utils/gtag'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export const metaConstants = {
   generator: 'canoe',
@@ -18,6 +20,21 @@ export const metaConstants = {
 
 function MyApp ({ Component, pageProps }) {
   const drawerDisclosure = useDisclosure()
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      pageView({
+        pageTitle: document.title,
+        pageLocation: location.href,
+        pagePath: location.pathname
+      })
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <RecoilRoot>

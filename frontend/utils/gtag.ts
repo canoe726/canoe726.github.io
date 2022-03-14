@@ -2,19 +2,40 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export const GA_TRACKING_ID = isProd ? process.env.REACT_APP_GA_TRACKING_RELEASE_KEY : process.env.REACT_APP_GA_TRACKING_DEV_KEY
 
-interface IPageView {
-  pageTitle: string;
+export const sendPerformance = (category: string) => {
+  if (window.performance) {
+    const timeSincePageLoad = Math.round(performance.now());
+    gtag('event', 'timing_complete', {
+      name: 'load',
+      value: 3549,
+      event_category: category
+    });
+  }
 }
 
-export const pageView = () => {
-  window.gtag('config', GA_TRACKING_ID)
+interface IPageView {
+  pageTitle: string;
+  pageLocation: string
+  pagePath: string;
+}
+
+export const pageView = ({
+  pageTitle,
+  pageLocation,
+  pagePath
+}: IPageView) => {
+  window.gtag('config', GA_TRACKING_ID, {
+    page_title: pageTitle,
+    page_location: pageLocation,
+    page_path: pagePath
+  })
 }
 
 interface IGAEvent {
   eventName: string;
   eventCategory: string;
   eventLabel: string;
-  value: string
+  value?: string
 }
 
 export const pageEvent = ({
@@ -31,12 +52,22 @@ export const pageEvent = ({
 }
 
 export const getPageName = (url: string) => {
-  if (url.includes('/home')) {
-    return EGA_PAGE_NAME.HOME;
+  if (url.includes('/')) {
+    return EGA_PAGE_NAME.HOME
   } else if (url.includes('/about')) {
-    return EGA_PAGE_NAME.ABOUT;
+    return EGA_PAGE_NAME.ABOUT
   } else if (url.includes('/category')) {
-
+    if (url.split('/').length === 3) {
+      return EGA_PAGE_NAME.CATEGORY
+    } else {
+      return EGA_PAGE_NAME.CATEGORY_ID
+    }
+  } else if (url.includes('/post')) {
+    return EGA_PAGE_NAME.POST_ID
+  } else if (url.includes('/license')) {
+    return EGA_PAGE_NAME.LICENSE
+  } else {
+    return EGA_PAGE_NAME.C404
   }
   return ''
 }
@@ -50,7 +81,7 @@ export const generateEventName = (events: string[]) => {
   return events.reduce((acc, cur) => acc + ' | ' + cur)
 }
 
-enum EGA_PAGE_NAME {
+export enum EGA_PAGE_NAME {
   'HOME'='홈',
   'ABOUT'='소개',
   'CATEGORY'='카테고리_메인',
@@ -60,7 +91,7 @@ enum EGA_PAGE_NAME {
   'LICENSE'='라이선스'
 }
 
-enum EGA_EVENT_PROPERTY {
+export enum EGA_EVENT_PROPERTY {
   'RELATED_POSTS'='관련_포스트',
   'RANDOM_POSTS'='랜덤_포스트',
   'MAIN_SLIDE'='메인_슬라이드',
@@ -69,7 +100,7 @@ enum EGA_EVENT_PROPERTY {
   'LINKEDIN'='링크드인',
 }
 
-enum EGA_EVENT_NAME {
+export enum EGA_EVENT_NAME {
   'ROUTE'='앱_내_페이지_이동',
   'ITEM_CLICK'='아이템_클릭',
   'LEAVE_COMMENT'='댓글_작성',
