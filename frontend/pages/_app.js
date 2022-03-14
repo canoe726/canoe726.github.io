@@ -5,6 +5,7 @@ import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
 import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
 import Head from 'next/head'
+import Script from 'next/script'
 
 export const metaConstants = {
   generator: 'canoe',
@@ -40,6 +41,22 @@ function MyApp ({ Component, pageProps }) {
           <link rel="shortcut icon" href="/logo.png"/>
           <link rel="apple-touch-icon" href="/logo.png" />
         </Head>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-FD3DM3GLV1"></Script>
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-FD3DM3GLV1');
+            `
+          }}
+        >
+        </Script>
         <Menu drawerDisclosure={drawerDisclosure}></Menu>
         <Component {...pageProps}/>
         <Footer
