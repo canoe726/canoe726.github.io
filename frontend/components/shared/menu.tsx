@@ -24,6 +24,7 @@ import CircularAvatar from './circularAvatar'
 import { getBrowserWidth } from '../../utils/utils'
 import SearchPopup from './searchPopup'
 import { NextPage } from 'next'
+import { EGA_EVENT_PROPERTY, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 
 const drawerButtons: { title: string, link: string }[] = [
   {
@@ -87,6 +88,15 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
 
   useEffect(() => {
     if (blogLink.length > 0) {
+      pageEvent({
+        eventName: generateEventName([
+          getPageName(location.href),
+          EGA_EVENT_PROPERTY.SHARE_LINK
+        ]),
+        eventCategory: EGA_EVENT_PROPERTY.SHARE_LINK,
+        eventLabel: location.href,
+        value: location.href
+      })
       onCopy()
       toast({
         duration: 2000,
@@ -207,7 +217,7 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
                 size={['64px', '64px', '96px']}
                 src={'/about/avatar.png'}
               ></CircularAvatar>
-              <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>열정을 가지고 계속할 뿐</Text>
+              <Text fontSize='lg' fontStyle='italic' fontWeight='light' color='black' margin='0.4em 0 0.2em 0'>Whatever better late than never</Text>
               <Text fontSize='sm' fontStyle='italic' fontWeight='light' color='gray.600'>- canoe -</Text>
             </Box>
           </DrawerHeader>
@@ -215,8 +225,8 @@ const Menu: NextPage<MenuProps> = ({ drawerDisclosure }) => {
             <Flex overflow='auto' flexDirection='column'>
               {drawerButtons.map((button, idx) => {
                 return (
-                  <Box key={idx} textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
-                    aria-label='home'
+                  <Box key={idx} fontSize='lg' textAlign='center' fontWeight='normal' margin='0.6em 0em 0.6em 0em' padding='0.6em 0 0.6em 0' cursor='pointer' _hover={{ background: 'rgba(0,0,0,0.05)', borderRadius: '4px', transition: '0.5s ease' }}
+                    aria-label={button.title}
                     onClick={() => {
                       router.push(button.link)
                       onClose!()

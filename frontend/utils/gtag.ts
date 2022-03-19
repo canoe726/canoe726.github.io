@@ -102,6 +102,7 @@ export enum EGA_EVENT_PROPERTY {
   'SEARCH_CARD'='검색_카드',
   'GITHUB'='깃허브',
   'LINKEDIN'='링크드인',
+  'SHARE_LINK'='링크_공유'
 }
 
 export enum EGA_EVENT_NAME {
