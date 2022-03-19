@@ -6,6 +6,7 @@ import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc'
 import { useRecoilValue } from 'recoil'
 import { postsDataSelector } from '../../stores/posts'
 import { imageLoader } from '../../utils/loader'
+import { EGA_EVENT_NAME, EGA_EVENT_PROPERTY, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 
 const ImageSlider = () => {
   const { files } = useRecoilValue(postsDataSelector)
@@ -43,6 +44,18 @@ const ImageSlider = () => {
           return (
             <Link key={idx} href={`/post/${file.frontmatter.category}/${file.slug}`} passHref={true}>
               <Box
+                onClick={() => {
+                  pageEvent({
+                    eventName: generateEventName([
+                      getPageName(location.href),
+                      EGA_EVENT_PROPERTY.MAIN_SLIDE,
+                      EGA_EVENT_NAME.ITEM_CLICK
+                    ]),
+                    eventCategory: file.frontmatter.category,
+                    eventLabel: file.frontmatter.title,
+                    value: `${file.frontmatter.category}-${file.slug}`
+                  })
+                }}
                 id='image-box'
                 ref={imageBoxRef}
                 width={['240px', '360px', '480px']}

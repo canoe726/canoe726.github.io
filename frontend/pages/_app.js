@@ -6,6 +6,9 @@ import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
 import Head from 'next/head'
 import Script from 'next/script'
+import { GA_TRACKING_ID, pageView, sendPerformance } from '../utils/gtag'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export const metaConstants = {
   generator: 'canoe',
@@ -17,6 +20,22 @@ export const metaConstants = {
 
 function MyApp ({ Component, pageProps }) {
   const drawerDisclosure = useDisclosure()
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      pageView({
+        pageTitle: document.title,
+        pageLocation: location.href,
+        pagePath: location.pathname
+      })
+      sendPerformance()
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <RecoilRoot>
@@ -42,9 +61,9 @@ function MyApp ({ Component, pageProps }) {
           <link rel="apple-touch-icon" href="/logo.png" />
         </Head>
         {/* Global site tag (gtag.js) - Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-FD3DM3GLV1"></Script>
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></Script>
         <Script
-          id="google-analytics"
+          id="google-analytics-dev"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
@@ -52,11 +71,10 @@ function MyApp ({ Component, pageProps }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-FD3DM3GLV1');
+            gtag('config', '${GA_TRACKING_ID}');
             `
           }}
-        >
-        </Script>
+        />
         <Menu drawerDisclosure={drawerDisclosure}></Menu>
         <Component {...pageProps}/>
         <Footer

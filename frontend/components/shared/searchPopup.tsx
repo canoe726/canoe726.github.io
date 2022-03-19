@@ -6,6 +6,7 @@ import { IoIosSearch } from 'react-icons/io'
 import { VscChromeClose } from 'react-icons/vsc'
 import { useRecoilValue } from 'recoil'
 import { PostData, postsDataState } from '../../stores/posts'
+import { EGA_EVENT_NAME, EGA_PAGE_NAME, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 import CardPost from './cardPost'
 
 interface SearchPopupProps {
@@ -80,6 +81,15 @@ const SearchPopup: NextPage<SearchPopupProps> = ({
             clearTimeout(debounce)
           }
           debounce = setTimeout(() => {
+            pageEvent({
+              eventName: generateEventName([
+                getPageName(location.href),
+                EGA_PAGE_NAME.SEARCH_POPUP
+              ]),
+              eventCategory: EGA_EVENT_NAME.SEARCH,
+              eventLabel: target.value,
+              value: `${EGA_EVENT_NAME.SEARCH}-${target.value}`
+            })
             const filtered = postsData.map(postData => {
               return postData.files.filter(file => {
                 const value = target.value

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { PostData, postsDataState } from '../../stores/posts'
+import { EGA_EVENT_NAME, EGA_EVENT_PROPERTY, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 import { imageLoader } from '../../utils/loader'
 
 const NextPosts = () => {
@@ -57,11 +58,13 @@ const NextPosts = () => {
         title={'Related Posts'}
         data={relatedPosts}
         margin={['0 0 0 0']}
+        status={'related'}
       ></NextPostList>
       <NextPostList
         title={'Random Posts'}
         data={randomPosts}
         margin={['2em 0 0 0']}
+        status={'random'}
       ></NextPostList>
     </Flex>
   )
@@ -71,9 +74,10 @@ interface NextPostListProps {
   title: string;
   data: PostData[];
   margin: string[];
+  status: 'related' | 'random';
 }
 
-const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin }) => {
+const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin, status }) => {
   const titleRef = useRef<HTMLParagraphElement[]>([])
 
   return (
@@ -94,6 +98,18 @@ const NextPostList: NextPage<NextPostListProps> = ({ title, data, margin }) => {
                     if (titleRef.current[idx]) {
                       titleRef.current[idx].style.textDecoration = 'none'
                     }
+                  }}
+                  onClick={() => {
+                    pageEvent({
+                      eventName: generateEventName([
+                        getPageName(location.href),
+                        status === 'related' ? EGA_EVENT_PROPERTY.RELATED_POSTS : EGA_EVENT_PROPERTY.RANDOM_POSTS,
+                        EGA_EVENT_NAME.ITEM_CLICK
+                      ]),
+                      eventCategory: postData.frontmatter.category,
+                      eventLabel: postData.frontmatter.title,
+                      value: `${postData.frontmatter.category}-${postData.slug}`
+                    })
                   }}
                 >
                   <Box width={['180px', '220px', '240px']} height={['180px', '220px', '240px']} position='relative'>

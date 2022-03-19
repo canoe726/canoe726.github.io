@@ -11,6 +11,7 @@ import { useSetRecoilState } from 'recoil'
 import CardPost from '../../components/shared/cardPost'
 import { useRouter } from 'next/router'
 import useInfinityScroll from '../../components/shared/useInfinityScroll'
+import { EGA_EVENT_NAME, EGA_EVENT_PROPERTY, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 
 interface CategoryItemListProps {
   posts: PostsData[];
@@ -57,7 +58,19 @@ const CategoryItemList: NextPage<CategoryItemListProps> = ({
               <CardPost
                 key={idx}
                 file={file}
-                onClick={() => router.push(`/post/${file.frontmatter.category}/${file.slug}`)}
+                onClick={() => {
+                  pageEvent({
+                    eventName: generateEventName([
+                      getPageName(location.href),
+                      EGA_EVENT_PROPERTY.SEARCH_CARD,
+                      EGA_EVENT_NAME.ITEM_CLICK
+                    ]),
+                    eventCategory: file.frontmatter.category,
+                    eventLabel: file.frontmatter.title,
+                    value: `${file.frontmatter.category}-${file.slug}`
+                  })
+                  router.push(`/post/${file.frontmatter.category}/${file.slug}`)
+                }}
               ></CardPost>
             )
           })}
