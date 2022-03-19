@@ -24,6 +24,7 @@ export const pageView = ({
   pageLocation,
   pagePath
 }: IPageView) => {
+  // @ts-ignore
   window.gtag('config', GA_TRACKING_ID, {
     page_title: pageTitle,
     page_location: pageLocation,
@@ -88,7 +89,9 @@ export enum EGA_PAGE_NAME {
   'CATEGORY_ID'='카테고리_서브',
   'POST_ID'='포스트',
   'C404'='404페이지',
-  'LICENSE'='라이선스'
+  'LICENSE'='라이선스',
+  'FOOTER'='푸터',
+  'SEARCH_POPUP'='검색_팝업'
 }
 
 export enum EGA_EVENT_PROPERTY {
@@ -96,6 +99,7 @@ export enum EGA_EVENT_PROPERTY {
   'RANDOM_POSTS'='랜덤_포스트',
   'MAIN_SLIDE'='메인_슬라이드',
   'MAIN_GRID'='메인_그리드',
+  'SEARCH_CARD'='검색_카드',
   'GITHUB'='깃허브',
   'LINKEDIN'='링크드인',
 }

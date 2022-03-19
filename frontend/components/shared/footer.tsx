@@ -2,6 +2,7 @@ import { Box, Flex, Text, UseDisclosureProps } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
+import { EGA_EVENT_NAME, EGA_EVENT_PROPERTY, EGA_PAGE_NAME, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 
 const copyRightText = '© 2021. canoe all rights reserved.'
 
@@ -38,7 +39,19 @@ const Footer: NextPage<FooterProps> = ({
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
           _hover={{ background: 'rgba(255, 255, 255, 0.2)', borderRadius: '8px' }}
-          onClick={() => window.open('https://github.com/canoe726', '_blank')}
+          onClick={() => {
+            pageEvent({
+              eventName: generateEventName([
+                getPageName(location.href),
+                EGA_EVENT_PROPERTY.GITHUB,
+                EGA_EVENT_NAME.MOVE
+              ]),
+              eventCategory: EGA_PAGE_NAME.FOOTER,
+              eventLabel: EGA_EVENT_PROPERTY.GITHUB,
+              value: `${EGA_PAGE_NAME.FOOTER}-${EGA_EVENT_PROPERTY.GITHUB}`
+            })
+            window.open('https://github.com/canoe726', '_blank')
+          }}
         >
           <IoLogoGithub aria-label='github'/>
         </Box>
@@ -48,7 +61,19 @@ const Footer: NextPage<FooterProps> = ({
           fontSize='48px'
           margin='0 0.2em 0 0.2em'
           _hover={{ background: 'rgba(255, 255, 255, 0.2)', borderRadius: '8px' }}
-          onClick={() => window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')}
+          onClick={() => {
+            pageEvent({
+              eventName: generateEventName([
+                getPageName(location.href),
+                EGA_EVENT_PROPERTY.LINKEDIN,
+                EGA_EVENT_NAME.MOVE
+              ]),
+              eventCategory: EGA_PAGE_NAME.FOOTER,
+              eventLabel: EGA_EVENT_PROPERTY.LINKEDIN,
+              value: `${EGA_PAGE_NAME.FOOTER}-${EGA_EVENT_PROPERTY.LINKEDIN}`
+            })
+            window.open('https://www.linkedin.com/in/youngkim0726/', '_blank')
+          }}
         >
           <IoLogoLinkedin aria-label='linkedin'/>
         </Box>

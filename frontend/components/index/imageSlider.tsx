@@ -52,7 +52,8 @@ const ImageSlider = () => {
                       EGA_EVENT_NAME.ITEM_CLICK
                     ]),
                     eventCategory: file.frontmatter.category,
-                    eventLabel: file.frontmatter.title
+                    eventLabel: file.frontmatter.title,
+                    value: `${file.frontmatter.category}-${file.slug}`
                   })
                 }}
                 id='image-box'

@@ -2,6 +2,7 @@ import { Box, Flex, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import { ForwardRefRenderFunction, useRef } from 'react'
 import { PostData } from '../../stores/posts'
+import { EGA_EVENT_NAME, EGA_EVENT_PROPERTY, generateEventName, getPageName, pageEvent } from '../../utils/gtag'
 import { imageLoader } from '../../utils/loader'
 
 interface CardPostProps {
@@ -22,7 +23,19 @@ const CardPost: ForwardRefRenderFunction<CardPostProps, any> = ({ onClick, file 
       margin='0 0 2em 0'
       backgroundColor='white'
       borderBottom='1px solid rgba(0, 0, 0, 0.1)'
-      onClick={onClick}
+      onClick={() => {
+        pageEvent({
+          eventName: generateEventName([
+            getPageName(location.href),
+            EGA_EVENT_PROPERTY.MAIN_GRID,
+            EGA_EVENT_NAME.ITEM_CLICK
+          ]),
+          eventCategory: file.frontmatter.category,
+          eventLabel: file.frontmatter.title,
+          value: `${file.frontmatter.category}-${file.slug}`
+        })
+        onClick()
+      }}
       onMouseOver={() => {
         if (titleTextRef.current) {
           titleTextRef.current.style.textDecoration = 'underline'
