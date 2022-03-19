@@ -7,7 +7,7 @@ export const sendPerformance = (category: string) => {
     const timeSincePageLoad = Math.round(performance.now());
     gtag('event', 'timing_complete', {
       name: 'load',
-      value: 3549,
+      value: timeSincePageLoad,
       event_category: category
     });
   }

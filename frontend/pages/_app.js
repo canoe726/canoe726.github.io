@@ -6,7 +6,7 @@ import Menu from '../components/shared/menu'
 import Footer from '../components/shared/footer'
 import Head from 'next/head'
 import Script from 'next/script'
-import { GA_TRACKING_ID, pageView } from '../utils/gtag'
+import { GA_TRACKING_ID, pageView, sendPerformance } from '../utils/gtag'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -29,6 +29,7 @@ function MyApp ({ Component, pageProps }) {
         pageLocation: location.href,
         pagePath: location.pathname
       })
+      sendPerformance()
     }
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
